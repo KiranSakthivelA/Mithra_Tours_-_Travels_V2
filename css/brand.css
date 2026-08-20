@@ -2579,7 +2579,7 @@ textarea.form-control {
 
 
 /* ═══════════════════════════════════════════════════════════
-   HOME PAGE HERO — SIDE CAR INSPIRATION LAYOUT
+   HOME PAGE HERO — COMPLETE 2-COLUMN SIDE CAR & STATS LAYOUT
    ═══════════════════════════════════════════════════════════ */
 .hero-sidecar-section {
     position: relative;
@@ -2597,7 +2597,7 @@ textarea.form-control {
 
 .hero-sidecar-grid {
     display: grid;
-    grid-template-columns: 1.22fr 0.95fr;
+    grid-template-columns: 1.25fr 0.95fr;
     gap: 3.5rem;
     align-items: center;
     position: relative;
@@ -2620,7 +2620,7 @@ textarea.form-control {
     font-size: 0.82rem;
     font-weight: 700;
     color: #B45309;
-    margin-bottom: 1.35rem;
+    margin-bottom: 1.25rem;
     box-shadow: 0 2px 8px rgba(217, 119, 6, 0.08);
 }
 
@@ -2629,12 +2629,12 @@ textarea.form-control {
 }
 
 .hero-sidecar-title {
-    font-size: clamp(2.6rem, 4.4vw, 4rem);
+    font-size: clamp(2.6rem, 4.2vw, 3.8rem);
     font-weight: 800;
     color: #0F172A;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .hero-sidecar-title .gold-highlight {
@@ -2642,26 +2642,27 @@ textarea.form-control {
 }
 
 .hero-sidecar-desc {
-    font-size: 0.98rem;
+    font-size: 0.96rem;
     color: #64748B;
-    line-height: 1.65;
-    margin-bottom: 2.25rem;
-    max-width: 620px;
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+    max-width: 600px;
 }
 
 /* Floating Dock Bar */
 .hero-dock-bar {
     background: #FFFFFF;
     border: 1.5px solid #E2E8F0;
-    border-radius: 22px;
+    border-radius: 20px;
     box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.09), 0 2px 10px rgba(0,0,0,0.02);
     padding: 0.75rem 0.85rem 0.75rem 1.1rem;
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 760px;
+    max-width: 720px;
     position: relative;
     z-index: 10;
+    margin-bottom: 1.75rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -2676,7 +2677,7 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     text-align: left;
-    padding: 0.15rem 0.65rem;
+    padding: 0.15rem 0.55rem;
     min-width: 0;
 }
 
@@ -2726,7 +2727,6 @@ textarea.form-control {
 .dock-bar-item input::placeholder {
     color: #94A3B8;
     font-weight: 500;
-    font-size: 0.84rem;
 }
 
 .dock-bar-item select {
@@ -2762,7 +2762,54 @@ textarea.form-control {
     box-shadow: 0 10px 25px rgba(217, 119, 6, 0.38);
 }
 
-/* Right Column (Visual + Trajectory + Badges) */
+/* Action Buttons Row */
+.hero-action-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Stats Strip */
+.hero-stats-strip {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #F1F5F9;
+    max-width: 650px;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.stat-num {
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #0F172A;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.stat-num span {
+    color: #D97706;
+}
+
+.stat-lbl {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 0.25rem;
+}
+
+/* Right Column */
 .hero-sidecar-right {
     position: relative;
     display: flex;
@@ -2861,7 +2908,15 @@ textarea.form-control {
         margin-right: auto;
     }
     .hero-dock-bar {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-action-row {
+        justify-content: center;
+    }
+    .hero-stats-strip {
         margin: 0 auto;
+        justify-content: center;
     }
 }
 
@@ -2886,6 +2941,11 @@ textarea.form-control {
     }
     .hero-floating-pill {
         display: none;
+    }
+    .hero-stats-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
     }
 }
 
