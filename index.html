@@ -62,58 +62,77 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     1. BANNER (Home Page Hero — Travel Agency Inspo Layout)
+     1. BANNER (Home Page Hero — Curved Fleet Stage & Dock)
 ════════════════════════════════════════════════ -->
-<section class="hero-dribbble-section" id="banner">
-    <div class="hero-dribbble-container">
-        <!-- Top Label -->
-        <div class="hero-dribbble-label">
-            <i class="fa-solid fa-crown"></i> Chennai&rsquo;s Most Trusted Travel &amp; Mobility Partner
+<section class="hero-curved-section" id="banner">
+    <div class="hero-curved-container">
+        <!-- Top Badge -->
+        <div class="hero-curved-badge">
+            <i class="fa-solid fa-crown"></i> Chennai&rsquo;s Most Trusted Travel Partner
         </div>
 
         <!-- Main Headline -->
-        <h1 class="hero-dribbble-title">
+        <h1 class="hero-curved-title">
             Journeys That Connect,<br>
-            <span class="gold-text">Safe &amp; Comfortable.</span>
+            <span class="gold-highlight">Safe &amp; Comfortable.</span>
         </h1>
 
-        <!-- Center Vehicle Visual -->
-        <div class="hero-center-vehicle-wrap">
-            <img src="Assets/hero_fleet_lineup.jpg" alt="Mithra Tours & Travels Fleet" class="hero-center-vehicle-img">
+        <!-- Curved Vehicle Stage -->
+        <div class="curved-fleet-stage">
+            <div class="fleet-curve-item item-left-2">
+                <img src="Assets/car_sedan.jpg" alt="Swift Dzire Sedan">
+                <span class="fleet-curve-tag">Sedan (Dzire)</span>
+            </div>
+            <div class="fleet-curve-item item-left-1">
+                <img src="Assets/car_suv.jpg" alt="Ertiga MUV">
+                <span class="fleet-curve-tag">Ertiga MUV</span>
+            </div>
+            <div class="fleet-curve-item item-center">
+                <img src="Assets/car_innova.jpg" alt="Toyota Innova Crysta">
+                <span class="fleet-curve-tag">Innova Crysta</span>
+            </div>
+            <div class="fleet-curve-item item-right-1">
+                <img src="Assets/car_fortuner.jpg" alt="Toyota Fortuner SUV">
+                <span class="fleet-curve-tag">Fortuner SUV</span>
+            </div>
+            <div class="fleet-curve-item item-right-2">
+                <img src="Assets/van_urbania.jpg" alt="Force Urbania Luxury Coach">
+                <span class="fleet-curve-tag">Luxury Urbania</span>
+            </div>
         </div>
 
         <!-- Floating Travel Dock Card -->
-        <div class="hero-floating-dock">
+        <div class="hero-dock-card">
             <!-- Top Category Tabs -->
-            <div class="dock-pill-tabs">
-                <button type="button" class="dock-pill-btn active" onclick="selectDockCategory(this, 'Corporate Mobility')">
+            <div class="dock-pills">
+                <button type="button" class="dock-pill active" onclick="selectDockCategory(this, 'Corporate Mobility')">
                     <i class="fa-solid fa-briefcase"></i> Corporate Mobility
                 </button>
-                <button type="button" class="dock-pill-btn" onclick="selectDockCategory(this, 'Airport Transfers')">
+                <button type="button" class="dock-pill" onclick="selectDockCategory(this, 'Airport Transfers')">
                     <i class="fa-solid fa-plane-departure"></i> Airport Transfers
                 </button>
-                <button type="button" class="dock-pill-btn" onclick="selectDockCategory(this, 'Outstation Cabs')">
+                <button type="button" class="dock-pill" onclick="selectDockCategory(this, 'Outstation Cabs')">
                     <i class="fa-solid fa-route"></i> Outstation Cabs
                 </button>
-                <button type="button" class="dock-pill-btn" onclick="selectDockCategory(this, 'Holiday Packages')">
+                <button type="button" class="dock-pill" onclick="selectDockCategory(this, 'Holiday Packages')">
                     <i class="fa-solid fa-umbrella-beach"></i> Holiday Packages
                 </button>
             </div>
 
             <!-- Form Fields Row -->
             <form id="hero-dock-form" onsubmit="handleHeroDockSend(event)">
-                <div class="dock-fields-row">
-                    <div class="dock-input-box">
+                <div class="dock-grid">
+                    <div class="dock-box">
                         <label for="dock-name"><i class="fa-solid fa-user"></i> Name</label>
                         <input type="text" id="dock-name" placeholder="Your Full Name" required autocomplete="name">
                     </div>
 
-                    <div class="dock-input-box">
+                    <div class="dock-box">
                         <label for="dock-phone"><i class="fa-solid fa-phone"></i> Contact Number</label>
                         <input type="tel" id="dock-phone" placeholder="+91 Phone Number" required autocomplete="tel">
                     </div>
 
-                    <div class="dock-input-box">
+                    <div class="dock-box">
                         <label for="dock-service"><i class="fa-solid fa-car-side"></i> Service Required</label>
                         <select id="dock-service" required>
                             <option value="Corporate Mobility" selected>Corporate Mobility</option>
@@ -125,12 +144,12 @@
                         </select>
                     </div>
 
-                    <div class="dock-input-box">
+                    <div class="dock-box">
                         <label for="dock-date"><i class="fa-solid fa-calendar-days"></i> Travel Date</label>
                         <input type="date" id="dock-date" required>
                     </div>
 
-                    <button type="submit" class="dock-submit-circle" title="Send Instant Enquiry" aria-label="Send Instant Enquiry">
+                    <button type="submit" class="dock-btn" title="Send Instant Enquiry" aria-label="Send Instant Enquiry">
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
                 </div>
@@ -141,7 +160,7 @@
 
 <script>
 function selectDockCategory(btn, category) {
-    document.querySelectorAll('.dock-pill-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.dock-pill').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const serviceSelect = document.getElementById('dock-service');
     if (serviceSelect) {
