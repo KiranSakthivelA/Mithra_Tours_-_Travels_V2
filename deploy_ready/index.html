@@ -62,7 +62,7 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     1. BANNER (Home Page Hero — Centered Inspiration)
+     1. BANNER (Home Page Hero — Quick Enquiry Form)
 ════════════════════════════════════════════════ -->
 <section class="hero-centered-section" id="banner">
     <div class="hero-center-container">
@@ -77,53 +77,42 @@
             <span class="gold-highlight">Safe &amp; Comfortable.</span>
         </h1>
 
-        <!-- Floating Quick Search Bar -->
-        <div class="hero-quick-search-bar">
+        <!-- Quick Enquiry Form Bar -->
+        <form class="hero-quick-search-bar" id="hero-quick-enquiry-form" onsubmit="handleHeroQuickSend(event)">
             <div class="search-field-item">
-                <label><i class="fa-solid fa-location-dot"></i> Pickup City</label>
-                <select id="hero-quick-city">
-                    <option value="Chennai, Tamil Nadu">Chennai, Tamil Nadu</option>
-                    <option value="Coimbatore, Tamil Nadu">Coimbatore, Tamil Nadu</option>
-                    <option value="Madurai, Tamil Nadu">Madurai, Tamil Nadu</option>
-                    <option value="Trichy, Tamil Nadu">Trichy, Tamil Nadu</option>
-                    <option value="Salem, Tamil Nadu">Salem, Tamil Nadu</option>
-                    <option value="Bangalore, Karnataka">Bangalore, Karnataka</option>
-                    <option value="Ooty, Tamil Nadu">Ooty, Tamil Nadu</option>
-                    <option value="Kodaikanal, Tamil Nadu">Kodaikanal, Tamil Nadu</option>
-                </select>
+                <label for="hero-name"><i class="fa-solid fa-user"></i> Name</label>
+                <input type="text" id="hero-name" name="name" placeholder="Your Full Name" required>
             </div>
 
             <div class="search-field-item">
-                <label><i class="fa-solid fa-car-side"></i> Service Type</label>
-                <select id="hero-quick-service">
+                <label for="hero-phone"><i class="fa-solid fa-phone"></i> Contact Number</label>
+                <input type="tel" id="hero-phone" name="phone" placeholder="+91 Phone Number" required>
+            </div>
+
+            <div class="search-field-item">
+                <label for="hero-service"><i class="fa-solid fa-car-side"></i> Service Required</label>
+                <select id="hero-service" name="service" required>
+                    <option value="" disabled selected>Select Service</option>
                     <option value="Corporate Mobility">Corporate Mobility</option>
-                    <option value="Airport Transfer">Airport Transfer</option>
-                    <option value="Outstation Roundtrip">Outstation Roundtrip</option>
-                    <option value="Holiday Package">Holiday Package</option>
+                    <option value="Airport Transfers">Airport Transfers</option>
+                    <option value="Outstation Cabs">Outstation Cabs</option>
+                    <option value="Holiday Packages">Holiday Packages</option>
+                    <option value="Flight / Train Tickets">Flight / Train Tickets</option>
+                    <option value="Visa & Cruise Booking">Visa &amp; Cruise Booking</option>
                 </select>
             </div>
 
             <div class="search-field-item">
-                <label><i class="fa-solid fa-users"></i> Passengers / Fleet</label>
-                <select id="hero-quick-pax">
-                    <option value="1-4 Pax (Sedan Dzire)">1-4 Pax (Sedan Dzire)</option>
-                    <option value="6-7 Pax (Innova Crysta)">6-7 Pax (Innova Crysta)</option>
-                    <option value="12-18 Pax (Tempo / Urbania)">12-18 Pax (Tempo / Urbania)</option>
-                    <option value="25-45 Pax (Mini / Large Coach)">25-45 Pax (Coach Bus)</option>
-                </select>
-            </div>
-
-            <div class="search-field-item">
-                <label><i class="fa-solid fa-calendar-days"></i> Travel Date</label>
-                <input type="date" id="hero-quick-date" value="2026-08-22">
+                <label for="hero-date"><i class="fa-solid fa-calendar-days"></i> Travel Date</label>
+                <input type="date" id="hero-date" name="date" required>
             </div>
 
             <div class="search-action-wrap">
-                <a href="#quick-booking" class="search-action-btn">
-                    <i class="fa-solid fa-magnifying-glass"></i> Get Instant Quote
-                </a>
+                <button type="submit" class="search-action-btn">
+                    <i class="fa-solid fa-paper-plane"></i> Send
+                </button>
             </div>
-        </div>
+        </form>
 
         <!-- Subtitle Services -->
         <p class="hero-center-desc">
@@ -150,6 +139,34 @@
         </div>
     </div>
 </section>
+
+<script>
+function handleHeroQuickSend(e) {
+    e.preventDefault();
+    const name = document.getElementById('hero-name')?.value || '';
+    const phone = document.getElementById('hero-phone')?.value || '';
+    const service = document.getElementById('hero-service')?.value || '';
+    const date = document.getElementById('hero-date')?.value || '';
+    
+    const text = encodeURIComponent(
+        'Hello Mithra Tours & Travels,
+
+' +
+        'I would like to request a quote:
+' +
+        '• Name: ' + name + '
+' +
+        '• Contact Number: ' + phone + '
+' +
+        '• Service Required: ' + service + '
+' +
+        '• Travel Date: ' + date
+    );
+    
+    window.open('https://wa.me/919629245533?text=' + text, '_blank');
+}
+</script>
+
 
 
 
