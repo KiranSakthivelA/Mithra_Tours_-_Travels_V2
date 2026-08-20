@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Google Maps Places</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeF5ib931_KlS1IxrmVaVhGxR3xdg5tJs&libraries=places&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+      const input = document.getElementById('pac-input');
+      const autocomplete = new google.maps.places.Autocomplete(input);
+      console.log("Autocomplete initialized on input", input);
+      autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        console.log("Selected Place:", place);
+      });
+    }
+  </script>
+</head>
+<body>
+  <h2>Google Places Autocomplete Test</h2>
+  <input id="pac-input" type="text" placeholder="Enter a location" style="width: 300px; padding: 10px;">
+</body>
+</html>

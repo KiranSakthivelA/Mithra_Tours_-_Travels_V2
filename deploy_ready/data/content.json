@@ -1,0 +1,58 @@
+﻿{
+  "home": {
+    "heroHeadline": "Corporate & Family Ground Transportation",
+    "heroSubtitle": "Mithra Tours & Travels — Chennai's premier travel partner for corporate cab mobility, outstation taxi service, airport transfers & curated holiday packages across Tamil Nadu and Pan-India.",
+    "heroCta1": "Corporate Quote",
+    "heroCta2": "Book Outstation Cab",
+    "heroCta3": "Explore Holidays"
+  },
+  "whyChooseUs": [
+    {
+      "title": "One Vendor, Every Need",
+      "desc": "From a daily corporate cab to a flight, hotel, or visa — we cover the full travel requirement, so our clients aren't managing multiple vendors."
+    },
+    {
+      "title": "Consistency You Can Verify",
+      "desc": "Every vehicle in our network — 2 owned and 100+ affiliated — operates under the same documented standard: verified drivers, vehicle hygiene, and the same guest experience."
+    },
+    {
+      "title": "Safety First",
+      "desc": "Verified drivers and well-maintained vehicles aren't a claim — they're a standard we enforce across our entire fleet, owned and affiliated alike."
+    },
+    {
+      "title": "On-Time, Every Time",
+      "desc": "We arrange vehicles on time, without exception — because a late pickup undoes every other part of the experience."
+    },
+    {
+      "title": "Guest Experience That Stands Out",
+      "desc": "Every rider receives a sealed, hygienic welcome kit — a small, consistent detail that reflects how we think about the whole journey."
+    },
+    {
+      "title": "Built for Corporates",
+      "desc": "GST-compliant invoicing, trip-wise billing, and monthly consolidated invoices — designed around corporate finance workflows with 24x7 operations support."
+    }
+  ],
+  "fleet": [
+    { "category": "Sedan", "models": "Dzire, Aura, Amaze", "capacity": "4 Seater", "type": "Economy / Daily" },
+    { "category": "Premium Sedan", "models": "Toyota Corolla, Ciaz, Honda Civic/City", "capacity": "4 Seater", "type": "Executive" },
+    { "category": "SUV", "models": "Innova, Ertiga, Kia Carens", "capacity": "6-7 Seater", "type": "Family / Team" },
+    { "category": "MUV", "models": "Toyota Crysta", "capacity": "7 Seater", "type": "Business Class" },
+    { "category": "Premium MUV", "models": "Hycross, Fortuner", "capacity": "6-7 Seater", "type": "VIP / Executive" },
+    { "category": "Luxury Vehicles", "models": "Mercedes Benz, BMW, Audi", "capacity": "4-5 Seater", "type": "Luxury VIP" },
+    { "category": "Urbania", "models": "Force Urbania", "capacity": "12-17 Seater", "type": "Group Luxury" },
+    { "category": "Tempo Traveller", "models": "12 Seater / 18 Seater", "capacity": "12-18 Seater", "type": "Group Travel" },
+    { "category": "Van", "models": "Group travel van", "capacity": "Up to 25 Seater", "type": "Group Travel" },
+    { "category": "Minibus", "models": "Group/staff transport", "capacity": "36 Seater", "type": "Staff Transport" },
+    { "category": "Bus", "models": "Large group movement", "capacity": "48-55 Seater", "type": "Event / Large Tour" }
+  ],
+  "domesticPackages": [
+    { "id": "kerala", "title": "Kerala Backwaters", "subtitle": "God's Own Country", "duration": "5N / 6D", "price": "From ₹18,999", "image": "Assets/holiday_kerala.jpg", "link": "holidays/kerala.html" },
+    { "id": "rajasthan", "title": "Royal Rajasthan", "subtitle": "Land of Kings", "duration": "7N / 8D", "price": "From ₹24,999", "image": "Assets/holiday_rajasthan.jpg", "link": "holidays/rajasthan.html" },
+    { "id": "ooty", "title": "Ooty Hill Escape", "subtitle": "Queen of Nilgiris", "duration": "3N / 4D", "price": "From ₹8,999", "image": "Assets/holiday_ooty.jpg", "link": "holidays/ooty.html" }
+  ],
+  "internationalPackages": [
+    { "id": "bali", "title": "Bali Paradise", "subtitle": "Island of the Gods", "duration": "6N / 7D", "price": "From ₹54,999", "image": "Assets/holiday_bali.jpg", "link": "holidays/bali.html" },
+    { "id": "singapore", "title": "Singapore Splendour", "subtitle": "The Lion City", "duration": "4N / 5D", "price": "From ₹64,999", "image": "Assets/holiday_singapore.jpg", "link": "holidays/singapore.html" },
+    { "id": "dubai", "title": "Dubai Luxury", "subtitle": "City of Gold", "duration": "5N / 6D", "price": "From ₹74,999", "image": "Assets/holiday_dubai.jpg", "link": "holidays/dubai.html" }
+  ]
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Routes API</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeF5ib931_KlS1IxrmVaVhGxR3xdg5tJs&libraries=places,geometry,routes"></script>
+</head>
+<body>
+    <script>
+        setTimeout(async () => {
+            try {
+                if (!google.maps.routes) {
+                    console.log('google.maps.routes NOT FOUND');
+                    return;
+                }
+                console.log('Found google.maps.routes');
+                // We don't have exact syntax, let's just dump the object to see what functions exist
+                console.log('Keys:', Object.keys(google.maps.routes));
+            } catch (e) {
+                console.error('JS Error:', e.message);
+            }
+        }, 1500);
+    </script>
+</body>
+</html>

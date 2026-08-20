@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holidays & Packages | Mithra Tours & Travels Chennai</title>
+    <meta name="description" content="Travel & Holidays cards: Domestic Holiday Packages, International Holiday Packages, Flight Ticket Booking, Train Ticket Booking, Cruise Booking, Visa Assistance.">
+    <link rel="icon" href="Assets/Fav_Icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/brand.css?v=500">
+    <style>
+        .pkg-card-white {
+            background: #FFFFFF; border: 1.5px solid var(--border-card);
+            border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-card);
+            transition: all 0.35s ease; display: flex; flex-direction: column;
+        }
+        .pkg-card-white:hover {
+            transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--gold-2);
+        }
+        .pkg-img-wrap { height: 220px; position: relative; overflow: hidden; }
+        .pkg-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .pkg-card-white:hover .pkg-img-wrap img { transform: scale(1.08); }
+        .pkg-tag-badge {
+            position: absolute; top: 14px; left: 14px;
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+            color: var(--gold-4); font-size: 0.72rem; font-weight: 800;
+            padding: 0.25rem 0.75rem; border-radius: var(--r-pill);
+        }
+        .pkg-duration-badge {
+            position: absolute; bottom: 14px; right: 14px;
+            background: var(--grad-gold); color: #fff;
+            font-size: 0.72rem; font-weight: 800; padding: 0.25rem 0.75rem;
+            border-radius: var(--r-pill); box-shadow: var(--shadow-gold);
+        }
+        .pkg-body { padding: 1.5rem; flex-grow: 1; }
+        .pkg-region { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; color: var(--gold-3); letter-spacing: 1.2px; margin-bottom: 0.35rem; }
+        .pkg-title { font-size: 1.25rem; font-weight: 800; color: var(--text-heading); margin-bottom: 0.75rem; }
+        .pkg-highlights { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .pkg-hl-pill {
+            font-size: 0.72rem; font-weight: 600; color: var(--text-body);
+            background: var(--bg-light); padding: 0.2rem 0.6rem; border-radius: var(--r-pill);
+            border: 1px solid var(--border-light);
+        }
+        .pkg-footer-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1.1rem 1.5rem; border-top: 1px solid var(--border-light); background: #FFFDF9;
+        }
+
+        .holiday-form-card {
+            background: #FFFFFF; border: 1.5px solid var(--border-card);
+            border-radius: var(--r-xl); padding: 2.5rem; box-shadow: var(--shadow-card);
+        }
+        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-field { margin-bottom: 1rem; }
+        .form-field label { display: block; font-size: 0.74rem; font-weight: 800; color: var(--text-heading); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.4rem; }
+        .form-control {
+            width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border-card);
+            border-radius: var(--r-md); font-size: 0.88rem; color: var(--text-heading);
+            outline: none; transition: border-color 0.2s; font-family: 'DM Sans', sans-serif;
+        }
+        .form-control:focus { border-color: var(--gold-2); box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12); }
+
+        @media (max-width: 768px) {
+            .form-grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo"><img src="Assets/Site_Logo.png" alt="Mithra Tours"></a>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="corporate.html">Corporate</a>
+            <a href="our-fleet.html">Our Fleet</a>
+            <a href="holidays.html" class="active">Holidays</a>
+            <a href="about.html">About Us</a>
+            <a href="cab-attachment.html">Cab Attachment</a>
+        </div>
+        <div class="nav-actions">
+            <a href="contact.html" class="nav-contact-link">Contact</a>
+            <a href="contact.html#enquiry" class="btn btn-gold"><i class="fa-solid fa-bolt"></i> Get Quote</a>
+        </div>
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- 1. BANNER / INTRO -->
+<section class="inner-hero" id="banner">
+    <div class="container">
+        <p class="inner-hero-breadcrumb"><a href="index.html">Home</a> / <span>Holidays & Travel Services</span></p>
+        <h1 class="inner-hero-title">Travel & Holidays</h1>
+        <p class="section-desc center">Domestic & International Holiday Packages, Flight Ticket Booking, Train Ticket Booking, Cruise Booking, and Visa Assistance.</p>
+    </div>
+</section>
+
+<!-- 2. TRAVEL & HOLIDAYS CARDS (ALL 6 SPECIFIED IN DOCUMENT) -->
+<section class="section" id="travel-cards">
+    <div class="container">
+        <div class="section-header center">
+            <span class="section-label center">All Travel Solutions</span>
+            <h2 class="section-title center">Travel & Holidays Cards</h2>
+            <p class="section-desc center">Complete holiday packages and ticketing services managed under one roof.</p>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- 1. Domestic Holiday Packages -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-map-location-dot"></i></div>
+                <span class="card-badge">Incredible India</span>
+                <h3>Domestic Holiday Packages</h3>
+                <p>Tailored tour packages across Kerala, Rajasthan, Ooty, Himachal, Goa, and Kashmir with verified private cabs and resort bookings.</p>
+                <div class="card-footer">
+                    <a href="#domestic-packages" style="font-size:0.88rem; font-weight:800; color:var(--gold-3); display:inline-flex; align-items:center; gap:0.4rem;">
+                        View Domestic Itineraries <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. International Holiday Packages -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-earth-asia"></i></div>
+                <span class="card-badge">Worldwide</span>
+                <h3>International Holiday Packages</h3>
+                <p>Custom international tours to Bali, Dubai, Singapore, Malaysia, Thailand, and Europe with flights, hotels, visa, and guided sightseeing.</p>
+                <div class="card-footer">
+                    <a href="#international-packages" style="font-size:0.88rem; font-weight:800; color:var(--gold-3); display:inline-flex; align-items:center; gap:0.4rem;">
+                        View Global Itineraries <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Flight Ticket Booking -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-plane-departure"></i></div>
+                <span class="card-badge">Instant Issuance</span>
+                <h3>Flight Ticket Booking</h3>
+                <p>Domestic & global air ticketing across all major airlines with competitive corporate and group fares, baggage add-ons, and seat selection.</p>
+                <div class="card-footer">
+                    <a href="#enquiry" style="font-size:0.88rem; font-weight:800; color:var(--gold-3); display:inline-flex; align-items:center; gap:0.4rem;">
+                        Book Flights <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Train Ticket Booking -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-train"></i></div>
+                <span class="card-badge">IRCTC Confirmed</span>
+                <h3>Train Ticket Booking</h3>
+                <p>Fast, reliable IRCTC train reservations across all classes and routes pan-India with tatkal and group booking support.</p>
+                <div class="card-footer">
+                    <a href="#enquiry" style="font-size:0.88rem; font-weight:800; color:var(--gold-3); display:inline-flex; align-items:center; gap:0.4rem;">
+                        Book Trains <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Cruise Booking -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-ship"></i></div>
+                <span class="card-badge">Ocean Voyages</span>
+                <h3>Cruise Booking</h3>
+                <p>Luxury ocean cruises including Cordelia Cruises India, Singapore luxury liners, and Mediterranean cruise packages with cabin arrangements.</p>
+                <div class="card-footer">
+                    <a href="#enquiry" style="font-size:0.88rem; font-weight:800; color:var(--gold-3); display:inline-flex; align-items:center; gap:0.4rem;">
+                        Explore Cruises <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. Visa Assistance -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-passport"></i></div>
+                <span class="card-badge">Hassle-Free</span>
+                <h3>Visa Assistance</h3>
+                <p>End-to-end documentation assistance, appointment scheduling, and fast-track processing for Tourist and Business visas for 50+ countries.</p>
+                <div class="card-footer">
+                    <a href="#enquiry" style="font-size:0.88rem; font-weight:800; color:var(--gold-3); display:inline-flex; align-items:center; gap:0.4rem;">
+                        Apply for Visa <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. DOMESTIC PACKAGES PREVIEW -->
+<section class="section section-light" id="domestic-packages">
+    <div class="container">
+        <div class="section-header center">
+            <span class="section-label center">Domestic Holidays</span>
+            <h2 class="section-title center">Popular Domestic Tours</h2>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- Kerala -->
+            <div class="pkg-card-white">
+                <div class="pkg-img-wrap">
+                    <img src="Assets/holiday_kerala.jpg" alt="Kerala">
+                    <span class="pkg-tag-badge">Most Popular</span>
+                    <span class="pkg-duration-badge">5N / 6D</span>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-region">South India</div>
+                    <h3 class="pkg-title">Kerala Backwaters & Hills</h3>
+                    <div class="pkg-highlights">
+                        <span class="pkg-hl-pill">Munnar Tea Gardens</span>
+                        <span class="pkg-hl-pill">Alleppey Houseboat</span>
+                        <span class="pkg-hl-pill">Kovalam Beach</span>
+                    </div>
+                    <p style="font-size:0.86rem; color:var(--text-body);">Munnar tea plantations, Alleppey private houseboats, and Kovalam beaches with verified private cab transfers.</p>
+                </div>
+                <div class="pkg-footer-row">
+                    <div>
+                        <span style="font-size:0.72rem; color:var(--text-muted); display:block;">Starting From</span>
+                        <strong style="font-size:1.1rem; color:var(--text-heading);">₹18,999</strong> <small>/ person</small>
+                    </div>
+                    <a href="#enquiry" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.82rem;">Enquire Now</a>
+                </div>
+            </div>
+
+            <!-- Rajasthan -->
+            <div class="pkg-card-white">
+                <div class="pkg-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80&w=700" alt="Rajasthan">
+                    <span class="pkg-tag-badge">Royal Heritage</span>
+                    <span class="pkg-duration-badge">6N / 7D</span>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-region">North India</div>
+                    <h3 class="pkg-title">Royal Rajasthan Heritage</h3>
+                    <div class="pkg-highlights">
+                        <span class="pkg-hl-pill">Jaipur Pink City</span>
+                        <span class="pkg-hl-pill">Udaipur Lake Palace</span>
+                        <span class="pkg-hl-pill">Jodhpur Fort</span>
+                    </div>
+                    <p style="font-size:0.86rem; color:var(--text-body);">Jaipur Pink City palaces, Udaipur lake resorts, and Jodhpur desert forts with curated heritage stays.</p>
+                </div>
+                <div class="pkg-footer-row">
+                    <div>
+                        <span style="font-size:0.72rem; color:var(--text-muted); display:block;">Starting From</span>
+                        <strong style="font-size:1.1rem; color:var(--text-heading);">₹24,999</strong> <small>/ person</small>
+                    </div>
+                    <a href="#enquiry" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.82rem;">Enquire Now</a>
+                </div>
+            </div>
+
+            <!-- Ooty -->
+            <div class="pkg-card-white">
+                <div class="pkg-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1590077428593-a55bb07c4665?auto=format&fit=crop&q=80&w=700" alt="Ooty">
+                    <span class="pkg-tag-badge">Weekend Retreat</span>
+                    <span class="pkg-duration-badge">2N / 3D</span>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-region">Tamil Nadu</div>
+                    <h3 class="pkg-title">Ooty & Coonoor Hill Retreat</h3>
+                    <div class="pkg-highlights">
+                        <span class="pkg-hl-pill">Botanical Garden</span>
+                        <span class="pkg-hl-pill">Doddabetta Peak</span>
+                        <span class="pkg-hl-pill">Toy Train</span>
+                    </div>
+                    <p style="font-size:0.86rem; color:var(--text-body);">The classic Nilgiris escape from Chennai. Refreshing climate, lake boating, and tea estate walks.</p>
+                </div>
+                <div class="pkg-footer-row">
+                    <div>
+                        <span style="font-size:0.72rem; color:var(--text-muted); display:block;">Starting From</span>
+                        <strong style="font-size:1.1rem; color:var(--text-heading);">₹8,999</strong> <small>/ person</small>
+                    </div>
+                    <a href="#enquiry" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.82rem;">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. INTERNATIONAL PACKAGES PREVIEW -->
+<section class="section" id="international-packages">
+    <div class="container">
+        <div class="section-header center">
+            <span class="section-label center">International Holidays</span>
+            <h2 class="section-title center">Worldwide Getaways</h2>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- Bali -->
+            <div class="pkg-card-white">
+                <div class="pkg-img-wrap">
+                    <img src="Assets/holiday_bali.jpg" alt="Bali">
+                    <span class="pkg-tag-badge">Tropical Island</span>
+                    <span class="pkg-duration-badge">6N / 7D</span>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-region">Indonesia</div>
+                    <h3 class="pkg-title">Bali Tropical Paradise</h3>
+                    <div class="pkg-highlights">
+                        <span class="pkg-hl-pill">Ubud Rice Terraces</span>
+                        <span class="pkg-hl-pill">Tanah Lot Temple</span>
+                        <span class="pkg-hl-pill">Private Pool Villa</span>
+                    </div>
+                    <p style="font-size:0.86rem; color:var(--text-body);">Ubud rice terraces, cliffside temples, private pool villas, and sunset beach excursions with flights & visa.</p>
+                </div>
+                <div class="pkg-footer-row">
+                    <div>
+                        <span style="font-size:0.72rem; color:var(--text-muted); display:block;">Starting From</span>
+                        <strong style="font-size:1.1rem; color:var(--text-heading);">₹54,999</strong> <small>/ person</small>
+                    </div>
+                    <a href="#enquiry" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.82rem;">Enquire Now</a>
+                </div>
+            </div>
+
+            <!-- Dubai -->
+            <div class="pkg-card-white">
+                <div class="pkg-img-wrap">
+                    <img src="Assets/holiday_dubai.jpg" alt="Dubai">
+                    <span class="pkg-tag-badge">Luxury City</span>
+                    <span class="pkg-duration-badge">5N / 6D</span>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-region">UAE</div>
+                    <h3 class="pkg-title">Dubai & Abu Dhabi Tour</h3>
+                    <div class="pkg-highlights">
+                        <span class="pkg-hl-pill">Burj Khalifa</span>
+                        <span class="pkg-hl-pill">Desert Safari</span>
+                        <span class="pkg-hl-pill">Marina Cruise</span>
+                    </div>
+                    <p style="font-size:0.86rem; color:var(--text-body);">Ultra-modern architecture, thrilling desert dune safari with BBQ dinner, and luxury shopping.</p>
+                </div>
+                <div class="pkg-footer-row">
+                    <div>
+                        <span style="font-size:0.72rem; color:var(--text-muted); display:block;">Starting From</span>
+                        <strong style="font-size:1.1rem; color:var(--text-heading);">₹74,999</strong> <small>/ person</small>
+                    </div>
+                    <a href="#enquiry" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.82rem;">Enquire Now</a>
+                </div>
+            </div>
+
+            <!-- Singapore -->
+            <div class="pkg-card-white">
+                <div class="pkg-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&q=80&w=700" alt="Singapore">
+                    <span class="pkg-tag-badge">Family Special</span>
+                    <span class="pkg-duration-badge">4N / 5D</span>
+                </div>
+                <div class="pkg-body">
+                    <div class="pkg-region">Southeast Asia</div>
+                    <h3 class="pkg-title">Singapore City Wonder</h3>
+                    <div class="pkg-highlights">
+                        <span class="pkg-hl-pill">Universal Studios</span>
+                        <span class="pkg-hl-pill">Gardens by the Bay</span>
+                        <span class="pkg-hl-pill">Sentosa Island</span>
+                    </div>
+                    <p style="font-size:0.86rem; color:var(--text-body);">The ultimate family holiday with world-class theme parks, Marina Bay skyline, and vibrant tours.</p>
+                </div>
+                <div class="pkg-footer-row">
+                    <div>
+                        <span style="font-size:0.72rem; color:var(--text-muted); display:block;">Starting From</span>
+                        <strong style="font-size:1.1rem; color:var(--text-heading);">₹64,999</strong> <small>/ person</small>
+                    </div>
+                    <a href="#enquiry" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.82rem;">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. ENQUIRY FORM -->
+<section class="section section-light" id="enquiry">
+    <div class="container" style="max-width:860px;">
+        <div class="holiday-form-card">
+            <div style="text-align:center; margin-bottom:2rem;">
+                <span class="section-label">Travel Desk</span>
+                <h2 class="section-title" style="font-size:2rem;">Custom Holiday & Booking Enquiry</h2>
+                <p style="font-size:0.90rem; color:var(--text-body);">Tell us your requirements — our team sends a detailed itinerary and quote.</p>
+            </div>
+
+            <form id="holiday-booking-form" onsubmit="handleHolidayEnquiry(event)">
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Your Name *</label>
+                        <input type="text" id="h-name" class="form-control" placeholder="Full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mobile Number *</label>
+                        <input type="tel" id="h-phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Destination / Route *</label>
+                        <input type="text" id="h-dest" class="form-control" placeholder="e.g. Kerala, Bali, Dubai, Singapore" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Approximate Travel Date</label>
+                        <input type="date" id="h-date" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Service Category</label>
+                        <select id="h-service" class="form-control">
+                            <option>Domestic Holiday Packages</option>
+                            <option>International Holiday Packages</option>
+                            <option>Flight Ticket Booking</option>
+                            <option>Train Ticket Booking</option>
+                            <option>Cruise Booking</option>
+                            <option>Visa Assistance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">No. of Travellers</label>
+                        <select id="h-pax" class="form-control">
+                            <option>1 - 2 Adults (Couple / Solo)</option>
+                            <option>3 - 4 Persons (Family)</option>
+                            <option>5 - 8 Persons (Small Group)</option>
+                            <option>9+ Persons (Large Group / Corporate)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom:1.5rem;">
+                    <label class="form-label">Requirement Details / Notes</label>
+                    <textarea id="h-notes" class="form-control" rows="3" placeholder="Hotel preferences, flight timings, places to visit..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-gold btn-full" style="padding:0.95rem; font-size:1rem;">
+                    <i class="fa-brands fa-whatsapp"></i> Send Enquiry via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-white">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="footer-logo">
+                    <img src="Assets/Site_Logo.png" alt="Mithra Tours & Travels Logo" width="140" height="42">
+                </a>
+                <p>
+                    Mithra Tours & Travels — Journeys That Connect. Premier corporate mobility, outstation cabs, and holiday packages from Kilpauk Garden, Chennai.
+                </p>
+                <div class="social-icons-row">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/919629245533" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="corporate.html">Corporate Cabs</a></li>
+                    <li><a href="our-fleet.html">Our Fleet</a></li>
+                    <li><a href="holidays.html">Holiday Packages</a></li>
+                    <li><a href="cab-attachment.html">Cab Attachment</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="corporate.html">Employee Shuttles</a></li>
+                    <li><a href="corporate.html">Airport Transfers</a></li>
+                    <li><a href="our-fleet.html">Innova Crysta</a></li>
+                    <li><a href="our-fleet.html">Tempo Traveller</a></li>
+                    <li><a href="holidays.html#additional">Visa & Flights</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <a href="tel:+919629245533">
+                            <i class="fa-solid fa-phone footer-icon"></i>
+                            <span>+91 96292 45533</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:bookings@mithratoursandtravels.in">
+                            <i class="fa-solid fa-calendar-check footer-icon"></i>
+                            <span>bookings@mithratoursandtravels.in</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contact@mithratoursandtravels.in">
+                            <i class="fa-solid fa-envelope footer-icon"></i>
+                            <span>contact@mithratoursandtravels.in</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            <i class="fa-solid fa-location-dot footer-icon"></i>
+                            <span>No.46, 2A, 2nd Floor, Canal Rd, Kilpauk Garden, Chennai 600010</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-map-col">
+                <h4>Office Location</h4>
+                <div class="footer-map-wrap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.294697926888!2d80.23386627584102!3d13.08053671249767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265e10ba8f89b%3A0x8eaf73f558d386f4!2sno.46%2C%20Mithra%20tours%20and%20travels%2C%202a%2C%202nd%20floor%2C%20Old%2C%20New%2C%20Canal%20Rd%2C%20Kilpauk%20Garden%2C%20Chennai%2C%20Tamil%20Nadu%20600010!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mithra Tours Kilpauk Office Location"></iframe>
+                    <a href="https://maps.app.goo.gl/4frzLNoAzemMx8vy8?g_st=aw" target="_blank" rel="noopener" class="footer-map-link">
+                        <i class="fa-solid fa-location-arrow"></i> Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-row">
+            <div>
+                © 2026 Mithra Tours & Travels. All rights reserved.
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/919629245533" class="wa-floating-btn" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.getElementById('nav-links');
+mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    mobileMenu.innerHTML = navLinks.classList.contains('open') ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+});
+
+function handleHolidayEnquiry(e) {
+    e.preventDefault();
+    const name = document.getElementById('h-name').value;
+    const phone = document.getElementById('h-phone').value;
+    const dest = document.getElementById('h-dest').value;
+    const date = document.getElementById('h-date').value || 'Flexible';
+    const pax = document.getElementById('h-pax').value;
+    const service = document.getElementById('h-service').value;
+    const notes = document.getElementById('h-notes').value || 'None';
+
+    const msg = `*New Travel & Holiday Booking Enquiry - Mithra Tours*\n\n*Name:* ${name}\n*Mobile:* ${phone}\n*Destination/Route:* ${dest}\n*Date:* ${date}\n*Travellers:* ${pax}\n*Category:* ${service}\n*Notes:* ${notes}`;
+    window.open(`https://wa.me/919629245533?text=${encodeURIComponent(msg)}`, '_blank');
+}
+</script>
+</body>
+</html>

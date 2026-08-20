@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Custom Autocomplete</title>
+  <style>
+    .pac-container {
+      z-index: 99999 !important; border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(92,50,9,0.15);
+      border: 1px solid rgba(196,123,15,0.15);
+      font-family: sans-serif; margin-top: 4px;
+      background-color: #fff;
+    }
+    .pac-item { padding: 0.55rem 1rem; font-size: 0.9rem; cursor: pointer; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center;}
+    .pac-item:hover { background: #FFF8E8; }
+    .pac-item-query { font-size: 0.95rem; color: #1E1208; font-weight: 600; margin-right: 5px; }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeF5ib931_KlS1IxrmVaVhGxR3xdg5tJs&libraries=places&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+        console.log("Maps loaded");
+        setupCustomAutocomplete('pac-input');
+    }
+
+    function setupCustomAutocomplete(inputId) {
+        const input = document.getElementById(inputId);
+        if (!input) return;
+
+        input.setAttribute('autocomplete', 'new-password');
+        const service = new google.maps.places.AutocompleteService();
+        
+        let dropdown = document.getElementById(inputId + '-autocomplete-list');
+        if (!dropdown) {
+            dropdown = document.createElement('div');
+            dropdown.id = inputId + '-autocomplete-list';
+            dropdown.className = 'pac-container';
+            dropdown.style.position = 'absolute';
+            dropdown.style.display = 'none';
+            dropdown.style.backgroundColor = '#fff';
+            dropdown.style.overflow = 'hidden';
+            document.body.appendChild(dropdown);
+        }
+
+        let debounceTimer;
+
+        const closeDropdown = () => { dropdown.style.display = 'none'; };
+
+        input.addEventListener('input', function() {
+            const val = this.value.trim();
+            if (!val) { closeDropdown(); return; }
+
+            console.log("Typing: " + val);
+
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                service.getPlacePredictions({
+                    input: val,
+                    componentRestrictions: { country: 'in' },
+                    types: ['geocode', 'establishment']
+                }, (predictions, status) => {
+                    console.log("Predictions:", status, predictions);
+                    if (status !== google.maps.places.PlacesServiceStatus.OK || !predictions) {
+                        closeDropdown();
+                        return;
+                    }
+
+                    dropdown.innerHTML = '';
+                    const rect = input.getBoundingClientRect();
+                    dropdown.style.top = (rect.bottom + window.scrollY) + 'px';
+                    dropdown.style.left = (rect.left + window.scrollX) + 'px';
+                    dropdown.style.width = input.offsetWidth + 'px';
+                    dropdown.style.display = 'block';
+
+                    predictions.forEach(prediction => {
+                        const item = document.createElement('div');
+                        item.className = 'pac-item';
+                        
+                        const mainText = prediction.structured_formatting.main_text;
+                        const secText = prediction.structured_formatting.secondary_text || '';
+                        
+                        item.innerHTML = `<div><span class="pac-item-query">${mainText}</span>` +
+                                         `<span style="color: #6B7280; font-size: 0.8rem;">${secText}</span></div>`;
+                        
+                        item.addEventListener('click', () => {
+                            input.value = prediction.description;
+                            closeDropdown();
+                        });
+                        dropdown.appendChild(item);
+                    });
+                });
+            }, 250);
+        });
+    }
+  </script>
+</head>
+<body style="padding: 50px;">
+  <h2>Google Places Custom Autocomplete Test</h2>
+  <input id="pac-input" type="text" placeholder="Enter a location" style="width: 300px; padding: 10px;">
+</body>
+</html>

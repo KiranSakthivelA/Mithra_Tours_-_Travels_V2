@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#E8A020">
+    <link rel="icon" href="Assets/Fav_Icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Mithra Tours and Travels</title>
+    <meta name="description" content="Explore Mithra Tours and Travels premium services — outstation taxi, one-way drops, airport transfers, round trips and tour packages across South India.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/brand.css?v=51">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeF5ib931_KlS1IxrmVaVhGxR3xdg5tJs&libraries=places,geometry&callback=Function.prototype" async></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Assets/Site_Logo.png" alt="Mithra Tours & Travels">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="our-fleet.html">Our Fleet</a>
+                <a href="routes.html">Routes</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="index.html#home" class="btn-primary nav-btn">Book Now</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sub-page Hero -->
+    <section class="sub-hero">
+        <div class="hero-overlay"></div>
+        <div class="sub-hero-content reveal">
+            <p class="breadcrumb">Home &bull; Services</p>
+            <h1>The Way You Should Travel</h1>
+            <p style="color:rgba(255,255,255,0.85); font-size:1.1rem; margin-top:0.8rem; font-weight:400;">
+                Trusted door-to-door transportation across South India — every journey, every milestone.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services" class="services">
+        <div class="section-header reveal">
+            <h2>How We Serve You</h2>
+            <div class="header-line"></div>
+            <p>Tailored travel experiences — every route, every occasion</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="icon-box"><i class="fa-solid fa-car-on"></i></div>
+                <h3>Outstation Drops</h3>
+                <p>Door-to-door outstation travel with experienced, verified drivers. We handle the distance — you enjoy the ride.</p>
+            </div>
+            <div class="service-card reveal delay-1">
+                <div class="icon-box"><i class="fa-solid fa-route"></i></div>
+                <h3>One-Way Trips</h3>
+                <p>Pay only for where you're going. No return fare, no extra burden — just fair, transparent pricing for every km.</p>
+            </div>
+            <div class="service-card reveal delay-2">
+                <div class="icon-box"><i class="fa-solid fa-city"></i></div>
+                <h3>Local City Rentals</h3>
+                <p>Rent a cab for local city use. Choose from half-day or full-day packages to run errands or attend meetings hassle-free.</p>
+            </div>
+            <div class="service-card reveal delay-1">
+                <div class="icon-box"><i class="fa-solid fa-plane-departure"></i></div>
+                <h3>Airport Pickups &amp; Drops</h3>
+                <p>On-time airport transfers, 24/7. We track your flight and ensure you're never late for take-off or kept waiting on arrival.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / Pricing & Features -->
+    <section id="why-us" style="padding: 5rem 5%; background-color: #fdfaf6;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header reveal" style="margin-bottom: 4rem;">
+                <h2>Premium Travel, Fair Prices.</h2>
+                <div class="header-line"></div>
+                <p>No hidden charges. Just comfortable, reliable journeys across South India.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; align-items: stretch;">
+                
+                <!-- Pricing Card -->
+                <div class="reveal" style="background: #ffffff; border-radius: 24px; padding: 3rem 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.04); border: 1px solid rgba(232, 160, 32, 0.1); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; right: 0; width: 150px; height: 150px; background: radial-gradient(circle, rgba(232,160,32,0.1) 0%, transparent 70%); border-radius: 50%; transform: translate(50%, -50%);"></div>
+                    
+                    <h3 style="font-size: 1.5rem; color: #1f2937; margin-bottom: 2rem; display: flex; align-items: center; gap: 10px;">
+                        <div style="background: #E8A020; color: #fff; width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                            <i class="fa-solid fa-tags"></i>
+                        </div>
+                        Pricing at a Glance
+                    </h3>
+
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <li style="display: flex; flex-direction: column; gap: 0.5rem; padding-bottom: 1.5rem; border-bottom: 1px dashed #e5e7eb;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: #374151; font-size: 1.1rem;">Starting Rate</strong>
+                                <span style="background: #fffbeb; color: #b45309; padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.95rem; border: 1px solid #fde68a;">₹15 / km</span>
+                            </div>
+                            <span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Per-km rate for Sedan (one-way). Standard routes with zero hidden charges.</span>
+                        </li>
+                        <li style="display: flex; flex-direction: column; gap: 0.5rem; padding-bottom: 1.5rem; border-bottom: 1px dashed #e5e7eb;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: #374151; font-size: 1.1rem;">One-Way Journeys</strong>
+                                <span style="background: #fffbeb; color: #b45309; padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.95rem; border: 1px solid #fde68a;">Min. 130 km</span>
+                            </div>
+                            <span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Pay only for the distance you travel. No return fare charged for one-way trips.</span>
+                        </li>
+                        <li style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: #374151; font-size: 1.1rem;">Round Trips</strong>
+                                <span style="background: #fffbeb; color: #b45309; padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.95rem; border: 1px solid #fde68a;">Min. 250 km/day</span>
+                            </div>
+                            <span style="color: #6b7280; font-size: 0.9rem; line-height: 1.5;">Economical daily rates for multi-day round trip journeys.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Features Card -->
+                <div class="reveal delay-1" style="background: #ffffff; border-radius: 24px; padding: 3rem 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.04); border: 1px solid rgba(232, 160, 32, 0.1); color: #1f2937; position: relative; overflow: hidden;">
+                    <div style="position: absolute; bottom: 0; left: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(232,160,32,0.15) 0%, transparent 70%); border-radius: 50%; transform: translate(-30%, 30%);"></div>
+
+                    <h3 style="font-size: 1.5rem; color: #1f2937; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 10px;">
+                        <div style="background: rgba(232,160,32,0.2); color: #E8A020; width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        Built for South India
+                    </h3>
+
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2rem;">
+                        <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                            <i class="fa-solid fa-circle-check" style="color: #E8A020; font-size: 1.2rem; margin-top: 3px;"></i>
+                            <div>
+                                <strong style="display: block; font-size: 1.1rem; margin-bottom: 0.3rem; color: #374151;">Deep Tamil Nadu Coverage</strong>
+                                <span style="color: #6b7280; font-size: 0.95rem; line-height: 1.6;">All major cities, districts and tourist spots — Coimbatore, Madurai, Chennai, Ooty, Kodaikanal and beyond.</span>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                            <i class="fa-solid fa-circle-check" style="color: #E8A020; font-size: 1.2rem; margin-top: 3px;"></i>
+                            <div>
+                                <strong style="display: block; font-size: 1.1rem; margin-bottom: 0.3rem; color: #374151;">Seamless Inter-State Travel</strong>
+                                <span style="color: #6b7280; font-size: 0.95rem; line-height: 1.6;">One-way, round trip, airport transfers and complete tour packages across Tamil Nadu, Kerala, Karnataka, Andhra and Telangana.</span>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                            <i class="fa-solid fa-circle-check" style="color: #E8A020; font-size: 1.2rem; margin-top: 3px;"></i>
+                            <div>
+                                <strong style="display: block; font-size: 1.1rem; margin-bottom: 0.3rem; color: #374151;">100+ Active Routes</strong>
+                                <span style="color: #6b7280; font-size: 0.95rem; line-height: 1.6;">Frequently travelled outstation routes available with upfront pricing — no negotiation needed.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- City Touring Packages -->
+    <section id="city-touring" class="fleet" style="background-color: var(--site-bg); padding-top: 2rem;">
+        <div class="section-header reveal">
+            <h2>City Touring Packages</h2>
+            <div class="header-line"></div>
+            <p>Perfect for city tours, shopping, and local business trips</p>
+        </div>
+        <div class="fleet-grid">
+            <!-- Sedan Package -->
+            <div class="fleet-card reveal">
+                <div class="fleet-image type-sedan" style="position:relative; overflow:hidden; padding:0; height:180px;">
+                    <img src="Assets/car_sedan.png" alt="Sedan" style="width:100%; height:100%; object-fit:cover; object-position:center; transform:scaleX(-1);">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.15) 0%,transparent 65%);"></div>
+                </div>
+                <div class="fleet-info" style="padding: 2rem;">
+                    <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--mtt-dark); margin-bottom: 0.5rem;">Sedan</h3>
+                    <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem;">Comfortable ride for city exploration.</p>
+                    
+                    <div class="pricing-list" style="margin-bottom: 1.5rem;">
+                        <div class="pricing-row" style="padding: 10px 0; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: #4b5563;">5 Hours Package</span>
+                            <strong style="font-size: 1.2rem; color: var(--mtt-amber-dark);">₹1500</strong>
+                        </div>
+                        <div class="pricing-row" style="padding: 10px 0; border-top: 1px dashed rgba(196,123,15,0.2); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 500; color: #6b7280;">Extra Hours</span>
+                            <strong style="color: var(--mtt-dark);">₹300 <span style="font-size: 0.85em; font-weight: 500; opacity: 0.8;">/ hr</span></strong>
+                        </div>
+                        <div class="pricing-row" style="padding: 10px 0; border-top: 1px dashed rgba(196,123,15,0.2); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 500; color: #6b7280;">Extra KM</span>
+                            <strong style="color: var(--mtt-dark);">₹30 <span style="font-size: 0.85em; font-weight: 500; opacity: 0.8;">/ km</span></strong>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" style="width: 100%; margin-top: 0; border-radius: 50px;" onclick="openLocalModal('Sedan')">Book Package</button>
+                </div>
+            </div>
+
+            <!-- SUV Package -->
+            <div class="fleet-card reveal delay-1">
+                <div class="fleet-image type-suv" style="position:relative; overflow:hidden; padding:0; height:180px;">
+                    <img src="Assets/car_suv.png" alt="SUV" style="width:100%; height:100%; object-fit:cover; object-position:center;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.15) 0%,transparent 65%);"></div>
+                </div>
+                <div class="fleet-info" style="padding: 2rem;">
+                    <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--mtt-dark); margin-bottom: 0.5rem;">SUV</h3>
+                    <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem;">Spacious and comfortable for group city tours.</p>
+                    
+                    <div class="pricing-list" style="margin-bottom: 1.5rem;">
+                        <div class="pricing-row" style="padding: 10px 0; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: #4b5563;">5 Hours Package</span>
+                            <strong style="font-size: 1.2rem; color: var(--mtt-amber-dark);">₹1800</strong>
+                        </div>
+                        <div class="pricing-row" style="padding: 10px 0; border-top: 1px dashed rgba(196,123,15,0.2); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 500; color: #6b7280;">Extra Hours</span>
+                            <strong style="color: var(--mtt-dark);">₹400 <span style="font-size: 0.85em; font-weight: 500; opacity: 0.8;">/ hr</span></strong>
+                        </div>
+                        <div class="pricing-row" style="padding: 10px 0; border-top: 1px dashed rgba(196,123,15,0.2); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 500; color: #6b7280;">Extra KM</span>
+                            <strong style="color: var(--mtt-dark);">₹40 <span style="font-size: 0.85em; font-weight: 500; opacity: 0.8;">/ km</span></strong>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" style="width: 100%; margin-top: 0; border-radius: 50px;" onclick="openLocalModal('SUV')">Book Package</button>
+                </div>
+            </div>
+
+            <!-- Innova Crysta Package -->
+            <div class="fleet-card reveal delay-2">
+                <div class="fleet-image type-innova" style="position:relative; overflow:hidden; padding:0; height:180px;">
+                    <img src="Assets/car_innova.png" alt="Innova Crysta" style="width:100%; height:100%; object-fit:cover; object-position:center;">
+                    <div style="position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.15) 0%,transparent 65%);"></div>
+                </div>
+                <div class="fleet-info" style="padding: 2rem;">
+                    <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--mtt-dark); margin-bottom: 0.5rem;">Innova Crysta</h3>
+                    <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.95rem;">Premium local travel experience.</p>
+                    
+                    <div class="pricing-list" style="margin-bottom: 1.5rem;">
+                        <div class="pricing-row" style="padding: 10px 0; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: #4b5563;">5 Hours Package</span>
+                            <strong style="font-size: 1.2rem; color: var(--mtt-amber-dark);">₹2500</strong>
+                        </div>
+                        <div class="pricing-row" style="padding: 10px 0; border-top: 1px dashed rgba(196,123,15,0.2); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 500; color: #6b7280;">Extra Hours</span>
+                            <strong style="color: var(--mtt-dark);">₹500 <span style="font-size: 0.85em; font-weight: 500; opacity: 0.8;">/ hr</span></strong>
+                        </div>
+                        <div class="pricing-row" style="padding: 10px 0; border-top: 1px dashed rgba(196,123,15,0.2); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 500; color: #6b7280;">Extra KM</span>
+                            <strong style="color: var(--mtt-dark);">₹50 <span style="font-size: 0.85em; font-weight: 500; opacity: 0.8;">/ km</span></strong>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" style="width: 100%; margin-top: 0; border-radius: 50px;" onclick="openLocalModal('Innova Crysta')">Book Package</button>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2.5rem; color: #8c7359; font-size: 0.95rem; font-weight: 500;">
+            <i class="fa-solid fa-circle-info" style="color: var(--mtt-amber-dark); margin-right: 5px;"></i> <strong>Note:</strong> Toll and Parking charges are extra as applicable.
+        </div>
+    </section>
+
+    <!-- Wide Service Coverage -->
+    <section id="coverage" class="wide-coverage-section reveal" style="margin-top:0;">
+        <div class="coverage-container">
+            <h2><i class="fa-solid fa-map-location-dot" style="color:var(--mtt-amber);"></i> Wide Service Coverage</h2>
+            <ul class="coverage-list">
+                <li><i class="fa-solid fa-circle-check"></i>
+                    <div><strong>Tamil Nadu Coverage:</strong> All major cities, districts, and tourist destinations.</div>
+                </li>
+                <li><i class="fa-solid fa-circle-check"></i>
+                    <div><strong>Inter-State Travel:</strong> Service All Over Tamil Nadu, Kerala, Karnataka, Andhra and Telangana — One Way, Round Trip, Airport Transfers and Tour Packages.</div>
+                </li>
+                <li><i class="fa-solid fa-circle-check"></i>
+                    <div><strong>100+ Routes:</strong> Popular and custom outstation routes covered with transparent pricing.</div>
+                </li>
+                <li><i class="fa-solid fa-circle-check"></i>
+                    <div><strong>24/7 Availability:</strong> Early morning, late night — we're always available for your journey.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-premium-banner reveal">
+        <div class="cta-flex">
+            <div class="cta-text">
+                <h2 style="color:#fff !important;">Ready to Ride with MTT?</h2>
+                <p style="color:rgba(255,255,255,0.9) !important;">Our team is available round the clock. Call, WhatsApp or fill the booking form - we respond fast.</p>
+            </div>
+            <div class="cta-button-side">
+                <a href="tel:+919629245533" class="btn-premium-cta">
+                    <i class="fa-solid fa-phone"></i>
+                    Call Now (+91 96292 45533)
+                </a>
+                <p style="margin-top:1rem; font-size:0.9rem; color:#FCD34D; font-weight:600;">
+                    <i class="fa-solid fa-bolt"></i> Instant Booking Available
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-section brand-section">
+                <a href="index.html" class="footer-logo">
+                    <img src="Assets/Site_Logo.png" alt="Mithra Tours & Travels">
+                </a>
+                <p>Premium Door-to-Door Outstation Travel Services across South India.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section links-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="our-fleet.html">Our Fleet</a></li>
+                    <li><a href="routes.html">Routes We Cover</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-section-footer">
+                <h3>Contact Us</h3>
+                <div class="footer-contact-item">
+                    <div class="fc-text">
+                        <p>Mithra Tours & Travels<br>No.28, Srinivasanagar 2nd Street, Poonamallee, Chennai-600056.</p>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <div class="fc-text">
+                        <p><a href="tel:+919629245533">+91 96292 45533</a></p>
+                        <p><a href="mailto:contact@mithratoursandtravels.in">contact@mithratoursandtravels.in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 All Rights Reserved By Mithra Tours and Travels</p>
+        </div>
+    </footer>
+
+    <!-- ======= FARE COMPARISON MODAL ======= -->
+    <div id="fare-modal" style="display:none; position:fixed; inset:0; background:rgba(26,10,0,0.8); backdrop-filter:blur(10px); z-index:9999; overflow-y:auto; padding:1rem;">
+        <div class="fm-modal-body" style="max-width:900px; margin:2rem auto; background:#fff; border-radius:24px; box-shadow:0 30px 80px rgba(0,0,0,0.3); overflow:hidden; animation:fadeUp 0.4s cubic-bezier(0.34,1.56,0.64,1);">
+
+            <!-- Modal Header -->
+            <div style="background:linear-gradient(135deg,#92400E,#D97706,#F59E0B); padding:1.6rem 2rem; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <h2 style="color:#fff; font-size:1.4rem; margin:0; font-weight:800;">Available Vehicles</h2>
+                    <p id="fm-route-label" style="color:rgba(255,255,255,0.85); margin:0.35rem 0 0; font-size:0.9rem; font-weight:500;"></p>
+                </div>
+                <button onclick="closeFareModal()" style="background:rgba(255,255,255,0.2); border:2px solid rgba(255,255,255,0.3); color:#fff; width:38px; height:38px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.35)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">✕</button>
+            </div>
+
+            <!-- Info Bar -->
+            <div style="background:#FEF9C3; border-bottom:1px solid #FDE68A; padding:0.8rem 2rem; display:flex; gap:2rem; flex-wrap:wrap; align-items:center;">
+                <span style="font-size:0.88rem; color:#78350F;"><i class="fa-solid fa-road" style="color:#D97706; margin-right:5px;"></i>Distance: <strong id="fm-distance">—</strong></span>
+                <span style="font-size:0.88rem; color:#78350F;"><i class="fa-solid fa-clock" style="color:#D97706; margin-right:5px;"></i>Duration: <strong id="fm-duration">—</strong></span>
+                <span style="font-size:0.88rem; color:#78350F;"><i class="fa-solid fa-arrows-left-right" style="color:#D97706; margin-right:5px;"></i>Trip: <strong id="fm-trip-type">One Way</strong></span>
+                <span style="font-size:0.73rem; color:#92400E; margin-left:auto;"><i class="fa-solid fa-circle-info"></i> Inclusive of driver allowance</span>
+            </div>
+
+            <!-- Vehicle Cards -->
+            <div id="fm-cards" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem; padding:1.6rem 2rem 2rem;"></div>
+
+            <!-- Disclaimer -->
+            <div style="padding:0 2rem 1.4rem; text-align:center;">
+                <p style="font-size:0.78rem; color:#92400E; margin:0;">* Tolls, parking &amp; hill charges extra. Night charges (10 PM – 6 AM) may apply. Actual fare may vary.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    
+
+    <datalist id="city-list">
+        <option value="Coimbatore"><option value="Chennai"><option value="Madurai"><option value="Trichy">
+        <option value="Salem"><option value="Ooty"><option value="Kodaikanal"><option value="Bangalore">
+        <option value="Mysore"><option value="Kochi"><option value="Munnar"><option value="Alleppey">
+        <option value="Tirupati"><option value="Hyderabad"><option value="Pondicherry">
+    </datalist>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="js/main.js?v=25"></script>
+    <script src="js/booking.js?v=32"></script>
+
+<div class="floating-widgets">
+<a href="tel:+919629245533" class="float-icon phone"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919629245533" target="_blank" class="float-icon whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+</body>
+
+</html>
+
+
+
+
+

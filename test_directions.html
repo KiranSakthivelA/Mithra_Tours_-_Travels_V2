@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Directions</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeF5ib931_KlS1IxrmVaVhGxR3xdg5tJs&libraries=places,geometry"></script>
+</head>
+<body>
+    <script>
+        setTimeout(() => {
+            const directionsService = new google.maps.DirectionsService();
+            directionsService.route({
+                origin: 'Coimbatore, Tamil Nadu',
+                destination: 'Chennai, Tamil Nadu',
+                travelMode: google.maps.TravelMode.DRIVING
+            }, (response, status) => {
+                if (status === 'OK') {
+                    const leg = response.routes[0].legs[0];
+                    console.log('STATUS:', status);
+                    console.log('DISTANCE:', leg.distance.text);
+                    console.log('DURATION:', leg.duration.text);
+                } else {
+                    console.log('STATUS:', status);
+                }
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTT Admin CMS | Mithra Tours & Travels Content Manager</title>
+    <link rel="icon" href="../Assets/Fav_Icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --mtt-gold: #E8A020;
+            --mtt-amber: #C47B0F;
+            --mtt-dark: #1E1208;
+            --mtt-bg: #FFFCF2;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+        body { background: var(--mtt-bg); color: var(--mtt-dark); min-height: 100vh; }
+        
+        .admin-header {
+            background: var(--mtt-dark); color: #fff; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .admin-header img { height: 45px; }
+        .admin-header h1 { font-size: 1.1rem; color: #F5C842; font-weight: 700; }
+
+        .admin-container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+        
+        .admin-nav-tabs {
+            display: flex; gap: 0.5rem; border-bottom: 2px solid rgba(196,123,15,0.2);
+            margin-bottom: 2rem;
+        }
+        .tab-btn {
+            padding: 0.75rem 1.5rem; border: none; background: transparent;
+            font-weight: 700; color: #7C5C35; cursor: pointer; border-bottom: 3px solid transparent;
+            font-size: 0.95rem; transition: all 0.3s;
+        }
+        .tab-btn.active {
+            color: var(--mtt-amber); border-bottom-color: var(--mtt-amber);
+        }
+
+        .tab-panel { display: none; background: #fff; padding: 2rem; border-radius: 16px; border: 1px solid rgba(196,123,15,0.15); box-shadow: 0 4px 20px rgba(92,50,9,0.05); }
+        .tab-panel.active { display: block; }
+
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #5C3209; margin-bottom: 0.4rem; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 0.75rem 1rem; border: 1.5px solid rgba(196,123,15,0.2);
+            border-radius: 8px; font-size: 0.9rem; font-family: inherit; outline: none;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--mtt-amber); }
+
+        .btn-save {
+            background: linear-gradient(135deg, #C47B0F, #E8A020); color: #1E1208;
+            border: none; padding: 0.75rem 1.8rem; font-weight: 700; border-radius: 50px;
+            cursor: pointer; transition: all 0.3s; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-save:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(196,123,15,0.3); }
+
+        .pkg-list-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem; border: 1px solid rgba(196,123,15,0.15); border-radius: 10px;
+            margin-bottom: 0.75rem; background: #FFF8E8;
+        }
+        .pkg-list-item h4 { font-size: 0.95rem; color: #1E1208; }
+        .pkg-list-item span { font-size: 0.8rem; color: var(--mtt-amber); font-weight: 600; }
+
+        .alert-success {
+            padding: 1rem; background: #e8f5e9; color: #2e7d32; border-radius: 8px;
+            margin-bottom: 1rem; display: none; font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<header class="admin-header">
+    <div style="display:flex; align-items:center; gap:1rem;">
+        <img src="../Assets/Site_Logo.png" alt="MTT">
+        <h1>MTT CMS Content Manager</h1>
+    </div>
+    <a href="../index.html" style="color:#F5C842; text-decoration:none; font-weight:600; font-size:0.85rem;"><i class="fa-solid fa-arrow-left"></i> View Live Site</a>
+</header>
+
+<div class="admin-container">
+    <div id="save-alert" class="alert-success"><i class="fa-solid fa-circle-check"></i> Changes saved to JSON data store!</div>
+
+    <div class="admin-nav-tabs">
+        <button class="tab-btn active" onclick="openTab('home-tab')"><i class="fa-solid fa-house"></i> Home Content</button>
+        <button class="tab-btn" onclick="openTab('packages-tab')"><i class="fa-solid fa-umbrella-beach"></i> Holiday Packages</button>
+        <button class="tab-btn" onclick="openTab('export-tab')"><i class="fa-solid fa-code"></i> JSON Sync &amp; Export</button>
+    </div>
+
+    <!-- TAB 1: HOME -->
+    <div class="tab-panel active" id="home-tab">
+        <h3 style="margin-bottom:1.5rem; color:var(--mtt-dark);"><i class="fa-solid fa-pen-to-square"></i> Edit Home Hero Text</h3>
+        <form id="home-cms-form">
+            <div class="form-group">
+                <label>Hero Headline</label>
+                <input type="text" id="cms-hero-headline" value="Corporate Mobility & Complete Travel Solutions">
+            </div>
+            <div class="form-group">
+                <label>Hero Subtitle</label>
+                <textarea id="cms-hero-subtitle" rows="3">Mithra Tours & Travels — Chennai's premier travel partner for corporate cab mobility, outstation taxi service, airport transfers & curated holiday packages across Tamil Nadu and Pan-India.</textarea>
+            </div>
+            <button type="submit" class="btn-save"><i class="fa-solid fa-floppy-disk"></i> Save Home Content</button>
+        </form>
+    </div>
+
+    <!-- TAB 2: PACKAGES -->
+    <div class="tab-panel" id="packages-tab">
+        <h3 style="margin-bottom:1.5rem; color:var(--mtt-dark);"><i class="fa-solid fa-suitcase-rolling"></i> Manage Holiday Packages</h3>
+        
+        <h4 style="margin-bottom:0.75rem; color:var(--mtt-amber);">Domestic Packages</h4>
+        <div id="domestic-pkg-list">
+            <div class="pkg-list-item"><div><h4>Kerala Backwaters</h4><span>5N / 6D — ₹18,999</span></div><button class="btn-save" style="padding:0.3rem 0.8rem; font-size:0.75rem;">Edit</button></div>
+            <div class="pkg-list-item"><div><h4>Royal Rajasthan</h4><span>7N / 8D — ₹24,999</span></div><button class="btn-save" style="padding:0.3rem 0.8rem; font-size:0.75rem;">Edit</button></div>
+            <div class="pkg-list-item"><div><h4>Ooty Hill Escape</h4><span>3N / 4D — ₹8,999</span></div><button class="btn-save" style="padding:0.3rem 0.8rem; font-size:0.75rem;">Edit</button></div>
+        </div>
+
+        <h4 style="margin:1.5rem 0 0.75rem; color:var(--mtt-amber);">International Packages</h4>
+        <div id="international-pkg-list">
+            <div class="pkg-list-item"><div><h4>Bali Paradise</h4><span>6N / 7D — ₹54,999</span></div><button class="btn-save" style="padding:0.3rem 0.8rem; font-size:0.75rem;">Edit</button></div>
+            <div class="pkg-list-item"><div><h4>Singapore Splendour</h4><span>4N / 5D — ₹64,999</span></div><button class="btn-save" style="padding:0.3rem 0.8rem; font-size:0.75rem;">Edit</button></div>
+            <div class="pkg-list-item"><div><h4>Dubai Luxury</h4><span>5N / 6D — ₹74,999</span></div><button class="btn-save" style="padding:0.3rem 0.8rem; font-size:0.75rem;">Edit</button></div>
+        </div>
+    </div>
+
+    <!-- TAB 3: EXPORT JSON -->
+    <div class="tab-panel" id="export-tab">
+        <h3 style="margin-bottom:1rem; color:var(--mtt-dark);"><i class="fa-solid fa-download"></i> Live JSON Data Store</h3>
+        <p style="font-size:0.85rem; color:#7C5C35; margin-bottom:1rem;">This JSON content powers the dynamic elements on the Mithra Tours &amp; Travels site (`data/content.json`).</p>
+        <textarea id="json-preview" rows="15" style="font-family:monospace; font-size:0.85rem; padding:1rem; background:#1E1208; color:#F5C842; width:100%; border-radius:10px;"></textarea>
+        <button onclick="copyJSON()" class="btn-save" style="margin-top:1rem;"><i class="fa-solid fa-copy"></i> Copy JSON Data</button>
+    </div>
+</div>
+
+<script>
+function openTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+}
+
+// Load JSON into preview
+fetch('../data/content.json')
+    .then(res => res.text())
+    .then(text => {
+        document.getElementById('json-preview').value = text;
+    })
+    .catch(() => {});
+
+document.getElementById('home-cms-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('save-alert').style.display = 'block';
+    setTimeout(() => { document.getElementById('save-alert').style.display = 'none'; }, 3000);
+});
+
+function copyJSON() {
+    const area = document.getElementById('json-preview');
+    area.select();
+    document.execCommand('copy');
+    alert('JSON data copied to clipboard!');
+}
+</script>
+</body>
+</html>

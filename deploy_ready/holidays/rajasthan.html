@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Rajasthan | Mithra Tours & Travels Holiday Packages</title>
+    <meta name="description" content="Journey through royal palaces, golden desert dunes and shimmering lakes on the iconic Rajasthan circuit.">
+    <link rel="icon" href="../Assets/Fav_Icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="../css/brand.css?v=60">
+    <style>
+        .page-hero{position:relative;padding:160px 0 80px;background:url('../Assets/holiday_rajasthan.jpg') center/cover no-repeat;}
+        .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,18,8,0.95) 0%,rgba(60,35,8,0.85) 100%);}
+        .page-hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 2rem;color:#fff;}
+        .page-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:1rem;}
+        .page-breadcrumb a{color:#F5C842;text-decoration:none;}
+        .page-hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;margin-bottom:.75rem;}
+        .page-hero h1 .gold{color:#F5C842;}
+        .page-hero p{color:rgba(255,255,255,.80);font-size:1.05rem;max-width:600px;line-height:1.75;margin-bottom:1.5rem;}
+        .hero-meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;}
+        .hero-meta-item{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:rgba(255,255,255,.85);font-weight:600;}
+        .hero-meta-item i{color:#F5C842;}
+        .section{padding:4.5rem 0;}
+        .section-alt{background:#FFF8E8;}
+        .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+        .section-label{display:inline-block;color:var(--mtt-amber);font-size:.75rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:.75rem;}
+        .section-title{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;color:#1E1208;line-height:1.2;margin-bottom:1rem;}
+        .pkg-layout{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start;}
+        /* Inclusions / Highlights */
+        .inc-exc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;}
+        .inc-card{background:#fff;border:1px solid rgba(196,123,15,.12);border-radius:16px;padding:1.5rem;}
+        .inc-card h4{font-size:.9rem;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+        .inc-card ul{list-style:none;}
+        .inc-card ul li{font-size:.85rem;color:#5C3209;padding:.3rem 0;display:flex;align-items:flex-start;gap:.5rem;line-height:1.5;}
+        .inc-card ul li i{font-size:.75rem;margin-top:.25rem;flex-shrink:0;}
+        .inc-card.inc i{color:#2e7d32;}
+        .inc-card.exc i{color:#c62828;}
+        /* Itinerary */
+        .itinerary-day{background:#fff;border:1px solid rgba(196,123,15,.12);border-radius:16px;padding:1.5rem;margin-bottom:1rem;display:flex;gap:1rem;}
+        .day-num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#C47B0F,#F5C842);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#1E1208;flex-shrink:0;}
+        .day-content h4{font-size:.95rem;margin-bottom:.3rem;}
+        .day-content p{font-size:.85rem;color:#7C5C35;line-height:1.6;}
+        /* Sidebar */
+        .pkg-sidebar{position:sticky;top:100px;}
+        .sidebar-card{background:#fff;border:1px solid rgba(196,123,15,.15);border-radius:20px;padding:1.75rem;box-shadow:0 8px 30px rgba(92,50,9,.07);margin-bottom:1.5rem;}
+        .sidebar-From ₹24,999{font-size:1.8rem;font-weight:800;color:#1E1208;margin-bottom:.25rem;}
+        .sidebar-From ₹24,999 span{font-size:.85rem;color:#7C5C35;font-weight:400;}
+        .sidebar-7 Nights / 8 Days{font-size:.85rem;color:var(--mtt-amber);font-weight:700;margin-bottom:1.25rem;}
+        .sidebar-card .btn-primary{width:100%;justify-content:center;margin-bottom:.75rem;}
+        .sidebar-contact{display:flex;flex-direction:column;gap:.75rem;}
+        .sc-item{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:#5C3209;text-decoration:none;font-weight:600;}
+        .sc-item i{color:var(--mtt-amber);}
+        .sc-item:hover{color:var(--mtt-amber);}
+        /* Enquiry Form */
+        .mini-form label{display:block;font-size:.72rem;font-weight:700;color:#5C3209;text-transform:uppercase;letter-spacing:.8px;margin-bottom:.3rem;margin-top:.75rem;}
+        .mini-form input,.mini-form select,.mini-form textarea{width:100%;padding:.7rem 1rem;border:1.5px solid rgba(196,123,15,.2);border-radius:10px;font-family:Poppins,sans-serif;font-size:.88rem;color:#1E1208;outline:none;transition:all .3s;}
+        .mini-form input:focus,.mini-form select:focus,.mini-form textarea:focus{border-color:var(--mtt-amber);box-shadow:0 0 0 3px rgba(196,123,15,.12);}
+        .mini-form textarea{min-height:80px;resize:vertical;}
+        .wa-float{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#fff;text-decoration:none;z-index:999;box-shadow:0 8px 25px rgba(37,211,102,.4);transition:all .3s;animation:wa-pulse 2.5s infinite;}
+        .wa-float:hover{transform:scale(1.1);}
+        @keyframes wa-pulse{0%,100%{box-shadow:0 8px 25px rgba(37,211,102,.4);}50%{box-shadow:0 8px 35px rgba(37,211,102,.65);}}
+        .footer{background:#1E1208;color:rgba(255,255,255,.75);padding:3rem 0 1.5rem;}
+        .footer-simple{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+        .footer-simple img{height:55px;}
+        .footer-simple p{font-size:.82rem;color:rgba(255,255,255,.5);}
+        .footer-simple-links{display:flex;gap:1.5rem;}
+        .footer-simple-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;}
+        .footer-simple-links a:hover{color:#F5C842;}
+        @media(max-width:900px){.pkg-layout{grid-template-columns:1fr;}.pkg-sidebar{position:static;}.inc-exc-grid{grid-template-columns:1fr;}.nav-links{display:none;position:absolute;top:90px;left:0;right:0;background:rgba(255,252,242,.98);backdrop-filter:blur(20px);flex-direction:column;padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid rgba(196,123,15,.15);z-index:999;}.nav-links.open{display:flex;}.menu-toggle{display:block;}}
+        @media(max-width:640px){.section{padding:3rem 0;}.hero-meta{gap:1rem;}}
+    </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="logo"><img src="../Assets/Site_Logo.png" alt="Mithra Tours & Travels"></a>
+        <div class="nav-links" id="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../corporate.html">Corporate</a>
+            <a href="../holidays.html" class="active">Holidays</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../cab-attachment.html">Cab Attachment</a>
+            <a href="#enquiry" class="btn-primary nav-btn">Enquire</a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <div class="page-breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i><a href="../holidays.html">Holidays</a><i class="fa-solid fa-chevron-right"></i><span>Royal Rajasthan</span></div>
+        <h1>Royal Rajasthan</h1>
+        <p>Journey through royal palaces, golden desert dunes and shimmering lakes on the iconic Rajasthan circuit.</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item"><i class="fa-solid fa-clock"></i> 7 Nights / 8 Days</div>
+            <div class="hero-meta-item"><i class="fa-solid fa-indian-rupee-sign"></i> From ₹24,999 per person</div>
+            <div class="hero-meta-item"><i class="fa-solid fa-Rajasthan, North India-dot"></i> Rajasthan, North India</div>
+        </div>
+        <a href="#enquiry" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Enquire Now</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="pkg-layout">
+            <div>
+                <p class="section-label">Itinerary</p>
+                <h2 class="section-title">Day-by-Day Itinerary</h2>
+                <div class="itinerary-day"><div class="day-num">1</div><div class="day-content"><h4>Arrival in Jaipur</h4><p>Airport pickup, check-in, Chowki Dhani cultural evening dinner.</p></div></div><div class="itinerary-day"><div class="day-num">2</div><div class="day-content"><h4>Jaipur Sightseeing</h4><p>Amber Fort, Hawa Mahal, City Palace, Jantar Mantar, Jal Mahal view.</p></div></div><div class="itinerary-day"><div class="day-num">3</div><div class="day-content"><h4>Jaipur → Jodhpur</h4><p>Mehrangarh Fort, Jaswant Thada, Blue City walk, clock tower market.</p></div></div><div class="itinerary-day"><div class="day-num">4</div><div class="day-content"><h4>Jodhpur → Jaisalmer</h4><p>Jaisalmer Fort, Patwon Ki Haveli, local bazaar explore.</p></div></div><div class="itinerary-day"><div class="day-num">5</div><div class="day-content"><h4>Jaisalmer Desert Safari</h4><p>Sam Sand Dunes, camel ride, cultural programme, bonfire and dinner.</p></div></div><div class="itinerary-day"><div class="day-num">6</div><div class="day-content"><h4>Jaisalmer → Udaipur</h4><p>Scenic drive, check-in at lake-view hotel, City Palace evening visit.</p></div></div><div class="itinerary-day"><div class="day-num">7</div><div class="day-content"><h4>Udaipur Sightseeing</h4><p>Lake Pichola boat ride, Fateh Sagar Lake, Bagore Ki Haveli cultural show.</p></div></div><div class="itinerary-day"><div class="day-num">8</div><div class="day-content"><h4>Departure</h4><p>Udaipur airport or railway station drop.</p></div></div>
+
+                <div class="inc-exc-grid" style="margin-top:2.5rem;">
+                    <div class="inc-card inc">
+                        <h4><i class="fa-solid fa-circle-check" style="color:#2e7d32;"></i> Inclusions</h4>
+                        <ul><li><i class="fa-solid fa-check"></i>4-star hotel accommodation (7 nights)</li><li><i class="fa-solid fa-check"></i>Daily breakfast & dinner</li><li><i class="fa-solid fa-check"></i>All AC vehicle transfers</li><li><i class="fa-solid fa-check"></i>Desert safari (camel ride)</li><li><i class="fa-solid fa-check"></i>Sightseeing as per itinerary</li></ul>
+                    </div>
+                    <div class="inc-card exc">
+                        <h4><i class="fa-solid fa-circle-xmark" style="color:#c62828;"></i> Exclusions</h4>
+                        <ul><li><i class="fa-solid fa-xmark"></i>Airfare</li><li><i class="fa-solid fa-xmark"></i>Lunch</li><li><i class="fa-solid fa-xmark"></i>Personal expenses</li><li><i class="fa-solid fa-xmark"></i>Entry tickets</li></ul>
+                    </div>
+                </div>
+            </div>
+            <aside class="pkg-sidebar">
+                <div class="sidebar-card" id="enquiry">
+                    <div class="sidebar-From ₹24,999">From ₹24,999 <span>/ person</span></div>
+                    <div class="sidebar-7 Nights / 8 Days"><i class="fa-solid fa-clock"></i> 7 Nights / 8 Days</div>
+                    <form class="mini-form" id="pkg-enquiry-form" novalidate>
+                        <label for="pkg-name">Your Name *</label>
+                        <input type="text" id="pkg-name" name="name" placeholder="Full Name" required>
+                        <label for="pkg-phone">Phone Number *</label>
+                        <input type="tel" id="pkg-phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                        <label for="pkg-date">Travel Date</label>
+                        <input type="date" id="pkg-date" name="travel_date">
+                        <label for="pkg-pax">No. of Travellers</label>
+                        <select id="pkg-pax" name="passengers">
+                            <option>1 Person</option><option>2 Persons</option><option>3–4 Persons</option><option>5+ Persons</option>
+                        </select>
+                        <label for="pkg-msg">Special Requests</label>
+                        <textarea id="pkg-msg" name="message" placeholder="Any special requests..."></textarea>
+                        <button type="submit" class="btn-primary" style="width:100%;margin-top:1rem;justify-content:center;" id="pkg-submit-btn"><i class="fa-solid fa-paper-plane"></i> Send Enquiry</button>
+                    </form>
+                    <div style="display:none;text-align:center;padding:1rem;" id="pkg-form-success">
+                        <i class="fa-solid fa-circle-check" style="color:#2e7d32;font-size:2rem;display:block;margin-bottom:.5rem;"></i>
+                        <p style="color:#1E1208;font-weight:600;">Enquiry Sent!</p>
+                        <p style="font-size:.82rem;color:#7C5C35;">We'll call you within 24 hours.</p>
+                    </div>
+                </div>
+                <div class="sidebar-card">
+                    <h4 style="margin-bottom:1rem;color:#1E1208;">Need Help? Contact Us</h4>
+                    <div class="sidebar-contact">
+                        <a href="tel:+919629245533" class="sc-item"><i class="fa-solid fa-phone"></i> +91 96292 45533</a>
+                        <a href="https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20Royal Rajasthan" class="sc-item" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> WhatsApp Us</a>
+                        <a href="mailto:info@mithratoursandtravels.in" class="sc-item"><i class="fa-solid fa-envelope"></i> info@mithratoursandtravels.in</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-white">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <a href="../index.html" class="footer-logo">
+                    <img src="../Assets/logo.png" alt="Mithra Tours & Travels Logo" width="140" height="42">
+                </a>
+                <p>
+                    Mithra Tours & Travels — Journeys That Connect. Premier corporate mobility, outstation cabs, and holiday packages from Kilpauk Garden, Chennai.
+                </p>
+                <div class="social-icons-row">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/919629245533" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../corporate.html">Corporate Cabs</a></li>
+                    <li><a href="../our-fleet.html">Our Fleet</a></li>
+                    <li><a href="../holidays.html">Holiday Packages</a></li>
+                    <li><a href="../cab-attachment.html">Cab Attachment</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="../corporate.html">Employee Shuttles</a></li>
+                    <li><a href="../corporate.html">Airport Transfers</a></li>
+                    <li><a href="../our-fleet.html">Innova Crysta</a></li>
+                    <li><a href="../our-fleet.html">Tempo Traveller</a></li>
+                    <li><a href="../holidays.html#additional">Visa & Flights</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <a href="tel:+919629245533">
+                            <i class="fa-solid fa-phone footer-icon"></i>
+                            <span>+91 96292 45533</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:bookings@mithratoursandtravels.in">
+                            <i class="fa-solid fa-calendar-check footer-icon"></i>
+                            <span>bookings@mithratoursandtravels.in</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contact@mithratoursandtravels.in">
+                            <i class="fa-solid fa-envelope footer-icon"></i>
+                            <span>contact@mithratoursandtravels.in</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../contact.html">
+                            <i class="fa-solid fa-location-dot footer-icon"></i>
+                            <span>No.46, 2A, 2nd Floor, Canal Rd, Kilpauk Garden, Chennai 600010</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-map-col">
+                <h4>Office Location</h4>
+                <div class="footer-map-wrap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.294697926888!2d80.23386627584102!3d13.08053671249767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265e10ba8f89b%3A0x8eaf73f558d386f4!2sno.46%2C%20Mithra%20tours%20and%20travels%2C%202a%2C%202nd%20floor%2C%20Old%2C%20New%2C%20Canal%20Rd%2C%20Kilpauk%20Garden%2C%20Chennai%2C%20Tamil%20Nadu%20600010!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mithra Tours Kilpauk Office Location"></iframe>
+                    <a href="https://maps.app.goo.gl/4frzLNoAzemMx8vy8?g_st=aw" target="_blank" rel="noopener" class="footer-map-link">
+                        <i class="fa-solid fa-location-arrow"></i> Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-row">
+            <div>
+                © 2026 Mithra Tours & Travels. All rights reserved.
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="../contact.html">Support</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/919629245533" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>50));
+const mobileMenu=document.getElementById('mobile-menu');
+const navLinks=document.getElementById('nav-links');
+mobileMenu.addEventListener('click',()=>{navLinks.classList.toggle('open');mobileMenu.innerHTML=navLinks.classList.contains('open')?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';});
+navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');mobileMenu.innerHTML='<i class="fa-solid fa-bars"></i>';}));
+
+document.getElementById('pkg-enquiry-form').addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=document.getElementById('pkg-submit-btn');
+    btn.textContent='Sending...';btn.disabled=true;
+    const params=Object.fromEntries(new FormData(this).entries());
+    params.subject='Package Enquiry: Royal Rajasthan';
+    try{
+        const resp=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'YOUR_WEB3FORMS_KEY',...params})});
+        if(resp.ok){document.getElementById('pkg-enquiry-form').style.display='none';document.getElementById('pkg-form-success').style.display='block';}
+        else{throw new Error();}
+    }catch{btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> Send Enquiry';btn.disabled=false;alert('Please call +91 96292 45533 directly.');}
+});
+</script>
+</body>
+</html>

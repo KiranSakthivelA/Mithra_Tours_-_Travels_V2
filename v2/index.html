@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithra Tours & Travels | Corporate Cabs, Holidays & Travel Solutions Chennai</title>
+    <meta name="description" content="Mithra Tours & Travels — Chennai's premier travel agency. Corporate Cabs, Airport Transfers, Outstation & Business Tours, Holiday Packages, Flight / Train / Cruise Booking, Visa Assistance.">
+    <link rel="icon" href="Assets/Fav_Icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/brand.css?v=610">
+    <style>
+        .pkg-preview-card {
+            background: #FFFFFF; border: 1.5px solid var(--border-card);
+            border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-card);
+            transition: all 0.3s ease; display: flex; flex-direction: column;
+        }
+        .pkg-preview-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--gold-2); }
+        .pkg-preview-img { height: 200px; position: relative; overflow: hidden; }
+        .pkg-preview-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .pkg-preview-card:hover .pkg-preview-img img { transform: scale(1.08); }
+        .pkg-pill-badge {
+            position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.92);
+            color: var(--gold-4); font-size: 0.72rem; font-weight: 800; padding: 0.25rem 0.75rem;
+            border-radius: var(--r-pill); backdrop-filter: blur(8px);
+        }
+        .pkg-preview-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVBAR (Clean Pure White)
+════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="Assets/Site_Logo.png" alt="Mithra Tours & Travels">
+        </a>
+
+        <div class="nav-links" id="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="corporate.html">Corporate</a>
+            <a href="our-fleet.html">Our Fleet</a>
+            <a href="holidays.html">Holidays</a>
+            <a href="about.html">About Us</a>
+            <a href="cab-attachment.html">Cab Attachment</a>
+        </div>
+
+        <div class="nav-actions">
+            <a href="contact.html" class="nav-contact-link">Contact</a>
+            <a href="contact.html#enquiry" class="btn btn-gold"><i class="fa-solid fa-bolt"></i> Get Quote</a>
+        </div>
+
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     1. BANNER (Home Page Hero)
+════════════════════════════════════════════════ -->
+<section class="hero-travellers" id="banner">
+    <div class="hero-blob-1"></div>
+    <div class="hero-blob-2"></div>
+
+    <div class="container">
+        <div class="hero-grid">
+            <!-- Left content -->
+            <div class="hero-left">
+                <div class="hero-pill-badge">
+                    <i class="fa-solid fa-crown"></i>
+                    Chennai's Most Trusted Travel Partner
+                </div>
+                <h1 class="hero-title">
+                    Journeys That Connect,<br>
+                    <span class="gold-highlight">Safe & Comfortable.</span>
+                </h1>
+                <p class="hero-desc">
+                    Corporate Cabs · Airport Transfers · Outstation & Business Tours · Holiday Packages · Flight / Train / Cruise Booking · Visa Assistance
+                </p>
+                <div class="hero-btn-row">
+                    <a href="contact.html#enquiry" class="btn btn-gold">
+                        <i class="fa-solid fa-calendar-check"></i> Book Now
+                    </a>
+                    <a href="corporate.html" class="btn btn-gold-soft">
+                        <i class="fa-solid fa-briefcase"></i> Corporate Mobility
+                    </a>
+                    <a href="https://wa.me/919629245533?text=Hello%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Quote
+                    </a>
+                </div>
+
+                <!-- Stats Strip -->
+                <div class="hero-stats-row">
+                    <div class="hero-stat-box">
+                        <h4>2024</h4>
+                        <p>Established in Chennai</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <h4>100<span>+</span></h4>
+                        <p>Affiliated Vehicles</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <h4>24×7</h4>
+                        <p>×365 Operational Support</p>
+                    </div>
+                    <div class="hero-stat-box">
+                        <h4>GST</h4>
+                        <p>Compliant Billing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual -->
+            <div class="hero-right">
+                <div class="hero-visual-card">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=85&w=800" alt="Mithra Travel Experience" class="hero-main-img">
+                    
+                    <div class="hero-card-floating-top">
+                        <div class="float-icon-gold"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="float-text">
+                            <strong>100% Verified Drivers</strong>
+                            <span>Sealed hygiene welcome kit</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-card-floating-bottom">
+                        <div class="float-icon-gold"><i class="fa-solid fa-star"></i></div>
+                        <div class="float-text">
+                            <strong>4.9 / 5 Rating</strong>
+                            <span>Safe, reliable & on-time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     TRUST TICKER
+════════════════════════════════════════════════ -->
+<div class="trust-strip">
+    <div class="trust-track">
+        <div class="trust-item"><i class="fa-solid fa-box"></i> Sealed Hygienic Welcome Kit</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-file-invoice-dollar"></i> GST Consolidated Invoicing</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-clock"></i> On-Time Guaranteed</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-headset"></i> 24/7 Round-the-Clock Support</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Background-Verified Chauffeurs</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-route"></i> Pan-India Coverage</div>
+        <div class="trust-dot"></div>
+        <!-- Loop duplicate -->
+        <div class="trust-item"><i class="fa-solid fa-box"></i> Sealed Hygienic Welcome Kit</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-file-invoice-dollar"></i> GST Consolidated Invoicing</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-clock"></i> On-Time Guaranteed</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-headset"></i> 24/7 Round-the-Clock Support</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Background-Verified Chauffeurs</div>
+        <div class="trust-dot"></div>
+        <div class="trust-item"><i class="fa-solid fa-route"></i> Pan-India Coverage</div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     2. CORPORATE (Card / Section)
+════════════════════════════════════════════════ -->
+<section class="section section-light" id="corporate">
+    <div class="container">
+        <div class="section-header center">
+            <span class="section-label center">Corporate Transport</span>
+            <h2 class="section-title center">Corporate Mobility & Services</h2>
+            <p class="section-desc center">Corporate Cab Services, Airport Pickups & Drops, Outstation Trips, Business Tours.</p>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- Corporate Cab Services -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-building-user"></i></div>
+                <h3 style="font-size:1.3rem;">Corporate Cab Services</h3>
+                <p>Daily, monthly, and on-demand duties for corporate teams. Employee pickup & drop with consolidated GST invoicing.</p>
+                <div class="card-footer">
+                    <a href="corporate.html" style="font-size:0.88rem; font-weight:800; color:var(--gold-4); display:inline-flex; align-items:center; gap:0.4rem;">
+                        View Corporate Services <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Airport Pickups & Drops -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-plane-arrival"></i></div>
+                <h3 style="font-size:1.3rem;">Airport Pickups & Drops</h3>
+                <p>Guaranteed on-time 24/7 airport transfers across Chennai International Airport with live flight tracking.</p>
+                <div class="card-footer">
+                    <a href="corporate.html" style="font-size:0.88rem; font-weight:800; color:var(--gold-4); display:inline-flex; align-items:center; gap:0.4rem;">
+                        Airport Transfer Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Outstation Trips & Business Tours -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-route"></i></div>
+                <h3 style="font-size:1.3rem;">Outstation & Business Tours</h3>
+                <p>Comfortable multi-city road trips across Tamil Nadu and South India for corporate roadshows, plant visits & family trips.</p>
+                <div class="card-footer">
+                    <a href="corporate.html" style="font-size:0.88rem; font-weight:800; color:var(--gold-4); display:inline-flex; align-items:center; gap:0.4rem;">
+                        Plan Outstation Route <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     3. HOLIDAYS (Card / Section)
+════════════════════════════════════════════════ -->
+<section class="section" id="holidays">
+    <div class="container">
+        <div class="section-header center">
+            <span class="section-label center">Travel & Holidays</span>
+            <h2 class="section-title center">Domestic & International Holiday Packages</h2>
+            <p class="section-desc center">Domestic & International Holiday Packages, Flight / Train / Cruise Booking, Visa Assistance.</p>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- Domestic Card -->
+            <div class="pkg-preview-card">
+                <div class="pkg-preview-img">
+                    <img src="Assets/holiday_kerala.jpg" alt="Domestic Holidays">
+                    <span class="pkg-pill-badge">Domestic Holiday Packages</span>
+                </div>
+                <div class="pkg-preview-body">
+                    <div>
+                        <h4 style="font-size:1.2rem; font-weight:800; margin-bottom:0.4rem; color:var(--text-heading);">Kerala, Rajasthan, Ooty & More</h4>
+                        <p style="font-size:0.86rem; color:var(--text-body); line-height:1.6; margin-bottom:1.2rem;">All-inclusive domestic packages with resort stays, verified vehicle transfers, and guided sightseeing.</p>
+                    </div>
+                    <a href="holidays.html" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; align-self:flex-start;">View Domestic Packages</a>
+                </div>
+            </div>
+
+            <!-- International Card -->
+            <div class="pkg-preview-card">
+                <div class="pkg-preview-img">
+                    <img src="Assets/holiday_bali.jpg" alt="International Holidays">
+                    <span class="pkg-pill-badge">International Holidays</span>
+                </div>
+                <div class="pkg-preview-body">
+                    <div>
+                        <h4 style="font-size:1.2rem; font-weight:800; margin-bottom:0.4rem; color:var(--text-heading);">Bali, Dubai, Singapore & Beyond</h4>
+                        <p style="font-size:0.86rem; color:var(--text-body); line-height:1.6; margin-bottom:1.2rem;">Complete international tour packages with flights, overseas insurance, visa assistance, and luxury resorts.</p>
+                    </div>
+                    <a href="holidays.html" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; align-self:flex-start;">View International Packages</a>
+                </div>
+            </div>
+
+            <!-- Flight / Train / Cruise / Visa Card -->
+            <div class="white-card">
+                <div class="card-icon-gold"><i class="fa-solid fa-passport"></i></div>
+                <h3 style="font-size:1.3rem;">Ticketing & Visa Desk</h3>
+                <p>One-stop booking for Domestic & International Flights, IRCTC Train Tickets, Cruise Holidays, and end-to-end Visa Assistance.</p>
+                <div class="card-footer">
+                    <a href="holidays.html#additional" style="font-size:0.88rem; font-weight:800; color:var(--gold-4); display:inline-flex; align-items:center; gap:0.4rem;">
+                        Explore Travel Desk <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     4. WHY MITHRA (True S-Wave Road Map)
+════════════════════════════════════════════════ -->
+<section class="section why-flow-section" id="why-mithra">
+    <div class="container">
+        <div class="section-header center">
+            <span class="section-label center">Why Choose Us</span>
+            <h2 class="section-title center">Why Mithra Tours & Travels</h2>
+            <p class="section-desc center">One Vendor, Every Need · Consistency You Can Verify · Safety First · On-Time, Every Time.</p>
+        </div>
+
+        <div class="why-flow-wrapper">
+            <!-- Dynamic S-Curve Road SVG (Line Connects Directly Between All 4 Icons) -->
+            <svg class="flow-road-svg"></svg>
+
+            <!-- 4 Flow Step Nodes -->
+            <div class="flow-steps-grid cols-4">
+                <!-- 1. One Vendor, Every Need (Top Crest: Text in Top Band, Icon on Road) -->
+                <div class="flow-node-item pos-top">
+                    <div class="flow-node-body">
+                        <h3>One Vendor, Every Need</h3>
+                        <p>From daily cabs to flights, hotels, and visas — complete travel coverage without managing multiple vendors.</p>
+                    </div>
+                    <div class="flow-squircle-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                </div>
+
+                <!-- 2. Consistency You Can Verify (Bottom Trough: Icon on Road, Text in Bottom Band) -->
+                <div class="flow-node-item pos-bottom">
+                    <div class="flow-squircle-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="flow-node-body">
+                        <h3>Consistency You Can Verify</h3>
+                        <p>Every vehicle in our network operates under the same documented standard: verified drivers & uniform hygiene.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Safety First (Top Crest: Text in Top Band, Icon on Road) -->
+                <div class="flow-node-item pos-top">
+                    <div class="flow-node-body">
+                        <h3>Safety First</h3>
+                        <p>Verified drivers, GPS tracking, and rigorously maintained vehicles enforced across our entire fleet.</p>
+                    </div>
+                    <div class="flow-squircle-icon">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+
+                <!-- 4. On-Time, Every Time (Bottom Trough: Icon on Road, Text in Bottom Band) -->
+                <div class="flow-node-item pos-bottom">
+                    <div class="flow-squircle-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="flow-node-body">
+                        <h3>On-Time, Every Time</h3>
+                        <p>We arrange vehicles punctually without exception — because a late pickup compromises every journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     5. ABOUT US (2-Column Story Grid)
+════════════════════════════════════════════════ -->
+<section class="section" id="about-us">
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-visual">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=85&w=800" alt="About Mithra Tours" class="story-main-img">
+            </div>
+
+            <div class="story-content">
+                <span class="section-label">About Us</span>
+                <h2 class="section-title">Travel Built on Trust. Journeys Built Around You.</h2>
+                <p class="section-desc">
+                    Mithra Tours &amp; Travels, established in 2024 and based in Kilpauk Garden, Chennai, is a travel and mobility solutions company with a strong focus on <strong>corporate vehicle rentals and ground transportation</strong>.
+                </p>
+                <p style="font-size:0.92rem; color:var(--text-body); line-height:1.75; margin-top:1rem;">
+                    What began as a focused corporate cab service has grown into a broader travel partner, offering <strong>corporate mobility, airport transfers, outstation travel, business tours and travel &amp; holiday services</strong>. Our approach is simple — safe vehicles, verified drivers, professional operations and a consistent experience on every journey.
+                </p>
+                <div style="margin-top:2rem;">
+                    <a href="about.html" class="btn btn-gold"><i class="fa-solid fa-circle-info"></i> Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     6. GET IN TOUCH (Card / Section)
+════════════════════════════════════════════════ -->
+<section class="section section-light" id="get-in-touch">
+    <div class="container">
+        <div class="section-header center">
+            <span class="section-label center">Get In Touch</span>
+            <h2 class="section-title center">Contact Our Travel Desk</h2>
+            <p class="section-desc center">96292 45533 · Kilpauk Garden, Chennai.</p>
+        </div>
+
+        <div class="get-in-touch-grid">
+            <!-- Left Info Card -->
+            <div>
+                <div class="white-card" style="margin-bottom:1.5rem;">
+                    <div class="card-icon-gold"><i class="fa-solid fa-phone"></i></div>
+                    <h3 style="font-size:1.2rem;">Direct Phone</h3>
+                    <p style="font-size:0.86rem; color:var(--text-body); margin-bottom:0.5rem;">24/7 Dispatch and emergency assistance.</p>
+                    <a href="tel:+919629245533" style="font-size:1.15rem; font-weight:800; color:var(--text-heading);">+91 96292 45533</a>
+                </div>
+
+                <div class="white-card" style="margin-bottom:1.5rem;">
+                    <div class="card-icon-gold" style="background:#E6FBF0; border-color:rgba(37,211,102,0.3); color:#25D366;"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h3 style="font-size:1.2rem;">WhatsApp Support</h3>
+                    <p style="font-size:0.86rem; color:var(--text-body); margin-bottom:0.75rem;">Fast rate cards & instantaneous booking.</p>
+                    <a href="https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote" target="_blank" rel="noopener" class="btn btn-whatsapp" style="font-size:0.84rem; padding:0.5rem 1.2rem;">
+                        <i class="fa-brands fa-whatsapp"></i> Chat On WhatsApp
+                    </a>
+                </div>
+
+                <!-- Interactive Google Map Iframe Card (Replacing static text card as requested) -->
+                <div class="home-map-card">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.294697926888!2d80.23386627584102!3d13.08053671249767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265e10ba8f89b%3A0x8eaf73f558d386f4!2sno.46%2C%20Mithra%20tours%20and%20travels%2C%202a%2C%202nd%20floor%2C%20Old%2C%20New%2C%20Canal%20Rd%2C%20Kilpauk%20Garden%2C%20Chennai%2C%20Tamil%20Nadu%20600010!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" height="190" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Office Location Map"></iframe>
+                    <div class="home-map-card-footer">
+                        <span><i class="fa-solid fa-location-dot" style="color:var(--gold-3); margin-right:4px;"></i> Kilpauk Garden, Chennai</span>
+                        <a href="https://maps.app.goo.gl/4frzLNoAzemMx8vy8?g_st=aw" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Quick Form (Refined with premium Travellers styling) -->
+            <div class="home-contact-card">
+                <div style="margin-bottom:1.5rem;">
+                    <span class="section-label">Direct Enquiry</span>
+                    <h3 style="font-size:1.6rem; font-weight:800; color:var(--text-heading);">Send a Travel Request</h3>
+                </div>
+                
+                <form onsubmit="handleHomeEnquiry(event)">
+                    <div class="form-grid-2">
+                        <div>
+                            <label class="form-label">Your Name *</label>
+                            <input type="text" id="he-name" class="form-control" placeholder="Full name" required>
+                        </div>
+                        <div>
+                            <label class="form-label">Mobile Number *</label>
+                            <input type="tel" id="he-phone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Service Required *</label>
+                        <select id="he-service" class="form-control">
+                            <option>Corporate Cab Services</option>
+                            <option>Airport Pickups & Drops</option>
+                            <option>Outstation Trips & Business Tours</option>
+                            <option>Domestic & International Holiday Packages</option>
+                            <option>Flight / Train / Cruise Booking</option>
+                            <option>Visa Assistance</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:1.5rem;">
+                        <label class="form-label">Requirement Details</label>
+                        <textarea id="he-details" class="form-control" rows="3" placeholder="Dates, route, passenger count, vehicle choice..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-gold btn-full" style="padding:0.95rem; font-size:1rem;">
+                        <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CTA RIBBON (Vibrant Gold Card)
+════════════════════════════════════════════════ -->
+<section class="cta-ribbon-section">
+    <div class="container">
+        <div class="cta-ribbon-card">
+            <div class="cta-ribbon-text">
+                <h2>Journeys That Connect — Ready to Travel?</h2>
+                <p>Connect with our team 24/7 for instant quotes, customized itineraries, or corporate transport contracts.</p>
+            </div>
+            <div class="cta-ribbon-btns">
+                <a href="#get-in-touch" class="btn-cta-white"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
+                <a href="https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20want%20a%20travel%20quote" class="btn-cta-outline" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER (Clean Minimalist White)
+════════════════════════════════════════════════ -->
+<footer class="footer-white">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="footer-logo">
+                    <img src="Assets/Site_Logo.png" alt="Mithra Tours & Travels Logo" width="140" height="42">
+                </a>
+                <p>
+                    Mithra Tours & Travels — Journeys That Connect. Premier corporate mobility, outstation cabs, and holiday packages from Kilpauk Garden, Chennai.
+                </p>
+                <div class="social-icons-row">
+                    <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/919629245533" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="corporate.html">Corporate Cabs</a></li>
+                    <li><a href="our-fleet.html">Our Fleet</a></li>
+                    <li><a href="holidays.html">Holiday Packages</a></li>
+                    <li><a href="cab-attachment.html">Cab Attachment</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="corporate.html">Employee Shuttles</a></li>
+                    <li><a href="corporate.html">Airport Transfers</a></li>
+                    <li><a href="our-fleet.html">Innova Crysta</a></li>
+                    <li><a href="our-fleet.html">Tempo Traveller</a></li>
+                    <li><a href="holidays.html#additional">Visa & Flights</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <a href="tel:+919629245533">
+                            <i class="fa-solid fa-phone footer-icon"></i>
+                            <span>+91 96292 45533</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:bookings@mithratoursandtravels.in">
+                            <i class="fa-solid fa-calendar-check footer-icon"></i>
+                            <span>bookings@mithratoursandtravels.in</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contact@mithratoursandtravels.in">
+                            <i class="fa-solid fa-envelope footer-icon"></i>
+                            <span>contact@mithratoursandtravels.in</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            <i class="fa-solid fa-location-dot footer-icon"></i>
+                            <span>No.46, 2A, 2nd Floor, Canal Rd, Kilpauk Garden, Chennai 600010</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-map-col">
+                <h4>Office Location</h4>
+                <div class="footer-map-wrap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.294697926888!2d80.23386627584102!3d13.08053671249767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265e10ba8f89b%3A0x8eaf73f558d386f4!2sno.46%2C%20Mithra%20tours%20and%20travels%2C%202a%2C%202nd%20floor%2C%20Old%2C%20New%2C%20Canal%20Rd%2C%20Kilpauk%20Garden%2C%20Chennai%2C%20Tamil%20Nadu%20600010!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mithra Tours Kilpauk Office Location"></iframe>
+                    <a href="https://maps.app.goo.gl/4frzLNoAzemMx8vy8?g_st=aw" target="_blank" rel="noopener" class="footer-map-link">
+                        <i class="fa-solid fa-location-arrow"></i> Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-row">
+            <div>
+                © 2026 Mithra Tours & Travels. All rights reserved.
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote" class="wa-floating-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.getElementById('nav-links');
+
+function closeMenu() {
+    navLinks.classList.remove('open');
+    mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+}
+
+if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        mobileMenu.innerHTML = navLinks.classList.contains('open') ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+}
+
+// Close when clicking outside the navbar
+document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navbar.contains(e.target)) {
+        closeMenu();
+    }
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+function handleHomeEnquiry(e) {
+    e.preventDefault();
+    const name = document.getElementById('he-name').value;
+    const phone = document.getElementById('he-phone').value;
+    const service = document.getElementById('he-service').value;
+    const details = document.getElementById('he-details').value;
+
+    const msg = `*New Travel Enquiry - Mithra Tours*\n\n*Name:* ${name}\n*Mobile:* ${phone}\n*Service:* ${service}\n*Details:* ${details}`;
+    window.open(`https://wa.me/919629245533?text=${encodeURIComponent(msg)}`, '_blank');
+}
+</script>
+
+
+
+
+
+
+
+<script>
+// Pixel-Perfect Dynamic S-Curve Road Line Generator for Flow Maps
+function updateAllFlowRoads() {
+    const wrappers = document.querySelectorAll('.why-flow-wrapper');
+    wrappers.forEach(wrapper => {
+        const svg = wrapper.querySelector('.flow-road-svg');
+        const icons = wrapper.querySelectorAll('.flow-squircle-icon');
+        if (!svg || icons.length < 2) return;
+
+        if (window.innerWidth <= 1024) {
+            svg.innerHTML = '';
+            return;
+        }
+
+        const wRect = wrapper.getBoundingClientRect();
+        const pts = Array.from(icons).map(icon => {
+            const iRect = icon.getBoundingClientRect();
+            return {
+                x: Math.round(iRect.left - wRect.left + iRect.width / 2),
+                y: Math.round(iRect.top - wRect.top + iRect.height / 2)
+            };
+        });
+
+        // Build smooth cubic Bezier S-curve directly through icon centers
+        let d = `M ${pts[0].x} ${pts[0].y}`;
+        for (let i = 0; i < pts.length - 1; i++) {
+            const p0 = pts[i];
+            const p1 = pts[i + 1];
+            const dx = (p1.x - p0.x) * 0.5;
+            d += ` C ${p0.x + dx} ${p0.y}, ${p1.x - dx} ${p1.y}, ${p1.x} ${p1.y}`;
+        }
+
+        // Add glowing node rings on each icon
+        const nodes = pts.map(p => 
+            `<circle cx="${p.x}" cy="${p.y}" r="8" fill="#FFFFFF" stroke="#F59E0B" stroke-width="3" opacity="0.9" />`
+        ).join('');
+
+        svg.setAttribute('viewBox', `0 0 ${Math.round(wRect.width)} ${Math.round(wRect.height)}`);
+        svg.innerHTML = `
+            <!-- Soft Glow Track Underlay -->
+            <path d="${d}" fill="none" stroke="#FDE68A" stroke-width="7" stroke-linecap="round" opacity="0.30" />
+            <!-- Dashed S-Road Line -->
+            <path d="${d}" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="6 8" opacity="0.40" stroke-linecap="round" />
+            ${nodes}
+        `;
+    });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    updateAllFlowRoads();
+    setTimeout(updateAllFlowRoads, 250);
+});
+window.addEventListener('resize', updateAllFlowRoads);
+window.addEventListener('load', updateAllFlowRoads);
+</script>
+
+</body>
+</html>
