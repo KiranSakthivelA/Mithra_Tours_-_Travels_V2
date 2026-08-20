@@ -2579,12 +2579,12 @@ textarea.form-control {
 
 
 /* ═══════════════════════════════════════════════════════════
-   HOME PAGE HERO — COMPLETE 2-COLUMN SIDE CAR & STATS LAYOUT
+   HOME PAGE HERO — SEAMLESS BLENDED CAR & STATS LAYOUT
    ═══════════════════════════════════════════════════════════ */
 .hero-sidecar-section {
     position: relative;
-    padding: 135px 0 70px;
-    background: radial-gradient(circle at 75% 35%, rgba(245, 158, 11, 0.06) 0%, rgba(255, 255, 255, 0) 65%), #FFFFFF;
+    padding: 140px 0 70px;
+    background: radial-gradient(circle at 80% 40%, rgba(245, 158, 11, 0.05) 0%, rgba(255, 255, 255, 0) 65%), #FFFFFF;
     overflow: hidden;
 }
 
@@ -2597,8 +2597,8 @@ textarea.form-control {
 
 .hero-sidecar-grid {
     display: grid;
-    grid-template-columns: 1.25fr 0.95fr;
-    gap: 3.5rem;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
     align-items: center;
     position: relative;
 }
@@ -2809,7 +2809,7 @@ textarea.form-control {
     margin-top: 0.25rem;
 }
 
-/* Right Column */
+/* Right Column: Seamless Blended Car (NO BOX) */
 .hero-sidecar-right {
     position: relative;
     display: flex;
@@ -2817,77 +2817,78 @@ textarea.form-control {
     justify-content: center;
 }
 
-.hero-trajectory-svg {
-    position: absolute;
-    width: 140%;
-    height: 130%;
-    top: -15%;
-    left: -20%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.hero-sidecar-img-wrap {
+.hero-car-seamless-wrap {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 580px;
-    border-radius: 28px;
-    overflow: hidden;
-    background: #FFFFFF;
-    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+    max-width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-sidecar-img {
+.hero-car-seamless-img {
     width: 100%;
     height: auto;
     display: block;
+    mix-blend-mode: multiply;
     transition: transform 0.4s ease;
 }
 
-.hero-sidecar-img-wrap:hover .hero-sidecar-img {
-    transform: scale(1.03);
+.hero-car-seamless-wrap:hover .hero-car-seamless-img {
+    transform: translateY(-4px) scale(1.02);
 }
 
-/* Floating Badges */
-.hero-floating-pill {
+/* Floating Glass Badges */
+.hero-floating-glass-pill {
     position: absolute;
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.95);
     border: 1.5px solid #E2E8F0;
-    padding: 0.55rem 1.15rem;
-    border-radius: 30px;
-    box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.12);
+    padding: 0.60rem 1.2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0,0,0,0.03);
+    backdrop-filter: blur(8px);
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.82rem;
-    font-weight: 800;
-    color: #0F172A;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
     z-index: 5;
     animation: floatBadgeAnim 4s ease-in-out infinite alternate;
     white-space: nowrap;
 }
 
-.hero-floating-pill i {
+.hero-floating-glass-pill .pill-val {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #0F172A;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.hero-floating-glass-pill .pill-val i {
     color: #D97706;
     font-size: 0.90rem;
 }
 
-.hero-floating-pill.pill-top-right {
-    top: -10px;
-    right: 15px;
+.hero-floating-glass-pill .pill-lbl {
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
 }
 
-.hero-floating-pill.pill-bottom-left {
-    bottom: 20px;
-    left: -20px;
+.hero-floating-glass-pill.pill-top-right {
+    top: 15px;
+    right: 20px;
+}
+
+.hero-floating-glass-pill.pill-bottom-left {
+    bottom: 25px;
+    left: -15px;
     animation-delay: 2s;
-}
-
-.hero-floating-pill.pill-mid-right {
-    top: 40%;
-    right: -25px;
-    animation-delay: 1s;
 }
 
 @keyframes floatBadgeAnim {
@@ -2939,7 +2940,7 @@ textarea.form-control {
         width: 100%;
         justify-content: center;
     }
-    .hero-floating-pill {
+    .hero-floating-glass-pill {
         display: none;
     }
     .hero-stats-strip {
