@@ -2583,7 +2583,7 @@ textarea.form-control {
    ═══════════════════════════════════════════════════════════ */
 .hero-sidecar-section {
     position: relative;
-    padding: 120px 0 85px;
+    padding: 92px 0 80px;
     background: radial-gradient(circle at 80% 40%, rgba(245, 158, 11, 0.05) 0%, rgba(255, 255, 255, 0) 65%), #FFFFFF;
     overflow: hidden;
 }
@@ -2620,7 +2620,7 @@ textarea.form-control {
     font-size: 0.82rem;
     font-weight: 700;
     color: #B45309;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.3rem;
     box-shadow: 0 2px 8px rgba(217, 119, 6, 0.08);
 }
 
@@ -2647,7 +2647,7 @@ textarea.form-control {
     font-size: 0.96rem;
     color: #64748B;
     line-height: 1.65;
-    margin-bottom: 2.2rem;
+    margin-bottom: 2.1rem;
     max-width: 580px;
 }
 
@@ -2843,7 +2843,7 @@ textarea.form-control {
 
 @media (max-width: 1024px) {
     .hero-sidecar-section {
-        padding: 100px 0 50px;
+        padding: 85px 0 50px;
     }
     .hero-sidecar-grid {
         grid-template-columns: 1fr;
