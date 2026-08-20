@@ -2352,15 +2352,16 @@ textarea.form-control {
     transform: translateY(-5px);
 }
 
-/* Vision Card (Warm Gold Gradient) */
+/* Vision Card (Clean Pure White) */
 .premium-vm-card.vision-card {
-    background: linear-gradient(145deg, #FFFDF5 0%, #FEF3C7 100%);
-    border: 1.5px solid #FDE68A;
-    box-shadow: 0 15px 35px -5px rgba(217, 119, 6, 0.12);
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.05);
 }
 
 .premium-vm-card.vision-card:hover {
-    box-shadow: 0 25px 50px -10px rgba(217, 119, 6, 0.22);
+    border-color: #FDE68A;
+    box-shadow: 0 25px 50px -10px rgba(217, 119, 6, 0.14);
 }
 
 /* Mission Card (Crisp White with Gold Accents) */
@@ -2427,18 +2428,32 @@ textarea.form-control {
     gap: 0.75rem;
     margin-top: auto;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(217, 119, 6, 0.2);
+    border-top: 1px solid #F1F5F9;
 }
 
 .vision-pill {
-    background: #FFFFFF;
-    border: 1px solid #FDE68A;
-    padding: 0.5rem 1rem;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    padding: 0.55rem 1.1rem;
     border-radius: 30px;
     font-size: 0.82rem;
     font-weight: 700;
-    color: #92400E;
-    box-shadow: 0 2px 6px rgba(217, 119, 6, 0.08);
+    color: #1E293B;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.vision-pill:hover {
+    background: #FFFBEB;
+    border-color: #FDE68A;
+    color: #D97706;
+}
+
+.vision-pill i {
+    color: #D97706;
 }
 
 /* Mission 4-Grid Blocks */
