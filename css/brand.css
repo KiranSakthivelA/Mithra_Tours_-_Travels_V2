@@ -2583,7 +2583,7 @@ textarea.form-control {
    ═══════════════════════════════════════════════════════════ */
 .hero-sidecar-section {
     position: relative;
-    padding: 118px 0 80px;
+    padding: 106px 0 80px;
     background: radial-gradient(circle at 80% 40%, rgba(245, 158, 11, 0.05) 0%, rgba(255, 255, 255, 0) 65%), #FFFFFF;
     overflow: hidden;
 }
