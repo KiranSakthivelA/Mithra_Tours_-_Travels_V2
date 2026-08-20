@@ -1,0 +1,488 @@
+const fs = require('fs');
+const path = require('path');
+
+const sideCarHeroCss = `
+/* ═══════════════════════════════════════════════════════════
+   HOME PAGE HERO — SEAMLESS BLENDED CAR & STATS LAYOUT
+   ═══════════════════════════════════════════════════════════ */
+.hero-sidecar-section {
+    position: relative;
+    padding: 95px 0 50px;
+    background: radial-gradient(circle at 80% 40%, rgba(245, 158, 11, 0.05) 0%, rgba(255, 255, 255, 0) 65%), #FFFFFF;
+    overflow: hidden;
+}
+
+.hero-sidecar-container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.hero-sidecar-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+}
+
+/* Left Column */
+.hero-sidecar-left {
+    z-index: 2;
+    text-align: left;
+}
+
+.hero-sidecar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.40rem 1.05rem;
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 30px;
+    font-size: 0.80rem;
+    font-weight: 700;
+    color: #B45309;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.08);
+}
+
+.hero-sidecar-badge i {
+    color: #D97706;
+}
+
+/* Punchy Bold Title */
+.hero-sidecar-title {
+    font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+    font-size: clamp(2.6rem, 3.8vw, 3.5rem);
+    font-weight: 900;
+    color: #0F172A;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.95rem;
+}
+
+.hero-sidecar-title .gold-highlight {
+    color: #D97706;
+}
+
+.hero-sidecar-desc {
+    font-size: 0.95rem;
+    color: #64748B;
+    line-height: 1.55;
+    margin-bottom: 1.6rem;
+    max-width: 600px;
+}
+
+/* Floating Dock Bar */
+.hero-dock-bar {
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.09), 0 2px 10px rgba(0,0,0,0.02);
+    padding: 0.65rem 0.80rem 0.65rem 1.1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 690px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 1.6rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-dock-bar:hover,
+.hero-dock-bar:focus-within {
+    border-color: #CBD5E1;
+    box-shadow: 0 25px 60px -12px rgba(217, 119, 6, 0.12);
+}
+
+.dock-bar-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 0.12rem 0.55rem;
+    min-width: 0;
+}
+
+.dock-bar-divider {
+    width: 1px;
+    height: 34px;
+    background: #E2E8F0;
+    flex-shrink: 0;
+}
+
+.dock-bar-item label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #64748B;
+    margin-bottom: 0.18rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+}
+
+.dock-bar-item label i {
+    color: #D97706;
+    font-size: 0.70rem;
+}
+
+.dock-bar-item input,
+.dock-bar-item select {
+    border: none;
+    background: transparent;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0F172A;
+    outline: none;
+    font-family: inherit;
+    cursor: pointer;
+    width: 100%;
+    padding: 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dock-bar-item input::placeholder {
+    color: #94A3B8;
+    font-weight: 500;
+}
+
+.dock-bar-item select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23D97706' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.1rem center;
+    padding-right: 1.15rem;
+}
+
+/* Send Symbol Only Button */
+.dock-bar-send-btn {
+    width: 46px;
+    height: 46px;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(217, 119, 6, 0.32);
+    flex-shrink: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dock-bar-send-btn:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 10px 24px rgba(217, 119, 6, 0.42);
+}
+
+/* Action Buttons Row */
+.hero-action-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+}
+
+/* Stats Strip */
+.hero-stats-strip {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.2rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid #F1F5F9;
+    max-width: 650px;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.stat-num {
+    font-size: 1.50rem;
+    font-weight: 900;
+    color: #0F172A;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.stat-num span {
+    color: #D97706;
+}
+
+.stat-lbl {
+    font-size: 0.66rem;
+    font-weight: 800;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 0.25rem;
+}
+
+/* Right Column: Seamless Blended Car (NO BOX, NO BADGES) */
+.hero-sidecar-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-car-seamless-wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 660px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-car-seamless-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    mix-blend-mode: multiply;
+    transition: transform 0.4s ease;
+}
+
+.hero-car-seamless-wrap:hover .hero-car-seamless-img {
+    transform: translateY(-4px) scale(1.02);
+}
+
+@media (max-width: 1024px) {
+    .hero-sidecar-section {
+        padding: 90px 0 40px;
+    }
+    .hero-sidecar-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .hero-sidecar-left {
+        text-align: center;
+    }
+    .hero-sidecar-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-dock-bar {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-action-row {
+        justify-content: center;
+    }
+    .hero-stats-strip {
+        margin: 0 auto;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-dock-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.25rem;
+        border-radius: 18px;
+    }
+    .dock-bar-divider {
+        display: none;
+    }
+    .dock-bar-item {
+        width: 100%;
+        border-bottom: 1px solid #F1F5F9;
+        padding-bottom: 0.5rem;
+    }
+    .dock-bar-send-btn {
+        width: 100%;
+        border-radius: 12px;
+        height: 48px;
+    }
+    .hero-stats-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+    }
+}
+`;
+
+const heroSideCarHtml = `<!-- ═══════════════════════════════════════════════
+     1. BANNER (Home Page Hero — Clean Compact Layout)
+════════════════════════════════════════════════ -->
+<section class="hero-sidecar-section" id="banner">
+    <div class="hero-sidecar-container">
+        <div class="hero-sidecar-grid">
+            <!-- Left Content Column -->
+            <div class="hero-sidecar-left">
+                <!-- Top Badge -->
+                <div class="hero-sidecar-badge">
+                    <i class="fa-solid fa-crown"></i> Chennai&rsquo;s Most Trusted Travel Partner
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="hero-sidecar-title">
+                    Journeys That Connect,<br>
+                    <span class="gold-highlight">Safe &amp; Comfortable.</span>
+                </h1>
+
+                <!-- Subtitle Services -->
+                <p class="hero-sidecar-desc">
+                    Corporate Cabs &middot; Airport Transfers &middot; Outstation &amp; Business Tours &middot; Holiday Packages &middot; Flight / Train / Cruise Booking &middot; Visa Assistance
+                </p>
+
+                <!-- Floating Quick Enquiry Bar -->
+                <form class="hero-dock-bar" id="hero-sidecar-form" onsubmit="handleHeroSideCarSend(event)">
+                    <div class="dock-bar-item">
+                        <label for="sidecar-name"><i class="fa-solid fa-user"></i> Name</label>
+                        <input type="text" id="sidecar-name" placeholder="Your Full Name" required autocomplete="name">
+                    </div>
+
+                    <div class="dock-bar-divider"></div>
+
+                    <div class="dock-bar-item">
+                        <label for="sidecar-phone"><i class="fa-solid fa-phone"></i> Contact</label>
+                        <input type="tel" id="sidecar-phone" placeholder="+91 Phone Number" required autocomplete="tel">
+                    </div>
+
+                    <div class="dock-bar-divider"></div>
+
+                    <div class="dock-bar-item">
+                        <label for="sidecar-service"><i class="fa-solid fa-car-side"></i> Service</label>
+                        <select id="sidecar-service" required>
+                            <option value="Corporate Mobility" selected>Corporate Mobility</option>
+                            <option value="Airport Transfers">Airport Transfers</option>
+                            <option value="Outstation Cabs">Outstation Cabs</option>
+                            <option value="Holiday Packages">Holiday Packages</option>
+                            <option value="Flight / Train Tickets">Flight / Train Tickets</option>
+                            <option value="Visa & Cruise Booking">Visa &amp; Cruise Booking</option>
+                        </select>
+                    </div>
+
+                    <div class="dock-bar-divider"></div>
+
+                    <div class="dock-bar-item">
+                        <label for="sidecar-date"><i class="fa-solid fa-calendar-days"></i> Date</label>
+                        <input type="date" id="sidecar-date" required>
+                    </div>
+
+                    <!-- Send Symbol Only Button -->
+                    <button type="submit" class="dock-bar-send-btn" title="Send Instant Quote Request" aria-label="Send Instant Quote Request">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <!-- Action Buttons Row -->
+                <div class="hero-action-row">
+                    <a href="#quick-booking" class="btn btn-gold">
+                        <i class="fa-solid fa-calendar-check"></i> Book Now
+                    </a>
+                    <a href="corporate.html" class="btn btn-gold-soft">
+                        <i class="fa-solid fa-briefcase"></i> Corporate Mobility
+                    </a>
+                    <a href="https://wa.me/919629245533?text=Hello%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Quote
+                    </a>
+                </div>
+
+                <!-- Stats Strip -->
+                <div class="hero-stats-strip">
+                    <div class="stat-box">
+                        <div class="stat-num">2024</div>
+                        <div class="stat-lbl">Established in Chennai</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">100<span>+</span></div>
+                        <div class="stat-lbl">Affiliated Vehicles</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">24&times;7</div>
+                        <div class="stat-lbl">&times;365 Operational Support</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">GST</div>
+                        <div class="stat-lbl">Compliant Billing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Seamless Blended Car (No Box, No Badges) -->
+            <div class="hero-sidecar-right">
+                <div class="hero-car-seamless-wrap">
+                    <img src="Assets/hero_car_transparent.png" alt="Mithra Tours & Travels Luxury Fleet" class="hero-car-seamless-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function handleHeroSideCarSend(e) {
+    e.preventDefault();
+    const name = document.getElementById('sidecar-name')?.value || '';
+    const phone = document.getElementById('sidecar-phone')?.value || '';
+    const service = document.getElementById('sidecar-service')?.value || '';
+    const date = document.getElementById('sidecar-date')?.value || '';
+    
+    const text = encodeURIComponent(
+        'Hello Mithra Tours & Travels,\n\n' +
+        'I would like to request an instant quote:\n' +
+        '• Name: ' + name + '\n' +
+        '• Contact Number: ' + phone + '\n' +
+        '• Service Required: ' + service + '\n' +
+        '• Travel Date: ' + date
+    );
+    
+    window.open('https://wa.me/919629245533?text=' + text, '_blank');
+}
+</script>`;
+
+// Update CSS
+['v2/css/brand.css', 'css/brand.css', 'deploy_ready/css/brand.css'].forEach(f => {
+    const file = path.resolve(__dirname, f);
+    if (!fs.existsSync(file)) return;
+    let css = fs.readFileSync(file, 'utf8');
+
+    const regex = /\/\* ═+\r?\n\s*HOME PAGE HERO[\s\S]*?(?=\/\* ═|$)/;
+    if (regex.test(css)) {
+        css = css.replace(regex, sideCarHeroCss.trim() + '\n\n');
+    } else {
+        css += '\n\n' + sideCarHeroCss.trim() + '\n';
+    }
+    fs.writeFileSync(file, css, 'utf8');
+    console.log('Updated compact sidecar hero CSS in:', file);
+});
+
+// Update HTML
+['v2/index.html', 'index.html', 'deploy_ready/index.html'].forEach(f => {
+    const file = path.resolve(__dirname, f);
+    if (!fs.existsSync(file)) return;
+    let html = fs.readFileSync(file, 'utf8');
+
+    const startMarker = '<!-- ═══════════════════════════════════════════════\n     1. BANNER';
+    const endMarker = '</section>';
+    const startIndex = html.indexOf(startMarker);
+    if (startIndex !== -1) {
+        const endIndex = html.indexOf(endMarker, startIndex);
+        if (endIndex !== -1) {
+            html = html.replace(/<script>\s*function (?:handleHeroQuickSend|selectDockCategory|handleHeroDockSend|handleHeroSideCarSend)[\s\S]*?<\/script>\s*/g, '');
+            html = html.substring(0, startIndex) + heroSideCarHtml.trim() + '\n' + html.substring(endIndex + endMarker.length);
+            fs.writeFileSync(file, html, 'utf8');
+            console.log('Applied compact sidecar Hero HTML in:', file);
+        }
+    }
+});
