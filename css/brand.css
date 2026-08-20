@@ -2327,155 +2327,126 @@ textarea.form-control {
 
 
 /* ═══════════════════════════════════════════════════════════
-   ABOUT US — CLEAN CRISP HOVER (ZERO YELLOW/CREAM TINTS)
+   ABOUT US — UNIFORM COMPACT VISION, MISSION & WHAT WE DO
    ═══════════════════════════════════════════════════════════ */
 
 /* ── 1. VISION & MISSION SHOWCASE ── */
 .premium-vm-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: stretch;
 }
 
 .premium-vm-card {
-    border-radius: 24px;
-    padding: 3rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
     background: #FFFFFF;
+    border-radius: 20px;
     border: 1.5px solid #E2E8F0;
     box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .premium-vm-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: #CBD5E1;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08);
 }
 
 .vm-badge-row {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.1rem;
 }
 
 .vm-icon-squircle {
-    width: 60px;
-    height: 60px;
-    border-radius: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
     background: #FFFFFF;
     color: #D97706;
     border: 1.5px solid #FDE68A;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    font-size: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     flex-shrink: 0;
 }
 
 .vm-card-tag {
-    font-size: 0.76rem;
+    font-size: 0.72rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     color: #D97706;
+    margin-bottom: 0.15rem;
 }
 
 .vm-card-title {
-    font-size: 1.65rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: #0F172A;
     margin: 0;
 }
 
-.vm-quote-text {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #1E293B;
-    line-height: 1.75;
-    margin-bottom: 2rem;
+.vm-desc-text {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.65;
+    margin-bottom: 1.4rem;
 }
 
-/* Vision Commitments Pills */
-.vision-commitments {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+/* Uniform 4-Pillars Grid */
+.vm-pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
     margin-top: auto;
-    padding-top: 1.5rem;
-    border-top: 1px solid #F1F5F9;
 }
 
-.vision-pill {
+.vm-pillar-item {
     background: #F8FAFC;
     border: 1px solid #E2E8F0;
-    padding: 0.55rem 1.1rem;
-    border-radius: 30px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #1E293B;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    border-radius: 14px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     transition: all 0.2s ease;
 }
 
-.vision-pill:hover {
-    background: #FFFFFF;
-    border-color: #CBD5E1;
-    color: #0F172A;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-.vision-pill i {
-    color: #D97706;
-}
-
-/* Mission 4-Grid Blocks */
-.mission-blocks-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: auto;
-}
-
-.mission-block {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    border-radius: 16px;
-    padding: 1.1rem;
-    transition: all 0.25s ease;
-}
-
-.mission-block:hover {
-    background: #FFFFFF;
-    border-color: #CBD5E1;
+.vm-pillar-item:hover {
+    background: #FFFFFF !important;
+    border-color: #CBD5E1 !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
 }
 
-.mission-block-icon {
-    font-size: 1.2rem;
+.vm-pillar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vm-pillar-icon {
+    font-size: 0.95rem;
     color: #D97706;
-    margin-bottom: 0.5rem;
+    flex-shrink: 0;
 }
 
-.mission-block h5 {
-    font-size: 0.88rem;
+.vm-pillar-item h5 {
+    font-size: 0.84rem;
     font-weight: 800;
     color: #0F172A;
-    margin: 0 0 0.25rem;
+    margin: 0;
 }
 
-.mission-block p {
-    font-size: 0.78rem;
+.vm-pillar-item p {
+    font-size: 0.76rem;
     color: #64748B;
     line-height: 1.45;
     margin: 0;
@@ -2486,58 +2457,58 @@ textarea.form-control {
 .premium-wwd-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .premium-wwd-card {
     background: #FFFFFF;
-    border-radius: 24px;
+    border-radius: 20px;
     border: 1.5px solid #E2E8F0;
     box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
-    padding: 2.5rem;
+    padding: 2.25rem 2rem;
     display: flex;
     flex-direction: column;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .premium-wwd-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: #CBD5E1;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08);
 }
 
 .wwd-card-header {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
     border-bottom: 1px solid #F1F5F9;
 }
 
 .wwd-header-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
     background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
     color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    box-shadow: 0 10px 20px rgba(217, 119, 6, 0.25);
+    font-size: 1.25rem;
+    box-shadow: 0 6px 14px rgba(217, 119, 6, 0.2);
     flex-shrink: 0;
 }
 
 .wwd-header-title {
-    font-size: 1.45rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: #0F172A;
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.2rem;
 }
 
 .wwd-header-sub {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: #64748B;
     margin: 0;
 }
@@ -2546,25 +2517,25 @@ textarea.form-control {
 .wwd-services-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 0.85rem;
 }
 
 .wwd-service-tile {
     background: #F8FAFC;
     border: 1px solid #E2E8F0;
-    border-radius: 16px;
-    padding: 1.25rem;
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    transition: all 0.25s ease;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
 }
 
 .wwd-service-tile:hover {
     background: #FFFFFF !important;
     border-color: #CBD5E1 !important;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06) !important;
 }
 
 .wwd-service-tile:hover .wwd-tile-icon {
@@ -2574,22 +2545,22 @@ textarea.form-control {
 }
 
 .wwd-tile-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
     background: #FFFFFF;
     color: #D97706;
     border: 1px solid #FDE68A;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    font-size: 0.90rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
     transition: all 0.2s ease;
 }
 
 .wwd-service-tile h4 {
-    font-size: 0.94rem;
+    font-size: 0.86rem;
     font-weight: 800;
     color: #0F172A;
     margin: 0;
@@ -2597,7 +2568,7 @@ textarea.form-control {
 }
 
 .wwd-service-tile p {
-    font-size: 0.80rem;
+    font-size: 0.76rem;
     color: #64748B;
     line-height: 1.45;
     margin: 0;
@@ -2607,9 +2578,9 @@ textarea.form-control {
     .premium-vm-grid,
     .premium-wwd-grid {
         grid-template-columns: 1fr;
-        gap: 1.75rem;
+        gap: 1.5rem;
     }
-    .mission-blocks-grid,
+    .vm-pillars-grid,
     .wwd-services-grid {
         grid-template-columns: 1fr;
     }
