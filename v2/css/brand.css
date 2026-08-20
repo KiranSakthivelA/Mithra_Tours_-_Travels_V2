@@ -2327,7 +2327,7 @@ textarea.form-control {
 
 
 /* ═══════════════════════════════════════════════════════════
-   ABOUT US — PREMIUM VISION, MISSION & WHAT WE DO
+   ABOUT US — CLEAN CRISP HOVER (ZERO YELLOW/CREAM TINTS)
    ═══════════════════════════════════════════════════════════ */
 
 /* ── 1. VISION & MISSION SHOWCASE ── */
@@ -2345,35 +2345,16 @@ textarea.form-control {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .premium-vm-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Vision Card (Clean Pure White) */
-.premium-vm-card.vision-card {
-    background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
-    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.05);
-}
-
-.premium-vm-card.vision-card:hover {
-    border-color: #FDE68A;
-    box-shadow: 0 25px 50px -10px rgba(217, 119, 6, 0.14);
-}
-
-/* Mission Card (Crisp White with Gold Accents) */
-.premium-vm-card.mission-card {
-    background: #FFFFFF;
-    border: 1.5px solid #E2E8F0;
-    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.05);
-}
-
-.premium-vm-card.mission-card:hover {
-    border-color: #FDE68A;
-    box-shadow: 0 25px 50px -10px rgba(217, 119, 6, 0.14);
+    transform: translateY(-4px);
+    border-color: #CBD5E1;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
 }
 
 .vm-badge-row {
@@ -2394,7 +2375,7 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     flex-shrink: 0;
 }
 
@@ -2447,9 +2428,10 @@ textarea.form-control {
 }
 
 .vision-pill:hover {
-    background: #FFFBEB;
-    border-color: #FDE68A;
-    color: #D97706;
+    background: #FFFFFF;
+    border-color: #CBD5E1;
+    color: #0F172A;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .vision-pill i {
@@ -2473,9 +2455,10 @@ textarea.form-control {
 }
 
 .mission-block:hover {
-    background: #FFFBEB;
-    border-color: #FDE68A;
+    background: #FFFFFF;
+    border-color: #CBD5E1;
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .mission-block-icon {
@@ -2510,17 +2493,17 @@ textarea.form-control {
     background: #FFFFFF;
     border-radius: 24px;
     border: 1.5px solid #E2E8F0;
-    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .premium-wwd-card:hover {
-    transform: translateY(-5px);
-    border-color: #FDE68A;
-    box-shadow: 0 25px 50px -10px rgba(217, 119, 6, 0.14);
+    transform: translateY(-4px);
+    border-color: #CBD5E1;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
 }
 
 .wwd-card-header {
@@ -2578,10 +2561,16 @@ textarea.form-control {
 }
 
 .wwd-service-tile:hover {
-    background: #FFFBEB;
-    border-color: #FDE68A;
+    background: #FFFFFF !important;
+    border-color: #CBD5E1 !important;
     transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(217, 119, 6, 0.08);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
+}
+
+.wwd-service-tile:hover .wwd-tile-icon {
+    background: #D97706;
+    color: #FFFFFF;
+    border-color: #D97706;
 }
 
 .wwd-tile-icon {
@@ -2596,6 +2585,7 @@ textarea.form-control {
     justify-content: center;
     font-size: 1rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
 }
 
 .wwd-service-tile h4 {
