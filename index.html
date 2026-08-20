@@ -62,7 +62,7 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     1. BANNER (Home Page Hero — Clean Focused Dock)
+     1. BANNER (Home Page Hero — Clean Focused Layout)
 ════════════════════════════════════════════════ -->
 <section class="hero-curved-section" id="banner" style="padding: 140px 0 80px;">
     <div class="hero-curved-container">
@@ -72,29 +72,18 @@
         </div>
 
         <!-- Main Headline -->
-        <h1 class="hero-curved-title" style="margin-bottom: 2.5rem;">
+        <h1 class="hero-curved-title" style="margin-bottom: 1.25rem;">
             Journeys That Connect,<br>
             <span class="gold-highlight">Safe &amp; Comfortable.</span>
         </h1>
 
-        <!-- Floating Travel Dock Card -->
-        <div class="hero-dock-card">
-            <!-- Top Category Tabs -->
-            <div class="dock-pills">
-                <button type="button" class="dock-pill active" onclick="selectDockCategory(this, 'Corporate Mobility')">
-                    <i class="fa-solid fa-briefcase"></i> Corporate Mobility
-                </button>
-                <button type="button" class="dock-pill" onclick="selectDockCategory(this, 'Airport Transfers')">
-                    <i class="fa-solid fa-plane-departure"></i> Airport Transfers
-                </button>
-                <button type="button" class="dock-pill" onclick="selectDockCategory(this, 'Outstation Cabs')">
-                    <i class="fa-solid fa-route"></i> Outstation Cabs
-                </button>
-                <button type="button" class="dock-pill" onclick="selectDockCategory(this, 'Holiday Packages')">
-                    <i class="fa-solid fa-umbrella-beach"></i> Holiday Packages
-                </button>
-            </div>
+        <!-- Subtitle Services -->
+        <p class="hero-center-desc" style="font-size: 0.98rem; color: #475569; line-height: 1.6; margin-bottom: 2.25rem; max-width: 820px;">
+            Corporate Cabs &middot; Airport Transfers &middot; Outstation &amp; Business Tours &middot; Holiday Packages &middot; Flight / Train / Cruise Booking &middot; Visa Assistance
+        </p>
 
+        <!-- Floating Travel Enquiry Card -->
+        <div class="hero-dock-card" style="padding: 1.15rem 1.4rem;">
             <!-- Form Fields Row -->
             <form id="hero-dock-form" onsubmit="handleHeroDockSend(event)">
                 <div class="dock-grid">
@@ -135,15 +124,6 @@
 </section>
 
 <script>
-function selectDockCategory(btn, category) {
-    document.querySelectorAll('.dock-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const serviceSelect = document.getElementById('dock-service');
-    if (serviceSelect) {
-        serviceSelect.value = category;
-    }
-}
-
 function handleHeroDockSend(e) {
     e.preventDefault();
     const name = document.getElementById('dock-name')?.value || '';
