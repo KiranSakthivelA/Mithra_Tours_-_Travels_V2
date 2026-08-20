@@ -2961,3 +2961,5 @@ textarea.form-control {
     resize: vertical;
     min-height: 95px;
 }
+
+.card-btn-info { display: none !important; }
