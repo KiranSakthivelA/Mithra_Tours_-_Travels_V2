@@ -62,85 +62,95 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     1. BANNER (Home Page Hero)
+     1. BANNER (Home Page Hero — Centered Inspiration)
 ════════════════════════════════════════════════ -->
-<section class="hero-travellers" id="banner">
-    <div class="hero-blob-1"></div>
-    <div class="hero-blob-2"></div>
+<section class="hero-centered-section" id="banner">
+    <div class="hero-center-container">
+        <!-- Top Badge -->
+        <div class="hero-center-badge">
+            <i class="fa-solid fa-crown"></i> Chennai&rsquo;s Most Trusted Travel Partner
+        </div>
 
-    <div class="container">
-        <div class="hero-grid">
-            <!-- Left content -->
-            <div class="hero-left">
-                <div class="hero-pill-badge">
-                    <i class="fa-solid fa-crown"></i>
-                    Chennai's Most Trusted Travel Partner
-                </div>
-                <h1 class="hero-title">
-                    Journeys That Connect,<br>
-                    <span class="gold-highlight">Safe & Comfortable.</span>
-                </h1>
-                <p class="hero-desc">
-                    Corporate Cabs · Airport Transfers · Outstation & Business Tours · Holiday Packages · Flight / Train / Cruise Booking · Visa Assistance
-                </p>
-                <div class="hero-btn-row">
-                    <a href="contact.html#enquiry" class="btn btn-gold">
-                        <i class="fa-solid fa-calendar-check"></i> Book Now
-                    </a>
-                    <a href="corporate.html" class="btn btn-gold-soft">
-                        <i class="fa-solid fa-briefcase"></i> Corporate Mobility
-                    </a>
-                    <a href="https://wa.me/919629245533?text=Hello%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote" class="btn btn-whatsapp" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Quote
-                    </a>
-                </div>
+        <!-- Main Headline -->
+        <h1 class="hero-center-title">
+            Journeys That Connect,<br>
+            <span class="gold-highlight">Safe &amp; Comfortable.</span>
+        </h1>
 
-                <!-- Stats Strip -->
-                <div class="hero-stats-row">
-                    <div class="hero-stat-box">
-                        <h4>2024</h4>
-                        <p>Established in Chennai</p>
-                    </div>
-                    <div class="hero-stat-box">
-                        <h4>100<span>+</span></h4>
-                        <p>Affiliated Vehicles</p>
-                    </div>
-                    <div class="hero-stat-box">
-                        <h4>24×7</h4>
-                        <p>×365 Operational Support</p>
-                    </div>
-                    <div class="hero-stat-box">
-                        <h4>GST</h4>
-                        <p>Compliant Billing</p>
-                    </div>
-                </div>
+        <!-- Floating Quick Search Bar -->
+        <div class="hero-quick-search-bar">
+            <div class="search-field-item">
+                <label><i class="fa-solid fa-location-dot"></i> Pickup City</label>
+                <select id="hero-quick-city">
+                    <option value="Chennai, Tamil Nadu">Chennai, Tamil Nadu</option>
+                    <option value="Coimbatore, Tamil Nadu">Coimbatore, Tamil Nadu</option>
+                    <option value="Madurai, Tamil Nadu">Madurai, Tamil Nadu</option>
+                    <option value="Trichy, Tamil Nadu">Trichy, Tamil Nadu</option>
+                    <option value="Salem, Tamil Nadu">Salem, Tamil Nadu</option>
+                    <option value="Bangalore, Karnataka">Bangalore, Karnataka</option>
+                    <option value="Ooty, Tamil Nadu">Ooty, Tamil Nadu</option>
+                    <option value="Kodaikanal, Tamil Nadu">Kodaikanal, Tamil Nadu</option>
+                </select>
             </div>
 
-            <!-- Right Visual -->
-            <div class="hero-right">
-                <div class="hero-visual-card">
-                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=85&w=800" alt="Mithra Travel Experience" class="hero-main-img">
-                    
-                    <div class="hero-card-floating-top">
-                        <div class="float-icon-gold"><i class="fa-solid fa-shield-halved"></i></div>
-                        <div class="float-text">
-                            <strong>100% Verified Drivers</strong>
-                            <span>Sealed hygiene welcome kit</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-card-floating-bottom">
-                        <div class="float-icon-gold"><i class="fa-solid fa-star"></i></div>
-                        <div class="float-text">
-                            <strong>4.9 / 5 Rating</strong>
-                            <span>Safe, reliable & on-time</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="search-field-item">
+                <label><i class="fa-solid fa-car-side"></i> Service Type</label>
+                <select id="hero-quick-service">
+                    <option value="Corporate Mobility">Corporate Mobility</option>
+                    <option value="Airport Transfer">Airport Transfer</option>
+                    <option value="Outstation Roundtrip">Outstation Roundtrip</option>
+                    <option value="Holiday Package">Holiday Package</option>
+                </select>
             </div>
+
+            <div class="search-field-item">
+                <label><i class="fa-solid fa-users"></i> Passengers / Fleet</label>
+                <select id="hero-quick-pax">
+                    <option value="1-4 Pax (Sedan Dzire)">1-4 Pax (Sedan Dzire)</option>
+                    <option value="6-7 Pax (Innova Crysta)">6-7 Pax (Innova Crysta)</option>
+                    <option value="12-18 Pax (Tempo / Urbania)">12-18 Pax (Tempo / Urbania)</option>
+                    <option value="25-45 Pax (Mini / Large Coach)">25-45 Pax (Coach Bus)</option>
+                </select>
+            </div>
+
+            <div class="search-field-item">
+                <label><i class="fa-solid fa-calendar-days"></i> Travel Date</label>
+                <input type="date" id="hero-quick-date" value="2026-08-22">
+            </div>
+
+            <div class="search-action-wrap">
+                <a href="#quick-booking" class="search-action-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i> Get Instant Quote
+                </a>
+            </div>
+        </div>
+
+        <!-- Subtitle Services -->
+        <p class="hero-center-desc">
+            Corporate Cabs &middot; Airport Transfers &middot; Outstation &amp; Business Tours &middot; Holiday Packages &middot; Flight / Train / Cruise Booking &middot; Visa Assistance
+        </p>
+
+        <!-- CTA Actions -->
+        <div class="hero-center-actions">
+            <a href="#quick-booking" class="btn btn-gold">
+                <i class="fa-solid fa-calendar-check"></i> Book Now
+            </a>
+            <a href="corporate.html" class="btn btn-gold-soft">
+                <i class="fa-solid fa-briefcase"></i> Corporate Mobility
+            </a>
+            <a href="https://wa.me/919629245533?text=Hello%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+            </a>
+        </div>
+
+        <!-- Hero Fleet Lineup Showcase -->
+        <div class="hero-fleet-lineup-wrap">
+            <img src="Assets/hero_fleet_lineup.jpg" alt="Mithra Tours & Travels Fleet Showcase" class="hero-fleet-lineup-img">
+            <div class="hero-fleet-fade"></div>
         </div>
     </div>
 </section>
+
 
 
 <!-- ═══════════════════════════════════════════════
