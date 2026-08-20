@@ -1,66 +1,48 @@
 /**
  * Mithra Tours & Travels V2 - Main JavaScript Core
- * Handles navigation, mobile drawer, dynamic CMS content rendering, and enquiry forms
+ * Handles navigation, full-screen mobile drawer, dynamic CMS content rendering, and enquiry forms
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
-    loadCmsData();
 });
 
-/* ── Navbar & Mobile Drawer ── */
+/* ── Navbar Scroll Listener ── */
 function initNavbar() {
     const navbar = document.getElementById('navbar');
     if (navbar) {
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 40);
+            navbar.classList.toggle('scrolled', window.scrollY > 30);
         });
     }
 
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.getElementById('nav-links');
-    if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            mobileMenu.innerHTML = navLinks.classList.contains('open')
-                ? '<i class="fa-solid fa-xmark"></i>'
-                : '<i class="fa-solid fa-bars"></i>';
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
-            });
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleMobileDrawer(true);
         });
     }
 }
 
-/* ── CMS Data Fetcher & Dynamic Render ── */
-async function loadCmsData() {
-    try {
-        const response = await fetch('data/content.json');
-        if (!response.ok) return;
-        const data = await response.json();
+/* ── Full-Screen Mobile Drawer Toggle (Global Window Scope) ── */
+window.toggleMobileDrawer = function(open) {
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    if (!drawer || !overlay) return;
 
-        // Render Home Hero if elements exist
-        if (data.home) {
-            const headlineEl = document.getElementById('hero-headline');
-            const subtitleEl = document.getElementById('hero-subtitle');
-            if (headlineEl && data.home.heroHeadline) {
-                headlineEl.innerHTML = data.home.heroHeadline.replace('Transportation', '<span class="gold">Transportation</span>');
-            }
-            if (subtitleEl && data.home.heroSubtitle) {
-                subtitleEl.textContent = data.home.heroSubtitle;
-            }
-        }
-    } catch (e) {
-        console.log('CMS data fallback active');
+    if (open) {
+        drawer.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    } else {
+        drawer.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
     }
-}
+};
 
-/* ── General WhatsApp Helper ── */
-function sendWhatsAppMessage(text) {
-    const phone = '919629245533';
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
-}
+// Close drawer on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') toggleMobileDrawer(false);
+});
