@@ -1075,12 +1075,6 @@
 </a>
 
 <script>
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-*%0A%0A• *Name:* ${name}%0A• *Phone:* ${phone}%0A• *Travel Date:* ${date}%0A• *Travelers:* ${pax}%0A• *Special Notes:* ${notes || 'Standard itinerary'}`;
-    window.open(`https://wa.me/919629245533?text=${waMsg}`, '_blank');
-}
-
 // Active Pill Scroll Spy
 const pillLinks = document.querySelectorAll('.pkg-pill-link');
 const sections = ['overview', 'itinerary', 'inclusions', 'notes'].map(id => document.getElementById(id)).filter(Boolean);
