@@ -54,7 +54,7 @@
             <a href="contact.html#enquiry" class="btn btn-gold"><i class="fa-solid fa-bolt"></i> Get Quote</a>
         </div>
 
-        <button class="menu-toggle" id="mobile-menu" onclick="toggleMobileDrawer(true)" aria-label="Toggle Menu">
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
@@ -729,36 +729,11 @@ function handleHeroSideCarSend(e) {
 </a>
 
 <script>
+/* Navbar scroll effect */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.getElementById('nav-links');
 
-function closeMenu() {
-    navLinks.classList.remove('open');
-    mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
-}
-
-if (mobileMenu && navLinks) {
-    mobileMenu.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-        mobileMenu.innerHTML = navLinks.classList.contains('open') ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-}
-
-// Close when clicking outside the navbar
-document.addEventListener('click', (e) => {
-    if (navLinks.classList.contains('open') && !navbar.contains(e.target)) {
-        closeMenu();
-    }
-});
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
-
+/* Home Enquiry → WhatsApp */
 function handleHomeEnquiry(e) {
     e.preventDefault();
     const name = document.getElementById('he-name').value;
