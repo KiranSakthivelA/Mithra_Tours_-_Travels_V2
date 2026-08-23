@@ -779,17 +779,13 @@ function handleHomeEnquiry(e) {
 
 <script>
 // Pixel-Perfect Dynamic S-Curve Road Line Generator for Flow Maps
+// Works on both desktop (horizontal) and mobile (vertical)
 function updateAllFlowRoads() {
     const wrappers = document.querySelectorAll('.why-flow-wrapper');
     wrappers.forEach(wrapper => {
         const svg = wrapper.querySelector('.flow-road-svg');
         const icons = wrapper.querySelectorAll('.flow-squircle-icon');
         if (!svg || icons.length < 2) return;
-
-        if (window.innerWidth <= 1024) {
-            svg.innerHTML = '';
-            return;
-        }
 
         const wRect = wrapper.getBoundingClientRect();
         const pts = Array.from(icons).map(icon => {
@@ -800,26 +796,42 @@ function updateAllFlowRoads() {
             };
         });
 
+        const isMobile = window.innerWidth <= 768;
+
         // Build smooth cubic Bezier S-curve directly through icon centers
         let d = `M ${pts[0].x} ${pts[0].y}`;
         for (let i = 0; i < pts.length - 1; i++) {
             const p0 = pts[i];
             const p1 = pts[i + 1];
-            const dx = (p1.x - p0.x) * 0.5;
-            d += ` C ${p0.x + dx} ${p0.y}, ${p1.x - dx} ${p1.y}, ${p1.x} ${p1.y}`;
+            if (isMobile) {
+                // Vertical S-curve: control points bend horizontally
+                const dy = (p1.y - p0.y) * 0.5;
+                d += ` C ${p0.x} ${p0.y + dy}, ${p1.x} ${p1.y - dy}, ${p1.x} ${p1.y}`;
+            } else {
+                // Horizontal S-curve: control points bend vertically
+                const dx = (p1.x - p0.x) * 0.5;
+                d += ` C ${p0.x + dx} ${p0.y}, ${p1.x - dx} ${p1.y}, ${p1.x} ${p1.y}`;
+            }
         }
 
-        // Add glowing node rings on each icon
-        const nodes = pts.map(p => 
-            `<circle cx="${p.x}" cy="${p.y}" r="8" fill="#FFFFFF" stroke="#F59E0B" stroke-width="3" opacity="0.9" />`
+        // Glowing node rings on each icon
+        const nodeR = isMobile ? 7 : 8;
+        const nodes = pts.map(p =>
+            `<circle cx="${p.x}" cy="${p.y}" r="${nodeR}" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2.5" opacity="0.92" />`
         ).join('');
+
+        const glowW  = isMobile ? 9  : 7;
+        const dashW  = isMobile ? 2  : 2.5;
+        const dash   = isMobile ? '5 9' : '6 8';
+        const glowOp = isMobile ? 0.20 : 0.30;
+        const dashOp = isMobile ? 0.55 : 0.40;
 
         svg.setAttribute('viewBox', `0 0 ${Math.round(wRect.width)} ${Math.round(wRect.height)}`);
         svg.innerHTML = `
             <!-- Soft Glow Track Underlay -->
-            <path d="${d}" fill="none" stroke="#FDE68A" stroke-width="7" stroke-linecap="round" opacity="0.30" />
+            <path d="${d}" fill="none" stroke="#FDE68A" stroke-width="${glowW}" stroke-linecap="round" opacity="${glowOp}" />
             <!-- Dashed S-Road Line -->
-            <path d="${d}" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="6 8" opacity="0.40" stroke-linecap="round" />
+            <path d="${d}" fill="none" stroke="#F59E0B" stroke-width="${dashW}" stroke-dasharray="${dash}" opacity="${dashOp}" stroke-linecap="round" />
             ${nodes}
         `;
     });
@@ -827,7 +839,8 @@ function updateAllFlowRoads() {
 
 window.addEventListener('DOMContentLoaded', () => {
     updateAllFlowRoads();
-    setTimeout(updateAllFlowRoads, 250);
+    setTimeout(updateAllFlowRoads, 300);
+    setTimeout(updateAllFlowRoads, 700);
 });
 window.addEventListener('resize', updateAllFlowRoads);
 window.addEventListener('load', updateAllFlowRoads);
