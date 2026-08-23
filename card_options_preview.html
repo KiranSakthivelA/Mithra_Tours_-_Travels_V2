@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Mobility Cards Design Preview | Mithra Tours & Travels</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/brand.css?v=610">
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0F172A;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Sticky Banner */
+        .preview-header-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #E2E8F0;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+        }
+        .preview-title-group h1 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0;
+            color: #0F172A;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .preview-title-group p {
+            font-size: 0.82rem;
+            color: #64748B;
+            margin: 0.2rem 0 0;
+        }
+        .preview-nav-btns {
+            display: flex;
+            gap: 0.75rem;
+        }
+        .preview-pill-btn {
+            background: #F1F5F9;
+            color: #334155;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .preview-pill-btn:hover {
+            background: #FEF3C7;
+            color: #B45309;
+            border-color: #FDE68A;
+        }
+
+        /* Option Container */
+        .option-section {
+            max-width: 1240px;
+            margin: 3.5rem auto;
+            padding: 2.5rem 2rem 3rem;
+            background: #FFFFFF;
+            border-radius: 24px;
+            border: 1.5px solid #E2E8F0;
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
+        }
+        .option-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #F1F5F9;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .option-badge {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+            color: #FFFFFF;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .option-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin: 0 0 0.35rem;
+        }
+        .option-desc {
+            font-size: 0.92rem;
+            color: #64748B;
+            margin: 0;
+            max-width: 750px;
+            line-height: 1.6;
+        }
+
+        /* ══════════════════════════════════════════════
+           OPTION 1: ELEVATED LUXURY WITH WATERMARK & GRADIENT ICON
+           ══════════════════════════════════════════════ */
+        .opt1-card {
+            background: #FFFFFF;
+            border: 1.5px solid rgba(226, 232, 240, 0.9);
+            border-radius: 22px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.04);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .opt1-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(245, 158, 11, 0.6);
+            box-shadow: 0 20px 40px -12px rgba(217, 119, 6, 0.18), 0 0 0 1px rgba(245, 158, 11, 0.3);
+        }
+        .opt1-watermark {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 7.5rem;
+            color: rgba(217, 119, 6, 0.05);
+            pointer-events: none;
+            transition: transform 0.5s ease, color 0.5s ease;
+            z-index: 1;
+        }
+        .opt1-card:hover .opt1-watermark {
+            transform: scale(1.12) rotate(-5deg);
+            color: rgba(217, 119, 6, 0.09);
+        }
+        .opt1-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 2;
+        }
+        .opt1-icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            box-shadow: 0 8px 20px -4px rgba(217, 119, 6, 0.35);
+            transition: transform 0.35s ease;
+        }
+        .opt1-card:hover .opt1-icon-box {
+            transform: scale(1.08) rotate(4deg);
+        }
+        .opt1-tag-pill {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #B45309;
+            background: #FEF3C7;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            letter-spacing: 0.3px;
+        }
+        .opt1-card h3 {
+            font-size: 1.28rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin: 0 0 0.6rem;
+            position: relative;
+            z-index: 2;
+        }
+        .opt1-card p {
+            font-size: 0.88rem;
+            color: #64748B;
+            line-height: 1.65;
+            margin: 0 0 1.25rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 2;
+        }
+        .opt1-perks-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 2;
+        }
+        .opt1-perk-chip {
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: #334155;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .opt1-perk-chip i {
+            color: #D97706;
+            font-size: 0.7rem;
+        }
+        .opt1-footer {
+            padding-top: 1rem;
+            border-top: 1px solid #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        .opt1-link {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #B45309;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .opt1-card:hover .opt1-link {
+            color: #D97706;
+            transform: translateX(4px);
+        }
+
+        /* ══════════════════════════════════════════════
+           OPTION 2: INLINE COMPACT VECTOR ART (Uber / Linear Executive Style)
+           ══════════════════════════════════════════════ */
+        .opt2-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 22px;
+            padding: 1.35rem 1.35rem 1.75rem;
+            box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.04);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .opt2-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(245, 158, 11, 0.6);
+            box-shadow: 0 20px 40px -12px rgba(217, 119, 6, 0.18);
+        }
+        .opt2-media-box {
+            height: 140px;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #FFFDF9;
+            margin-bottom: 1.35rem;
+            position: relative;
+            border: 1px solid rgba(245, 158, 11, 0.15);
+        }
+        .opt2-media-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .opt2-card:hover .opt2-media-box img {
+            transform: scale(1.06);
+        }
+        .opt2-media-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            color: #B45309;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .opt2-body {
+            padding: 0 0.4rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .opt2-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin: 0 0 0.5rem;
+        }
+        .opt2-card p {
+            font-size: 0.88rem;
+            color: #64748B;
+            line-height: 1.65;
+            margin: 0 0 1.2rem;
+            flex-grow: 1;
+        }
+        .opt2-footer {
+            padding-top: 1rem;
+            border-top: 1px solid #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .opt2-link {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #B45309;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .opt2-card:hover .opt2-link {
+            color: #D97706;
+            transform: translateX(4px);
+        }
+
+        /* ══════════════════════════════════════════════
+           OPTION 3: MODERN FINTECH / STRIPE MINIMAL (Concentric Icon Rings & Top Accent Bar)
+           ══════════════════════════════════════════════ */
+        .opt3-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 22px;
+            padding: 2.2rem 2rem 2rem;
+            box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.04);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .opt3-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #F59E0B, #D97706);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .opt3-card:hover::before {
+            opacity: 1;
+        }
+        .opt3-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow: 0 20px 40px -12px rgba(217, 119, 6, 0.18);
+        }
+        .opt3-icon-wrapper {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.4rem;
+        }
+        .opt3-icon-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 20px;
+            border: 1.5px dashed rgba(245, 158, 11, 0.35);
+            transition: transform 0.5s ease;
+        }
+        .opt3-card:hover .opt3-icon-ring {
+            transform: rotate(45deg);
+            border-color: rgba(245, 158, 11, 0.7);
+        }
+        .opt3-icon-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            background: #FFFBEB;
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            color: #D97706;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .opt3-card:hover .opt3-icon-inner {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px -4px rgba(217, 119, 6, 0.4);
+        }
+        .opt3-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin: 0 0 0.6rem;
+        }
+        .opt3-card p {
+            font-size: 0.88rem;
+            color: #64748B;
+            line-height: 1.65;
+            margin: 0 0 1.4rem;
+            flex-grow: 1;
+        }
+        .opt3-highlight-box {
+            background: #F8FAFC;
+            border-left: 3px solid #F59E0B;
+            padding: 0.6rem 0.9rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .opt3-footer {
+            padding-top: 1rem;
+            border-top: 1px solid #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .opt3-link {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #B45309;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .opt3-card:hover .opt3-link {
+            color: #D97706;
+            transform: translateX(4px);
+        }
+
+        /* ══════════════════════════════════════════════
+           OPTION 4: LAYERED POP-UP HERO CARDS (From User Screenshot)
+           ══════════════════════════════════════════════ */
+        .popup-hero-card {
+            background: #FFFFFF;
+            border: 1.5px solid rgba(226, 232, 240, 0.95);
+            border-radius: 24px;
+            padding: 1.25rem 1.25rem 1.75rem;
+            box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .popup-hero-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(245, 158, 11, 0.6);
+            box-shadow: 0 20px 45px -12px rgba(217, 119, 6, 0.2), 0 0 0 1px rgba(245, 158, 11, 0.25);
+        }
+        .popup-visual-stage {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            border-radius: 18px;
+            background: #FFFDF9;
+            margin-bottom: 1.35rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-blob-backdrop {
+            position: absolute;
+            inset: 8px;
+            border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            opacity: 0.9;
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        .popup-hero-card:hover .popup-blob-backdrop {
+            transform: scale(1.04) rotate(4deg);
+            border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%;
+            background: linear-gradient(135deg, #FDE68A 0%, #FCD34D 100%);
+        }
+        .popup-dash-accents {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 45px;
+            height: 45px;
+            background-image: radial-gradient(circle, #D97706 1.5px, transparent 1.5px);
+            background-size: 8px 8px;
+            opacity: 0.35;
+            z-index: 2;
+        }
+        .popup-base-screen {
+            position: relative;
+            z-index: 2;
+            width: 76%;
+            height: 80%;
+            background: #FFFFFF;
+            border-radius: 14px;
+            border: 1.5px solid rgba(226, 232, 240, 0.95);
+            box-shadow: 0 10px 25px -8px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(-12px);
+            transition: transform 0.4s ease;
+        }
+        .popup-hero-card:hover .popup-base-screen {
+            transform: translateX(-14px) translateY(-3px);
+        }
+        .popup-screen-header {
+            background: #F8FAFC;
+            padding: 0.45rem 0.65rem;
+            border-bottom: 1px solid #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #334155;
+        }
+        .popup-screen-body {
+            padding: 0.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .popup-mock-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .popup-mock-label {
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .popup-mock-val {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #0F172A;
+        }
+        .popup-floating-card {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            z-index: 5;
+            width: 66%;
+            background: #FFFFFF;
+            border-radius: 14px;
+            border: 1.5px solid rgba(245, 158, 11, 0.35);
+            box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.16), 0 4px 12px rgba(217, 119, 6, 0.12);
+            padding: 0.65rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .popup-hero-card:hover .popup-floating-card {
+            transform: translateY(-8px) scale(1.06);
+            border-color: rgba(245, 158, 11, 0.85);
+            box-shadow: 0 24px 45px -8px rgba(217, 119, 6, 0.3), 0 8px 18px rgba(217, 119, 6, 0.2);
+        }
+        .popup-float-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+        }
+        .popup-float-info {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            gap: 1px;
+        }
+        .popup-float-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #0F172A;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
+        }
+        .popup-float-sub {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #64748B;
+            line-height: 1.2;
+        }
+        .popup-float-badge {
+            margin-top: 2px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            color: #B45309;
+            background: #FEF3C7;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            display: inline-block;
+            align-self: flex-start;
+        }
+        .popup-card-content {
+            padding: 0 0.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .popup-card-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin: 0 0 0.5rem;
+        }
+        .popup-card-desc {
+            font-size: 0.86rem;
+            color: #64748B;
+            line-height: 1.6;
+            margin: 0 0 1.25rem;
+            flex-grow: 1;
+        }
+        .popup-card-footer {
+            margin-top: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sticky Header Bar -->
+<header class="preview-header-bar">
+    <div class="preview-title-group">
+        <h1><i class="fa-solid fa-layer-group" style="color:#D97706;"></i> Corporate Mobility Card Design Variations</h1>
+        <p>Compare the design options below to pick your favorite.</p>
+    </div>
+    <div class="preview-nav-btns">
+        <a href="#option4" class="preview-pill-btn" style="background:#FEF3C7; color:#B45309; border-color:#FDE68A;">⭐ Option 4: Pop-Up Card Style</a>
+        <a href="#option1" class="preview-pill-btn">Option 1: Watermark</a>
+        <a href="#option2" class="preview-pill-btn">Option 2: Vector Framing</a>
+        <a href="#option3" class="preview-pill-btn">Option 3: Stripe Minimal</a>
+        <a href="index.html" class="preview-pill-btn">Back to Home</a>
+    </div>
+</header>
+
+<main style="padding: 1rem 1.5rem 4rem;">
+
+    <!-- ══════════════════════════════════════════════
+         OPTION 1: LUXURY REAL PHOTOGRAPHY CARDS
+         ══════════════════════════════════════════════ -->
+    <section class="option-section" id="option1" style="border: 2px solid #F59E0B; box-shadow: 0 15px 40px -10px rgba(245, 158, 11, 0.15);">
+        <div class="option-header">
+            <div>
+                <span class="option-badge">⭐ Option 1 • Currently Active on Homepage</span>
+                <h2 class="option-title">Luxury Real Photography Cards (Executive Chauffeur, Airport & Hill Road Trip)</h2>
+                <p class="option-desc">Cinematic, authentic high-resolution luxury imagery (Mercedes S-Class with suited chauffeur, golden-hour airport transfer at Chennai airport, and scenic green hill road trip).</p>
+            </div>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- 1. Corporate Cab Services -->
+            <div class="luxury-photo-card">
+                <div class="photo-card-img-wrap">
+                    <img src="Assets/corp_cab_real.jpg" alt="Corporate Cab Services - Mithra Tours & Travels" loading="lazy">
+                    <span class="photo-card-badge"><i class="fa-solid fa-briefcase"></i> Employee Commute</span>
+                    <div class="photo-card-gradient"></div>
+                </div>
+                <div class="photo-card-body">
+                    <h3>Corporate Cab Services</h3>
+                    <p>Daily, monthly, and on-demand duties for corporate teams. Employee pickup & drop with automated rostering and consolidated GST invoicing.</p>
+                    <div class="photo-card-perks">
+                        <span><i class="fa-solid fa-check"></i> Monthly Billing</span>
+                        <span><i class="fa-solid fa-check"></i> Verified Drivers</span>
+                        <span><i class="fa-solid fa-check"></i> 24/7 Support</span>
+                    </div>
+                    <div class="photo-card-footer">
+                        <a href="corporate.html" class="photo-card-link">
+                            View Corporate Services <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Airport Pickups & Drops -->
+            <div class="luxury-photo-card">
+                <div class="photo-card-img-wrap">
+                    <img src="Assets/corp_airport_real.jpg" alt="Airport Pickups & Drops - Mithra Tours & Travels" loading="lazy">
+                    <span class="photo-card-badge"><i class="fa-solid fa-plane-departure"></i> 24/7 Airport Desk</span>
+                    <div class="photo-card-gradient"></div>
+                </div>
+                <div class="photo-card-body">
+                    <h3>Airport Pickups & Drops</h3>
+                    <p>Guaranteed on-time 24/7 airport transfers across Chennai International Airport with live flight delay tracking and terminal meet & greet.</p>
+                    <div class="photo-card-perks">
+                        <span><i class="fa-solid fa-check"></i> Flight Delay Sync</span>
+                        <span><i class="fa-solid fa-check"></i> Zero Waiting Surge</span>
+                        <span><i class="fa-solid fa-check"></i> Meet & Greet</span>
+                    </div>
+                    <div class="photo-card-footer">
+                        <a href="corporate.html" class="photo-card-link">
+                            Airport Transfer Details <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Outstation & Business Tours -->
+            <div class="luxury-photo-card">
+                <div class="photo-card-img-wrap">
+                    <img src="Assets/corp_outstation_real.jpg" alt="Outstation & Business Tours - Mithra Tours & Travels" loading="lazy">
+                    <span class="photo-card-badge"><i class="fa-solid fa-compass"></i> Inter-City Travel</span>
+                    <div class="photo-card-gradient"></div>
+                </div>
+                <div class="photo-card-body">
+                    <h3>Outstation & Business Tours</h3>
+                    <p>Comfortable multi-city road trips across Tamil Nadu and South India for corporate roadshows, plant visits, and executive delegation tours.</p>
+                    <div class="photo-card-perks">
+                        <span><i class="fa-solid fa-check"></i> Inter-State Permits</span>
+                        <span><i class="fa-solid fa-check"></i> Highway Chauffeurs</span>
+                        <span><i class="fa-solid fa-check"></i> Custom Routes</span>
+                    </div>
+                    <div class="photo-card-footer">
+                        <a href="corporate.html" class="photo-card-link">
+                            Plan Outstation Route <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         OPTION 2: 3D GLOSSY RENDER CARDS
+         ══════════════════════════════════════════════ -->
+    <section class="option-section" id="option2">
+        <div class="option-header">
+            <div>
+                <span class="option-badge" style="background:#3B82F6;">Option 2</span>
+                <h2 class="option-title">3D Glossy Render Cards (Floating 3D Vehicle & Luggage Elements)</h2>
+                <p class="option-desc">Contemporary tech-mobility aesthetic with high-gloss 3D rendered models for Corporate Executive Sedans, Aircraft & Luggage, and Outstation SUVs.</p>
+            </div>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- 1. Corporate Cab Services -->
+            <div class="opt2-card">
+                <div class="opt2-media-box" style="background:#F8FAFC; display:flex; align-items:center; justify-content:center;">
+                    <img src="Assets/3d_service_cab.png" alt="Corporate Cab Services" style="width:85%; height:auto; object-fit:contain;">
+                    <span class="opt2-media-badge"><i class="fa-solid fa-briefcase"></i> Employee Commute</span>
+                </div>
+                <div class="opt2-body">
+                    <h3>Corporate Cab Services</h3>
+                    <p>Daily, monthly, and on-demand duties for corporate teams with automated rostering & consolidated monthly GST invoicing.</p>
+                    <div class="opt2-footer">
+                        <a href="corporate.html" class="opt2-link">View Corporate Services <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Airport Pickups & Drops -->
+            <div class="opt2-card">
+                <div class="opt2-media-box" style="background:#F8FAFC; display:flex; align-items:center; justify-content:center;">
+                    <img src="Assets/3d_service_airport.png" alt="Airport Pickups & Drops" style="width:85%; height:auto; object-fit:contain;">
+                    <span class="opt2-media-badge"><i class="fa-solid fa-plane-departure"></i> 24/7 Airport Sync</span>
+                </div>
+                <div class="opt2-body">
+                    <h3>Airport Pickups & Drops</h3>
+                    <p>Guaranteed on-time 24/7 airport transfers across Chennai International Airport with live flight delay tracking & terminal meet & greet.</p>
+                    <div class="opt2-footer">
+                        <a href="corporate.html" class="opt2-link">Airport Transfer Details <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Outstation & Business Tours -->
+            <div class="opt2-card">
+                <div class="opt2-media-box" style="background:#F8FAFC; display:flex; align-items:center; justify-content:center;">
+                    <img src="Assets/3d_service_outstation.png" alt="Outstation & Business Tours" style="width:85%; height:auto; object-fit:contain;">
+                    <span class="opt2-media-badge"><i class="fa-solid fa-compass"></i> Multi-City Tours</span>
+                </div>
+                <div class="opt2-body">
+                    <h3>Outstation & Business Tours</h3>
+                    <p>Comfortable multi-city road trips across Tamil Nadu and South India for corporate roadshows, plant visits & executive trips.</p>
+                    <div class="opt2-footer">
+                        <a href="corporate.html" class="opt2-link">Plan Outstation Route <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         OPTION 3: MODERN STRIPE / FINTECH MINIMAL
+         ══════════════════════════════════════════════ -->
+    <section class="option-section" id="option3">
+        <div class="option-header">
+            <div>
+                <span class="option-badge" style="background:#10B981;">Option 3</span>
+                <h2 class="option-title">Modern Fintech / Stripe Minimal (Concentric Ring Icon & Top Gradient Bar)</h2>
+                <p class="option-desc">A refined tech-forward presentation with a sleek rotating dashed ring badge, a top gold gradient indicator, and value proposition highlight bars.</p>
+            </div>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- 1. Corporate Cab Services -->
+            <div class="opt3-card">
+                <div class="opt3-icon-wrapper">
+                    <div class="opt3-icon-ring"></div>
+                    <div class="opt3-icon-inner"><i class="fa-solid fa-building-user"></i></div>
+                </div>
+                <h3>Corporate Cab Services</h3>
+                <p>Daily, monthly, and on-demand duties for corporate teams. Employee pickup & drop with automated rostering and consolidated GST invoicing.</p>
+                <div class="opt3-highlight-box">
+                    <i class="fa-solid fa-shield-halved" style="color:#D97706;"></i> 100% Background-Verified Drivers
+                </div>
+                <div class="opt3-footer">
+                    <a href="corporate.html" class="opt3-link">View Corporate Services <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- 2. Airport Pickups & Drops -->
+            <div class="opt3-card">
+                <div class="opt3-icon-wrapper">
+                    <div class="opt3-icon-ring"></div>
+                    <div class="opt3-icon-inner"><i class="fa-solid fa-plane-arrival"></i></div>
+                </div>
+                <h3>Airport Pickups & Drops</h3>
+                <p>Guaranteed on-time 24/7 airport transfers across Chennai International Airport with live flight delay tracking and terminal meet & greet.</p>
+                <div class="opt3-highlight-box">
+                    <i class="fa-solid fa-clock" style="color:#D97706;"></i> Real-Time Delay Flight Tracking
+                </div>
+                <div class="opt3-footer">
+                    <a href="corporate.html" class="opt3-link">Airport Transfer Details <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- 3. Outstation & Business Tours -->
+            <div class="opt3-card">
+                <div class="opt3-icon-wrapper">
+                    <div class="opt3-icon-ring"></div>
+                    <div class="opt3-icon-inner"><i class="fa-solid fa-route"></i></div>
+                </div>
+                <h3>Outstation & Business Tours</h3>
+                <p>Comfortable multi-city road trips across Tamil Nadu and South India for corporate roadshows, plant visits, and executive delegation tours.</p>
+                <div class="opt3-highlight-box">
+                    <i class="fa-solid fa-map-location-dot" style="color:#D97706;"></i> Inter-State Permits & Tolls Covered
+                </div>
+                <div class="opt3-footer">
+                    <a href="corporate.html" class="opt3-link">Plan Outstation Route <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         OPTION 4: LAYERED POP-UP FLOATING CARD (Organic Blob Backdrop)
+         ══════════════════════════════════════════════ -->
+    <section class="option-section" id="option4" style="border: 2px solid #F59E0B; box-shadow: 0 15px 40px -10px rgba(245, 158, 11, 0.15);">
+        <div class="option-header">
+            <div>
+                <span class="option-badge" style="background: linear-gradient(135deg, #F59E0B, #EA580C);">Option 4 • Pop-Up Card Style (From Reference)</span>
+                <h2 class="option-title">Layered Pop-Up Card (App Screen with Floating Elevated Micro-Card)</h2>
+                <p class="option-desc">Directly inspired by your screenshot: Features an organic warm gold backdrop, background geometric dash accents, a clean mobile interface screen, and an <strong>overlapping floating mini-card that pops out in 3D depth</strong> on hover!</p>
+            </div>
+        </div>
+
+        <div class="cards-grid-3">
+            <!-- 1. Corporate Cab Services -->
+            <div class="popup-hero-card">
+                <div class="popup-visual-stage">
+                    <div class="popup-blob-backdrop"></div>
+                    <div class="popup-dash-accents"></div>
+                    
+                    <!-- Base Device Screen -->
+                    <div class="popup-base-screen">
+                        <div class="popup-screen-header">
+                            <span><i class="fa-solid fa-building" style="color:#D97706;"></i> Mithra Roster</span>
+                            <span style="color:#10B981; font-size:0.6rem;">● Live Sync</span>
+                        </div>
+                        <div class="popup-screen-body">
+                            <div class="popup-mock-item">
+                                <span class="popup-mock-label">Route</span>
+                                <span class="popup-mock-val">Tidel Park ➔ Siruseri IT Corridor</span>
+                            </div>
+                            <div class="popup-mock-item">
+                                <span class="popup-mock-label">Shift Pickup</span>
+                                <span class="popup-mock-val">08:30 AM · Innova Crysta</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Pop-up Mini Card -->
+                    <div class="popup-floating-card">
+                        <div class="popup-float-icon">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="popup-float-info">
+                            <span class="popup-float-title">Chauffeur Assigned</span>
+                            <span class="popup-float-sub">Karthik S. · ★ 4.9</span>
+                            <span class="popup-float-badge">TN-09-CB-4092</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup-card-content">
+                    <h3 class="popup-card-title">Corporate Cab Services</h3>
+                    <p class="popup-card-desc">Daily, monthly, and on-demand duties for corporate teams. Employee pickup & drop with automated rostering & consolidated GST invoicing.</p>
+                    <div class="popup-card-footer">
+                        <a href="corporate.html" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; width:100%; text-align:center; justify-content:center;">View Corporate Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Airport Pickups & Drops -->
+            <div class="popup-hero-card">
+                <div class="popup-visual-stage">
+                    <div class="popup-blob-backdrop" style="background: linear-gradient(135deg, #FEF3C7 0%, #FCD34D 100%);"></div>
+                    <div class="popup-dash-accents"></div>
+                    
+                    <!-- Base Device Screen -->
+                    <div class="popup-base-screen">
+                        <div class="popup-screen-header">
+                            <span><i class="fa-solid fa-plane-departure" style="color:#D97706;"></i> Airport Desk</span>
+                            <span style="color:#10B981; font-size:0.6rem;">● 24/7 Active</span>
+                        </div>
+                        <div class="popup-screen-body">
+                            <div class="popup-mock-item">
+                                <span class="popup-mock-label">Flight</span>
+                                <span class="popup-mock-val">IndiGo 6E-204 (Mumbai)</span>
+                            </div>
+                            <div class="popup-mock-item">
+                                <span class="popup-mock-label">Arrival Gate</span>
+                                <span class="popup-mock-val">Terminal 2 · Meet & Greet</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Pop-up Mini Card -->
+                    <div class="popup-floating-card">
+                        <div class="popup-float-icon">
+                            <i class="fa-solid fa-plane-arrival"></i>
+                        </div>
+                        <div class="popup-float-info">
+                            <span class="popup-float-title">Flight Delay Synced</span>
+                            <span class="popup-float-sub">Chauffeur At Gate 2</span>
+                            <span class="popup-float-badge">Zero Waiting Surge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup-card-content">
+                    <h3 class="popup-card-title">Airport Pickups & Drops</h3>
+                    <p class="popup-card-desc">Guaranteed on-time 24/7 airport transfers across Chennai International Airport with live flight delay tracking & terminal meet & greet.</p>
+                    <div class="popup-card-footer">
+                        <a href="corporate.html" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; width:100%; text-align:center; justify-content:center;">Airport Transfer Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Outstation & Business Tours -->
+            <div class="popup-hero-card">
+                <div class="popup-visual-stage">
+                    <div class="popup-blob-backdrop" style="background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);"></div>
+                    <div class="popup-dash-accents"></div>
+                    
+                    <!-- Base Device Screen -->
+                    <div class="popup-base-screen">
+                        <div class="popup-screen-header">
+                            <span><i class="fa-solid fa-map-location-dot" style="color:#D97706;"></i> Tour Planner</span>
+                            <span style="color:#10B981; font-size:0.6rem;">● All-India</span>
+                        </div>
+                        <div class="popup-screen-body">
+                            <div class="popup-mock-item">
+                                <span class="popup-mock-label">Route</span>
+                                <span class="popup-mock-val">Chennai ➔ Ooty ➔ Coimbatore</span>
+                            </div>
+                            <div class="popup-mock-item">
+                                <span class="popup-mock-label">Delegation</span>
+                                <span class="popup-mock-val">3 Days / 2 Nights · SUV</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Pop-up Mini Card -->
+                    <div class="popup-floating-card">
+                        <div class="popup-float-icon">
+                            <i class="fa-solid fa-route"></i>
+                        </div>
+                        <div class="popup-float-info">
+                            <span class="popup-float-title">All Taxes & Tolls Paid</span>
+                            <span class="popup-float-sub">Inter-State Permit OK</span>
+                            <span class="popup-float-badge">Verified Highway Pro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup-card-content">
+                    <h3 class="popup-card-title">Outstation & Business Tours</h3>
+                    <p class="popup-card-desc">Comfortable multi-city road trips across Tamil Nadu and South India for corporate roadshows, plant visits & executive trips.</p>
+                    <div class="popup-card-footer">
+                        <a href="corporate.html" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; width:100%; text-align:center; justify-content:center;">Plan Outstation Route</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

@@ -4,3 +4,5 @@ Thumbs.db
 fleet_test_screenshots/
 video_frames/
 *.log
+*.zip
+scratch/

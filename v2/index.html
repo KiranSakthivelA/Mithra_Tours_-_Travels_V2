@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <link rel="stylesheet" href="css/brand.css?v=610">
+    <link rel="stylesheet" href="css/brand.css?v=702">
     <style>
         .pkg-preview-card {
             background: #FFFFFF; border: 1.5px solid var(--border-card);
@@ -135,23 +135,34 @@
 
                     <div class="dock-bar-divider"></div>
 
-                    <div class="dock-bar-item">
-                        <label for="sidecar-service"><i class="fa-solid fa-car-side"></i> Service</label>
-                        <select id="sidecar-service" required>
-                            <option value="Corporate Mobility" selected>Corporate Mobility</option>
-                            <option value="Airport Transfers">Airport Transfers</option>
-                            <option value="Outstation Cabs">Outstation Cabs</option>
-                            <option value="Holiday Packages">Holiday Packages</option>
-                            <option value="Flight / Train Tickets">Flight / Train Tickets</option>
-                            <option value="Visa & Cruise Booking">Visa &amp; Cruise Booking</option>
-                        </select>
+                    <div class="dock-bar-item service-item">
+                        <label><i class="fa-solid fa-car-side"></i> Service</label>
+                        <div class="custom-dropdown" id="hero-service-dropdown">
+                            <div class="custom-dropdown-btn" onclick="toggleHeroServiceDropdown(event)">
+                                <span class="selected-val" id="selected-service-text">Corporate Mobility</span>
+                                <i class="fa-solid fa-chevron-down dropdown-chevron"></i>
+                            </div>
+                            <input type="hidden" id="sidecar-service" value="Corporate Mobility">
+                            <div class="custom-dropdown-menu">
+                                <div class="custom-dropdown-item active" onclick="selectHeroService('Corporate Mobility', this)"><i class="fa-solid fa-building"></i> Corporate Mobility</div>
+                                <div class="custom-dropdown-item" onclick="selectHeroService('Airport Transfers', this)"><i class="fa-solid fa-plane-departure"></i> Airport Transfers</div>
+                                <div class="custom-dropdown-item" onclick="selectHeroService('Outstation Cabs', this)"><i class="fa-solid fa-route"></i> Outstation Cabs</div>
+                                <div class="custom-dropdown-item" onclick="selectHeroService('Holiday Packages', this)"><i class="fa-solid fa-umbrella-beach"></i> Holiday Packages</div>
+                                <div class="custom-dropdown-item" onclick="selectHeroService('Flight / Train Tickets', this)"><i class="fa-solid fa-ticket"></i> Flight / Train Tickets</div>
+                                <div class="custom-dropdown-item" onclick="selectHeroService('Visa & Cruise Booking', this)"><i class="fa-solid fa-passport"></i> Visa &amp; Cruise Booking</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="dock-bar-divider"></div>
 
-                    <div class="dock-bar-item">
+                    <div class="dock-bar-item date-item" onclick="openHeroDatePicker()">
                         <label for="sidecar-date"><i class="fa-solid fa-calendar-days"></i> Date</label>
-                        <input type="date" id="sidecar-date" required>
+                        <div class="custom-date-field">
+                            <span class="custom-date-display" id="date-display-text">Any Date</span>
+                            <i class="fa-solid fa-calendar-days date-cal-icon"></i>
+                            <input type="date" id="sidecar-date" class="custom-date-input-overlay" onchange="handleHeroDateChange(this)">
+                        </div>
                     </div>
 
                     <!-- Send Symbol Only Button -->
@@ -162,7 +173,7 @@
 
                 <!-- Action Buttons Row -->
                 <div class="hero-action-row">
-                    <a href="#quick-booking" class="btn btn-gold">
+                    <a href="contact.html" class="btn btn-gold">
                         <i class="fa-solid fa-calendar-check"></i> Book Now
                     </a>
                     <a href="corporate.html" class="btn btn-gold-soft">
@@ -171,26 +182,6 @@
                     <a href="https://wa.me/919629245533?text=Hello%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote" class="btn btn-whatsapp" target="_blank" rel="noopener">
                         <i class="fa-brands fa-whatsapp"></i> WhatsApp Quote
                     </a>
-                </div>
-
-                <!-- Stats Strip -->
-                <div class="hero-stats-strip">
-                    <div class="stat-box">
-                        <div class="stat-num">2024</div>
-                        <div class="stat-lbl">Established in Chennai</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-num">100<span>+</span></div>
-                        <div class="stat-lbl">Affiliated Vehicles</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-num">24&times;7</div>
-                        <div class="stat-lbl">&times;365 Operational Support</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-num">GST</div>
-                        <div class="stat-lbl">Compliant Billing</div>
-                    </div>
                 </div>
             </div>
 
@@ -205,25 +196,70 @@
 </section>
 
 <script>
+function toggleHeroServiceDropdown(e) {
+    e.stopPropagation();
+    const dd = document.getElementById('hero-service-dropdown');
+    if (dd) dd.classList.toggle('open');
+}
+
+function selectHeroService(val, el) {
+    const input = document.getElementById('sidecar-service');
+    const label = document.getElementById('selected-service-text');
+    if (input) input.value = val;
+    if (label) label.textContent = val;
+    document.querySelectorAll('#hero-service-dropdown .custom-dropdown-item').forEach(item => item.classList.remove('active'));
+    if (el) el.classList.add('active');
+    const dd = document.getElementById('hero-service-dropdown');
+    if (dd) dd.classList.remove('open');
+}
+
+document.addEventListener('click', function(e) {
+    const dd = document.getElementById('hero-service-dropdown');
+    if (dd && !dd.contains(e.target)) {
+        dd.classList.remove('open');
+    }
+});
+
+function openHeroDatePicker() {
+    const dateInput = document.getElementById('sidecar-date');
+    if (dateInput) {
+        try {
+            if (dateInput.showPicker) {
+                dateInput.showPicker();
+            } else {
+                dateInput.focus();
+            }
+        } catch(err) {
+            dateInput.focus();
+        }
+    }
+}
+
+function handleHeroDateChange(input) {
+    const display = document.getElementById('date-display-text');
+    if (!input.value) {
+        if (display) display.textContent = 'Any Date';
+        return;
+    }
+    const [y, m, d] = input.value.split('-');
+    const dateObj = new Date(y, m - 1, d);
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+    if (display) display.textContent = dateObj.toLocaleDateString('en-IN', options);
+}
+
 function handleHeroSideCarSend(e) {
     e.preventDefault();
     const name = document.getElementById('sidecar-name')?.value || '';
     const phone = document.getElementById('sidecar-phone')?.value || '';
-    const service = document.getElementById('sidecar-service')?.value || '';
-    const date = document.getElementById('sidecar-date')?.value || '';
+    const service = document.getElementById('sidecar-service')?.value || 'Corporate Mobility';
+    const date = document.getElementById('sidecar-date')?.value || 'Any Date';
     
     const text = encodeURIComponent(
-        'Hello Mithra Tours & Travels,
-
-' +
-        'I would like to request an instant quote:
-' +
-        '• Name: ' + name + '
-' +
-        '• Contact Number: ' + phone + '
-' +
-        '• Service Required: ' + service + '
-' +
+        'Hello Mithra Tours & Travels,\n\n' +
+        'I would like to request an instant quote:\n' +
+        '• Name: ' + name + '\n' +
+        '• Contact Number: ' + phone + '\n' +
+        '• Service Required: ' + service + '\n' +
         '• Travel Date: ' + date
     );
     
@@ -239,7 +275,7 @@ function handleHeroSideCarSend(e) {
     <div class="trust-track">
         <div class="trust-item"><i class="fa-solid fa-box"></i> Sealed Hygienic Welcome Kit</div>
         <div class="trust-dot"></div>
-        <div class="trust-item"><i class="fa-solid fa-file-invoice-dollar"></i> GST Consolidated Invoicing</div>
+        <div class="trust-item"><i class="fa-solid fa-file-invoice-dollar"></i> Consolidated Digital Invoicing</div>
         <div class="trust-dot"></div>
         <div class="trust-item"><i class="fa-solid fa-clock"></i> On-Time Guaranteed</div>
         <div class="trust-dot"></div>
@@ -252,7 +288,7 @@ function handleHeroSideCarSend(e) {
         <!-- Loop duplicate -->
         <div class="trust-item"><i class="fa-solid fa-box"></i> Sealed Hygienic Welcome Kit</div>
         <div class="trust-dot"></div>
-        <div class="trust-item"><i class="fa-solid fa-file-invoice-dollar"></i> GST Consolidated Invoicing</div>
+        <div class="trust-item"><i class="fa-solid fa-file-invoice-dollar"></i> Consolidated Digital Invoicing</div>
         <div class="trust-dot"></div>
         <div class="trust-item"><i class="fa-solid fa-clock"></i> On-Time Guaranteed</div>
         <div class="trust-dot"></div>
@@ -276,42 +312,51 @@ function handleHeroSideCarSend(e) {
             <p class="section-desc center">Corporate Cab Services, Airport Pickups & Drops, Outstation Trips, Business Tours.</p>
         </div>
 
-        <div class="cards-grid-3">
-            <!-- Corporate Cab Services -->
-            <div class="white-card">
-                <div class="card-icon-gold"><i class="fa-solid fa-building-user"></i></div>
-                <h3 style="font-size:1.3rem;">Corporate Cab Services</h3>
-                <p>Daily, monthly, and on-demand duties for corporate teams. Employee pickup & drop with consolidated GST invoicing.</p>
-                <div class="card-footer">
-                    <a href="corporate.html" style="font-size:0.88rem; font-weight:800; color:var(--gold-4); display:inline-flex; align-items:center; gap:0.4rem;">
-                        View Corporate Services <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+        <div class="mithra-service-grid">
+            <!-- 1. Corporate Cab Services -->
+            <a href="corporate.html" class="mithra-service-card">
+                <div class="mithra-card-content">
+                    <div class="card-icon-gold"><i class="fa-solid fa-building-user"></i></div>
+                    <h3 class="mithra-card-title">Corporate Cab Services</h3>
+                    <p class="mithra-card-desc">Daily & monthly employee pickup, drop, and shift duties with consolidated monthly invoicing.</p>
+                    <div class="mithra-card-footer">
+                        <span class="mithra-link-text">Corporate Services <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
                 </div>
-            </div>
+                <div class="mithra-card-visual">
+                    <img src="Assets/swiggy_vec_corporate.png" alt="Corporate Cab Services - Mithra Tours & Travels" loading="lazy" class="img-recolor-white">
+                </div>
+            </a>
 
-            <!-- Airport Pickups & Drops -->
-            <div class="white-card">
-                <div class="card-icon-gold"><i class="fa-solid fa-plane-arrival"></i></div>
-                <h3 style="font-size:1.3rem;">Airport Pickups & Drops</h3>
-                <p>Guaranteed on-time 24/7 airport transfers across Chennai International Airport with live flight tracking.</p>
-                <div class="card-footer">
-                    <a href="corporate.html" style="font-size:0.88rem; font-weight:800; color:var(--gold-4); display:inline-flex; align-items:center; gap:0.4rem;">
-                        Airport Transfer Details <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+            <!-- 2. Airport Pickups & Drops -->
+            <a href="corporate.html" class="mithra-service-card">
+                <div class="mithra-card-content">
+                    <div class="card-icon-gold"><i class="fa-solid fa-plane-arrival"></i></div>
+                    <h3 class="mithra-card-title">Airport Pickups & Drops</h3>
+                    <p class="mithra-card-desc">Guaranteed on-time 24/7 Chennai (MAA) airport transfers with live flight tracking.</p>
+                    <div class="mithra-card-footer">
+                        <span class="mithra-link-text">Airport Transfers <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
                 </div>
-            </div>
+                <div class="mithra-card-visual">
+                    <img src="Assets/swiggy_vec_airport.png" alt="Airport Pickups & Drops - Mithra Tours & Travels" loading="lazy" class="img-recolor-white">
+                </div>
+            </a>
 
-            <!-- Outstation Trips & Business Tours -->
-            <div class="white-card">
-                <div class="card-icon-gold"><i class="fa-solid fa-route"></i></div>
-                <h3 style="font-size:1.3rem;">Outstation & Business Tours</h3>
-                <p>Comfortable multi-city road trips across Tamil Nadu and South India for corporate roadshows, plant visits & family trips.</p>
-                <div class="card-footer">
-                    <a href="corporate.html" style="font-size:0.88rem; font-weight:800; color:var(--gold-4); display:inline-flex; align-items:center; gap:0.4rem;">
-                        Plan Outstation Route <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+            <!-- 3. Outstation & Business Tours -->
+            <a href="corporate.html" class="mithra-service-card">
+                <div class="mithra-card-content">
+                    <div class="card-icon-gold"><i class="fa-solid fa-route"></i></div>
+                    <h3 class="mithra-card-title">Outstation & Business Tours</h3>
+                    <p class="mithra-card-desc">Comfortable multi-city road trips across Tamil Nadu & South India for corporate & family.</p>
+                    <div class="mithra-card-footer">
+                        <span class="mithra-link-text">Outstation Routes <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
                 </div>
-            </div>
+                <div class="mithra-card-visual">
+                    <img src="Assets/swiggy_vec_outstation.png" alt="Outstation & Business Tours - Mithra Tours & Travels" loading="lazy" class="img-recolor-white">
+                </div>
+            </a>
         </div>
     </div>
 </section>
@@ -330,46 +375,51 @@ function handleHeroSideCarSend(e) {
 
         <div class="cards-grid-3">
             <!-- Domestic Card -->
-            <div class="pkg-preview-card">
+            <a href="holidays.html#domestic-packages" class="pkg-preview-card" style="text-decoration:none; color:inherit; display:flex; flex-direction:column;">
                 <div class="pkg-preview-img">
-                    <img src="Assets/holiday_kerala.jpg" alt="Domestic Holidays">
+                    <img src="Assets/holiday_kodaikanal.jpg" alt="Domestic Holidays">
                     <span class="pkg-pill-badge">Domestic Holiday Packages</span>
                 </div>
                 <div class="pkg-preview-body">
                     <div>
-                        <h4 style="font-size:1.2rem; font-weight:800; margin-bottom:0.4rem; color:var(--text-heading);">Kerala, Rajasthan, Ooty & More</h4>
-                        <p style="font-size:0.86rem; color:var(--text-body); line-height:1.6; margin-bottom:1.2rem;">All-inclusive domestic packages with resort stays, verified vehicle transfers, and guided sightseeing.</p>
+                        <h4 style="font-size:1.2rem; font-weight:800; margin-bottom:0.4rem; color:var(--text-heading);">Kodaikanal, Rajasthan, Tawang & More</h4>
+                        <p style="font-size:0.86rem; color:var(--text-body); line-height:1.6; margin-bottom:1.2rem;">Curated holiday experiences for families, couples, and groups with flexible itineraries and verified transfers.</p>
                     </div>
-                    <a href="holidays.html" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; align-self:flex-start;">View Domestic Packages</a>
+                    <span class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; align-self:flex-start;">View Domestic Holidays</span>
                 </div>
-            </div>
+            </a>
 
             <!-- International Card -->
-            <div class="pkg-preview-card">
+            <a href="holidays.html#international-packages" class="pkg-preview-card" style="text-decoration:none; color:inherit; display:flex; flex-direction:column;">
                 <div class="pkg-preview-img">
-                    <img src="Assets/holiday_bali.jpg" alt="International Holidays">
+                    <img src="Assets/holiday_singapore.jpg" alt="International Holidays">
                     <span class="pkg-pill-badge">International Holidays</span>
                 </div>
                 <div class="pkg-preview-body">
                     <div>
-                        <h4 style="font-size:1.2rem; font-weight:800; margin-bottom:0.4rem; color:var(--text-heading);">Bali, Dubai, Singapore & Beyond</h4>
-                        <p style="font-size:0.86rem; color:var(--text-body); line-height:1.6; margin-bottom:1.2rem;">Complete international tour packages with flights, overseas insurance, visa assistance, and luxury resorts.</p>
+                        <h4 style="font-size:1.2rem; font-weight:800; margin-bottom:0.4rem; color:var(--text-heading);">Singapore, Vietnam, Dubai & Beyond</h4>
+                        <p style="font-size:0.86rem; color:var(--text-body); line-height:1.6; margin-bottom:1.2rem;">Well-planned international holidays with customised itineraries, flights, visa assistance, and luxury stays.</p>
                     </div>
-                    <a href="holidays.html" class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; align-self:flex-start;">View International Packages</a>
+                    <span class="btn btn-gold" style="padding:0.45rem 1.2rem; font-size:0.84rem; align-self:flex-start;">View International Holidays</span>
                 </div>
-            </div>
+            </a>
 
             <!-- Flight / Train / Cruise / Visa Card -->
-            <div class="white-card">
-                <div class="card-icon-gold"><i class="fa-solid fa-passport"></i></div>
-                <h3 style="font-size:1.3rem;">Ticketing & Visa Desk</h3>
-                <p>One-stop booking for Domestic & International Flights, IRCTC Train Tickets, Cruise Holidays, and end-to-end Visa Assistance.</p>
-                <div class="card-footer">
-                    <a href="holidays.html#additional" style="font-size:0.88rem; font-weight:800; color:var(--gold-4); display:inline-flex; align-items:center; gap:0.4rem;">
-                        Explore Travel Desk <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+            <a href="holidays.html" class="white-card mithra-service-card" style="text-decoration:none; color:inherit; height:100%;">
+                <div class="mithra-card-content">
+                    <div class="card-icon-gold"><i class="fa-solid fa-passport"></i></div>
+                    <h3 class="mithra-card-title">Ticketing & Visa Desk</h3>
+                    <p class="mithra-card-desc">One-stop booking for Domestic & International Flights, IRCTC Train Tickets, Cruise Holidays, and end-to-end Visa Assistance.</p>
+                    <div class="mithra-card-footer">
+                        <span class="mithra-link-text">
+                            Explore Travel Desk <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
                 </div>
-            </div>
+                <div class="mithra-card-visual">
+                    <img src="Assets/swiggy_vec_visa.png" alt="Ticketing and Visa Desk" class="img-recolor-white" loading="lazy">
+                </div>
+            </a>
         </div>
     </div>
 </section>
@@ -448,7 +498,8 @@ function handleHeroSideCarSend(e) {
     <div class="container">
         <div class="story-grid">
             <div class="story-visual">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=85&w=800" alt="About Mithra Tours" class="story-main-img">
+                <img src="Assets/office_reception.jpg" alt="MTT Headquarters Reception & Client Lounge - Kilpauk Garden, Chennai" class="story-main-img" loading="lazy">
+                <div class="about-img-tag"><i class="fa-solid fa-location-dot" style="color:var(--gold-4);"></i> MTT Headquarters &middot; Kilpauk Garden, Chennai</div>
             </div>
 
             <div class="story-content">
@@ -590,10 +641,10 @@ function handleHeroSideCarSend(e) {
                     Mithra Tours & Travels — Journeys That Connect. Premier corporate mobility, outstation cabs, and holiday packages from Kilpauk Garden, Chennai.
                 </p>
                 <div class="social-icons-row">
-                    <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://wa.me/919629245533" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61590731489630" class="social-btn" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/mithratoursandtravels.in/" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/919629245533?text=Hello%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote" class="social-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/company/mithratoursandtravels" class="social-btn" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
 
@@ -782,5 +833,6 @@ window.addEventListener('resize', updateAllFlowRoads);
 window.addEventListener('load', updateAllFlowRoads);
 </script>
 
+<script src="js/custom-dropdown.js"></script>
 </body>
 </html>
