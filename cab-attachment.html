@@ -379,20 +379,12 @@
 <script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-function handleAttachSubmit(e) {
-    e.preventDefault();
-    const name = document.getElementById('a-name').value;
-    const phone = document.getElementById('a-phone').value;
-    const model = document.getElementById('a-model').value;
-    const year = document.getElementById('a-year').value;
-    const cat = document.getElementById('a-cat').value;
-    const loc = document.getElementById('a-loc').value || 'Chennai';
-
-    const text = `*New Cab Attachment Application - Mithra Tours*\n\n*Name:* ${name}\n*Mobile:* ${phone}\n*Vehicle:* ${model} (${year})\n*Category:* ${cat}\n*Location:* ${loc}`;
+\n*Mobile:* ${phone}\n*Vehicle:* ${model} (${year})\n*Category:* ${cat}\n*Location:* ${loc}`;
     window.open(`https://wa.me/919629245533?text=${encodeURIComponent(text)}`, '_blank');
 }
 </script>
 <script src="js/custom-dropdown.js"></script>
+<script src="js/form-handler.js"></script>
 <script src="js/main.js"></script>
 <script src="js/scroll-animations.js"></script>
 </body>

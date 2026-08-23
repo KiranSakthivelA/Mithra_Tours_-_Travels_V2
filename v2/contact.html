@@ -341,18 +341,12 @@ const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
 // Close when any nav link is clicked
 // Close on Escape key
-function handleContactSubmit(e) {
-    e.preventDefault();
-    const name = document.getElementById('c-name').value;
-    const phone = document.getElementById('c-phone').value;
-    const service = document.getElementById('c-service').value;
-    const msg = document.getElementById('c-message').value;
-
-    const text = `*New Contact Enquiry - Mithra Tours*\n\n*Name:* ${name}\n*Mobile:* ${phone}\n*Service:* ${service}\n*Details:* ${msg}`;
+\n*Mobile:* ${phone}\n*Service:* ${service}\n*Details:* ${msg}`;
     window.open(`https://wa.me/919629245533?text=${encodeURIComponent(text)}`, '_blank');
 }
 </script>
 <script src="js/custom-dropdown.js"></script>
+<script src="js/form-handler.js"></script>
 <script src="js/main.js"></script>
 <script src="js/scroll-animations.js"></script>
 </body>

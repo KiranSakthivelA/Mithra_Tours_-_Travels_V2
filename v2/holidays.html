@@ -743,21 +743,12 @@
 <script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-function handleHolidayEnquiry(e) {
-    e.preventDefault();
-    const name = document.getElementById('h-name').value;
-    const phone = document.getElementById('h-phone').value;
-    const dest = document.getElementById('h-dest').value;
-    const date = document.getElementById('h-date').value || 'Flexible';
-    const pax = document.getElementById('h-pax').value;
-    const service = document.getElementById('h-service').value;
-    const notes = document.getElementById('h-notes').value || 'None';
-
-    const msg = `*New Travel & Holiday Booking Enquiry - Mithra Tours*\n\n*Name:* ${name}\n*Mobile:* ${phone}\n*Destination/Route:* ${dest}\n*Date:* ${date}\n*Travellers:* ${pax}\n*Category:* ${service}\n*Notes:* ${notes}`;
+\n*Mobile:* ${phone}\n*Destination/Route:* ${dest}\n*Date:* ${date}\n*Travellers:* ${pax}\n*Category:* ${service}\n*Notes:* ${notes}`;
     window.open(`https://wa.me/919629245533?text=${encodeURIComponent(msg)}`, '_blank');
 }
 </script>
 <script src="js/custom-dropdown.js"></script>
+<script src="js/form-handler.js"></script>
 <script src="js/main.js"></script>
 <script src="js/scroll-animations.js"></script>
 </body>

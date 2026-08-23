@@ -734,14 +734,7 @@ const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
 
 /* Home Enquiry → WhatsApp */
-function handleHomeEnquiry(e) {
-    e.preventDefault();
-    const name = document.getElementById('he-name').value;
-    const phone = document.getElementById('he-phone').value;
-    const service = document.getElementById('he-service').value;
-    const details = document.getElementById('he-details').value;
-
-    const msg = `*New Travel Enquiry - Mithra Tours*\n\n*Name:* ${name}\n*Mobile:* ${phone}\n*Service:* ${service}\n*Details:* ${details}`;
+\n*Mobile:* ${phone}\n*Service:* ${service}\n*Details:* ${details}`;
     window.open(`https://wa.me/919629245533?text=${encodeURIComponent(msg)}`, '_blank');
 }
 </script>
@@ -805,6 +798,7 @@ window.addEventListener('load', updateAllFlowRoads);
 </script>
 
 <script src="js/custom-dropdown.js"></script>
+<script src="js/form-handler.js"></script>
 <script src="js/main.js"></script>
 <script src="js/scroll-animations.js"></script>
 </body>
