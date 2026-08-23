@@ -2627,9 +2627,41 @@ textarea.form-control {
         position: relative;
     }
 
-    /* Hide vertical dashed pipe */
+    /* ── VERTICAL dashed line — runs down the center gap between columns */
     .why-flow-wrapper::before {
-        display: none;
+        content: '';
+        display: block !important;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(50% - 1px);
+        width: 2px;
+        background: repeating-linear-gradient(
+            180deg,
+            #F59E0B 0px, #F59E0B 7px,
+            transparent 7px, transparent 16px
+        );
+        opacity: 0.45;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* ── HORIZONTAL dashed line — runs across the center gap between rows */
+    .why-flow-wrapper::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 1px);
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: repeating-linear-gradient(
+            90deg,
+            #F59E0B 0px, #F59E0B 7px,
+            transparent 7px, transparent 16px
+        );
+        opacity: 0.45;
+        z-index: 0;
+        pointer-events: none;
     }
 
     /* 2-column grid */
@@ -2640,9 +2672,11 @@ textarea.form-control {
         gap: 1rem !important;
         height: auto !important;
         padding: 0 0.25rem;
+        position: relative;
+        z-index: 1;
     }
 
-    /* Reset all pos-top / pos-bottom overrides from 1024px block */
+    /* Each card — sits above the connecting lines */
     .flow-node-item.pos-top,
     .flow-node-item.pos-bottom {
         flex-direction: column !important;
@@ -2651,19 +2685,20 @@ textarea.form-control {
         justify-content: flex-start !important;
         gap: 0.85rem !important;
         height: auto !important;
-        padding: 1.25rem 0.9rem 1.25rem !important;
+        padding: 1.1rem 0.8rem 1.25rem !important;
         margin: 0 !important;
+        z-index: 2;
+        position: relative;
 
         /* Card surface */
         background: #ffffff !important;
         border: 1px solid rgba(245, 158, 11, 0.2) !important;
         border-radius: 16px !important;
         box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06) !important;
-        position: relative;
         overflow: hidden;
     }
 
-    /* Subtle gold top accent line */
+    /* Gold top accent bar */
     .flow-node-item.pos-top::before,
     .flow-node-item.pos-bottom::before {
         content: '';
@@ -2674,7 +2709,17 @@ textarea.form-control {
         border-radius: 16px 16px 0 0;
     }
 
-    /* Icon — centered, gold gradient, larger */
+    /* ── ICON: gold gradient, at BOTTOM of each card
+          so it sits close to the connecting line intersection */
+    .flow-node-item.pos-top {
+        flex-direction: column-reverse !important; /* text first in HTML → push icon to bottom */
+    }
+    .flow-node-item.pos-bottom {
+        flex-direction: column !important;         /* icon first in HTML → stays at top, flip to bottom */
+        justify-content: flex-end !important;
+    }
+
+    /* Icon styling */
     .flow-node-item .flow-squircle-icon {
         width: 58px !important;
         height: 58px !important;
@@ -2686,8 +2731,8 @@ textarea.form-control {
         border: none !important;
         box-shadow: 0 8px 22px rgba(245, 158, 11, 0.30) !important;
         align-self: center !important;
-        order: 0 !important;
         flex-shrink: 0 !important;
+        order: unset !important;
     }
 
     /* Text block — centered */
