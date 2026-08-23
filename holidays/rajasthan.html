@@ -440,7 +440,7 @@
             <a href="../contact.html">Contact</a>
             <a href="#enquiry" class="btn-primary nav-btn">Get Quote</a>
         </div>
-        <button class="menu-toggle" id="mobile-menu" onclick="toggleMobileDrawer(true)" aria-label="Toggle Menu">
+        <button class="menu-toggle" id="mobile-menu"  aria-label="Toggle Menu">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
@@ -1077,13 +1077,6 @@
 <script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.getElementById('nav-links');
-mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    mobileMenu.innerHTML = navLinks.classList.contains('open') ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-});
-
 function handleHolidayPageEnquiry(e, pkgTitle) {
     e.preventDefault();
     const name = document.getElementById('p-name').value;

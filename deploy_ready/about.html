@@ -85,7 +85,7 @@
             <a href="contact.html#enquiry" class="btn btn-gold"><i class="fa-solid fa-bolt"></i> Get Quote</a>
         </div>
 
-        <button class="menu-toggle" id="mobile-menu" onclick="toggleMobileDrawer(true)" aria-label="Toggle Menu">
+        <button class="menu-toggle" id="mobile-menu"  aria-label="Toggle Menu">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
@@ -569,45 +569,18 @@
 <script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.getElementById('nav-links');
-
-function closeMenu() {
-    navLinks.classList.remove('open');
-    mobileMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
-}
-
-mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    mobileMenu.innerHTML = navLinks.classList.contains('open') ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-});
-
-navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-
-// Close when clicking outside the navbar
-document.addEventListener('click', (e) => {
-    if (navLinks.classList.contains('open') && !navbar.contains(e.target)) {
-        closeMenu();
-    }
-});
-
 // Close on Escape key
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 </script>
 
 <script>
-// Pixel-Perfect Dynamic S-Curve Road Line Generator for Flow Maps
+// Pixel-Perfect Dynamic S-Curve Road Line Generator for Flow Maps (Desktop)
 function updateAllFlowRoads() {
+    if (window.innerWidth <= 1024) return;
     const wrappers = document.querySelectorAll('.why-flow-wrapper');
     wrappers.forEach(wrapper => {
         const svg = wrapper.querySelector('.flow-road-svg');
         const icons = wrapper.querySelectorAll('.flow-squircle-icon');
         if (!svg || icons.length < 2) return;
-
-        if (window.innerWidth <= 1024) {
-            svg.innerHTML = '';
-            return;
-        }
 
         const wRect = wrapper.getBoundingClientRect();
         const pts = Array.from(icons).map(icon => {

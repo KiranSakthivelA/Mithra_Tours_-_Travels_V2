@@ -40,7 +40,7 @@
             <a href="contact.html" class="nav-contact-link">Contact</a>
             <a href="contact.html#enquiry" class="btn btn-gold"><i class="fa-solid fa-bolt"></i> Get Quote</a>
         </div>
-        <button class="menu-toggle" id="mobile-menu" onclick="toggleMobileDrawer(true)" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+        <button class="menu-toggle" id="mobile-menu"  aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
     </div>
 </nav>
 <!-- ═══════════════════════════════════════════════
@@ -379,13 +379,6 @@
 <script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.getElementById('nav-links');
-mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    mobileMenu.innerHTML = navLinks.classList.contains('open') ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-});
-
 function handleAttachSubmit(e) {
     e.preventDefault();
     const name = document.getElementById('a-name').value;
