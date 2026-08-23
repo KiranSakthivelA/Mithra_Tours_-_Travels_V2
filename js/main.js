@@ -20,7 +20,9 @@ function initNavbar() {
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            toggleMobileDrawer(true);
+            const drawer = document.getElementById('mobile-drawer');
+            const isActive = drawer && drawer.classList.contains('active');
+            toggleMobileDrawer(!isActive);
         });
     }
 }
@@ -29,16 +31,23 @@ function initNavbar() {
 window.toggleMobileDrawer = function(open) {
     const drawer = document.getElementById('mobile-drawer');
     const overlay = document.getElementById('mobile-drawer-overlay');
+    const mobileMenuBtn = document.getElementById('mobile-menu');
     if (!drawer || !overlay) return;
 
     if (open) {
         drawer.classList.add('active');
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        if (mobileMenuBtn) {
+            mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        }
     } else {
         drawer.classList.remove('active');
         overlay.classList.remove('active');
         document.body.style.overflow = '';
+        if (mobileMenuBtn) {
+            mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
     }
 };
 
