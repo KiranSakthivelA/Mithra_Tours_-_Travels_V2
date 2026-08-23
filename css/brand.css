@@ -434,6 +434,105 @@ button, input, select, textarea { font-family:inherit; }
 .step-item h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text-heading); }
 .step-item p { font-size: 0.86rem; color: var(--text-body); line-height: 1.6; }
 
+/* ── STEPS SECTION: MOBILE LAYOUT ──────────────────────────── */
+@media (max-width: 768px) {
+    .steps-map-wrap {
+        padding: 2rem 1.25rem;
+        border-radius: 1.2rem;
+    }
+
+    /* Switch to vertical single-column list */
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+        position: relative;
+    }
+
+    /* Vertical dashed connecting line running down the left of all icons */
+    .steps-grid::before {
+        content: '';
+        position: absolute;
+        left: 30px;
+        top: 34px;
+        bottom: 34px;
+        width: 2px;
+        background: repeating-linear-gradient(
+            180deg,
+            var(--gold-2) 0, var(--gold-2) 8px,
+            transparent 8px, transparent 18px
+        );
+        opacity: 0.55;
+        z-index: 0;
+    }
+
+    /* Remove horizontal connector — not needed on mobile */
+    .step-item:not(:last-child)::after {
+        display: none;
+    }
+
+    /* Each step: horizontal row — icon left, text right */
+    .step-item {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1.1rem;
+        padding: 1.1rem 1rem 1.1rem 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Premium card look for each row */
+    .step-item {
+        background: linear-gradient(135deg, #fffdf5 0%, #ffffff 100%);
+        border: 1px solid rgba(245, 158, 11, 0.15);
+        border-left: 3px solid var(--gold-2);
+        border-radius: 1rem;
+        padding: 1.1rem 1.1rem 1.1rem 1rem;
+        margin-bottom: 0.85rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.055);
+    }
+    .step-item:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Icon: smaller, no bottom margin, flex-shrink preserved */
+    .step-icon-bubble {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        border-radius: 14px;
+        font-size: 1.25rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        align-self: center;
+        background: var(--grad-gold);
+        color: #fff;
+        border: none;
+        box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+    }
+
+    /* Text block */
+    .step-text-block {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        flex: 1;
+    }
+
+    .step-item h4 {
+        font-size: 1rem;
+        font-weight: 800;
+        margin-bottom: 0.2rem;
+        color: var(--text-heading);
+    }
+    .step-item p {
+        font-size: 0.82rem;
+        color: var(--text-body);
+        line-height: 1.55;
+        margin: 0;
+    }
+}
+
 /* ── SECTION: CARDS GRID (Clean Floating White Cards) ───── */
 .cards-grid-3 {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;
@@ -2514,6 +2613,84 @@ textarea.form-control {
         font-size: 0.84rem !important;
     }
 }
+
+/* ── WHY MITHRA: PREMIUM MOBILE CARD STYLE (≤ 768px) ────── */
+@media (max-width: 768px) {
+    .why-flow-section {
+        padding: 2.5rem 0 3.5rem;
+    }
+
+    .why-flow-wrapper {
+        padding-left: 0;
+        margin: 1.5rem auto 0;
+    }
+
+    /* Hide the vertical dashed line — replaced by card left-border accent */
+    .why-flow-wrapper::before {
+        display: none;
+    }
+
+    .flow-steps-grid {
+        gap: 0.85rem !important;
+        padding: 0 0.25rem;
+    }
+
+    /* Each step node → premium card row */
+    .flow-node-item.pos-top,
+    .flow-node-item.pos-bottom {
+        background: linear-gradient(135deg, #fffdf4 0%, #ffffff 100%) !important;
+        border: 1px solid rgba(245, 158, 11, 0.18) !important;
+        border-left: 4px solid #F59E0B !important;
+        border-radius: 14px !important;
+        padding: 1.1rem 1.15rem !important;
+        gap: 1rem !important;
+        align-items: center !important;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06) !important;
+        transition: box-shadow 0.25s ease, transform 0.25s ease !important;
+    }
+
+    .flow-node-item.pos-top:active,
+    .flow-node-item.pos-bottom:active {
+        transform: scale(0.985) !important;
+        box-shadow: 0 4px 20px rgba(245, 158, 11, 0.18) !important;
+    }
+
+    /* Icon: gold gradient squircle */
+    .flow-node-item .flow-squircle-icon {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        border-radius: 14px !important;
+        font-size: 1.3rem !important;
+        background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        box-shadow: 0 6px 18px rgba(245, 158, 11, 0.32) !important;
+        align-self: center !important;
+        flex-shrink: 0 !important;
+        order: 0 !important;
+    }
+
+    /* Text block */
+    .flow-node-body {
+        flex: 1 !important;
+        gap: 0.2rem !important;
+    }
+
+    .flow-node-body h3 {
+        font-size: 1rem !important;
+        font-weight: 800 !important;
+        color: #0F172A !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    .flow-node-body p {
+        font-size: 0.81rem !important;
+        color: #64748B !important;
+        line-height: 1.55 !important;
+    }
+}
+
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER CONTACT INFO ALIGNMENT
