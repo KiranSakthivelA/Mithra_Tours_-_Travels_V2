@@ -1,0 +1,19 @@
+# Apache Configuration for mithratoursandtravels.in (Main Public Frontend)
+RewriteEngine On
+
+# 1. Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Redirect any /admin access to the secure admin subdomain
+RewriteRule ^admin(/.*)?$ https://admin.mithratoursandtravels.in [R=301,L]
+
+# 3. Block access to sensitive data and config files
+<FilesMatch "^(content\.json|database\.sql|\.env|\.git)">
+    Require all denied
+</FilesMatch>
+
+# 4. Enable Gzip Compression & Browser Caching
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>

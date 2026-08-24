@@ -144,14 +144,42 @@ if (!empty($email)) {
 }
 $headers[] = 'X-Mailer: PHP/' . phpversion();
 
-// ── 8. Dispatch Mail ──
+// ── 8. Dispatch via Web3Forms & Mail ──
+$web3formsKey = '6a0fbdb6-4667-49f7-8bee-f1bf8eae8e96';
+$web3Success = false;
+
+if (function_exists('curl_init')) {
+    $web3Data = array_merge($data, [
+        'access_key' => $web3formsKey,
+        'subject' => $subject,
+        'from_name' => $siteName
+    ]);
+    
+    $ch = curl_init('https://api.web3forms.com/submit');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($web3Data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json', 'Accept: application/json']);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 6);
+    $web3Res = curl_exec($ch);
+    unset($ch);
+    
+    if ($web3Res) {
+        $jsonDecoded = json_decode($web3Res, true);
+        if (!empty($jsonDecoded['success'])) {
+            $web3Success = true;
+        }
+    }
+}
+
 $sent = @mail($toEmail, $subject, $htmlBody, implode("\r\n", $headers));
 
-if ($sent) {
+if ($sent || $web3Success) {
     echo json_encode([
         'success' => true,
         'message' => 'Thank you! Your enquiry has been received. Our team will contact you shortly.',
-        'recipient' => $toEmail
+        'recipient' => $toEmail,
+        'web3forms' => $web3Success
     ]);
 } else {
     // In local development or if mail() is restricted, return success with notice

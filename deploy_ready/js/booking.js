@@ -8,6 +8,24 @@
 
 'use strict';
 
+const WEB3FORMS_ACCESS_KEY = '6a0fbdb6-4667-49f7-8bee-f1bf8eae8e96';
+
+function dispatchWeb3FormsBooking(inquiry) {
+    try {
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+                access_key: WEB3FORMS_ACCESS_KEY,
+                subject: `[Cab Booking Lead] ${inquiry.name || 'Customer'} - ${inquiry.car || 'Vehicle'} (${inquiry.pickup || 'Pickup'}${inquiry.drop ? ' to ' + inquiry.drop : ''})`,
+                from_name: 'Mithra Tours & Travels',
+                botcheck: '',
+                ...inquiry
+            })
+        }).catch(err => console.warn('Web3Forms dispatch notice:', err));
+    } catch(e) {}
+}
+
 const VEHICLES = [
     {
         id: 'Sedan',
@@ -522,19 +540,23 @@ window.sendWhatsAppBooking = function(vehicleLabel, pickup, drop, date, time, tr
     );
 
     // Save to database & spreadsheet automatically
+    const inquiryPayload = {
+        name: name,
+        phone: phone,
+        pickup: pickup,
+        drop: drop,
+        car: vehicleLabel,
+        date: date,
+        message: `Pax: ${adults}A, ${children}C | Luggage: ${luggage} | Trip: ${tripType} | ${notes}`,
+        estimated_fare: fare,
+        distance_km: km
+    };
     fetch('api/submit_inquiry.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            name: name,
-            phone: phone,
-            pickup: pickup,
-            drop: drop,
-            car: vehicleLabel,
-            date: date,
-            message: `Pax: ${adults}A, ${children}C | Luggage: ${luggage} | Trip: ${tripType} | ${notes}`
-        })
+        body: JSON.stringify(inquiryPayload)
     }).catch(err => console.error("Sync error:", err));
+    dispatchWeb3FormsBooking(inquiryPayload);
 
     window.open(`https://wa.me/919629245533?text=${msg}`, '_blank');
 
@@ -757,19 +779,21 @@ async function handleQuickEstimate() {
             '\n_Please confirm availability._'
         );
 
+        const localInquiry = {
+            name: name,
+            phone: phone,
+            pickup: pickup,
+            drop: '',
+            car: 'Any (Local Package)',
+            date: date,
+            message: 'Local Trip | Package: ' + localPackage
+        };
         fetch('api/submit_inquiry.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: name,
-                phone: phone,
-                pickup: pickup,
-                drop: '',
-                car: 'Any (Local Package)',
-                date: date,
-                message: 'Local Trip | Package: ' + localPackage
-            })
+            body: JSON.stringify(localInquiry)
         }).catch(e => console.error(e));
+        dispatchWeb3FormsBooking(localInquiry);
 
         window.open('https://wa.me/919629245533?text=' + msg, '_blank');
         ['qb-name','qb-phone','qb-pickup','qb-drop'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
@@ -789,19 +813,21 @@ async function handleQuickEstimate() {
             '\n_Please confirm availability._'
         );
 
+        const pndInquiry = {
+            name: name,
+            phone: phone,
+            pickup: pickup,
+            drop: drop,
+            car: carType,
+            date: date,
+            message: 'Pick Up/Drop'
+        };
         fetch('api/submit_inquiry.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: name,
-                phone: phone,
-                pickup: pickup,
-                drop: drop,
-                car: carType,
-                date: date,
-                message: 'Pick Up/Drop'
-            })
+            body: JSON.stringify(pndInquiry)
         }).catch(e => console.error(e));
+        dispatchWeb3FormsBooking(pndInquiry);
 
         window.open('https://wa.me/919629245533?text=' + msg, '_blank');
         ['qb-name','qb-phone','qb-pickup','qb-drop'].forEach(id => {
@@ -991,19 +1017,21 @@ async function handleMainEstimate() {
             '\n_Please confirm availability._'
         );
 
+        const mainLocalInquiry = {
+            name: name,
+            phone: phone,
+            pickup: pickup,
+            drop: '',
+            car: carType,
+            date: date,
+            message: 'Local Trip | Package: ' + localPackage
+        };
         fetch('api/submit_inquiry.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: name,
-                phone: phone,
-                pickup: pickup,
-                drop: '',
-                car: carType,
-                date: date,
-                message: 'Local Trip | Package: ' + localPackage
-            })
+            body: JSON.stringify(mainLocalInquiry)
         }).catch(e => console.error(e));
+        dispatchWeb3FormsBooking(mainLocalInquiry);
 
         window.open('https://wa.me/919629245533?text=' + msg, '_blank');
         ['mb-name','mb-phone','mb-pickup','mb-drop'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
@@ -1022,19 +1050,21 @@ async function handleMainEstimate() {
             '\n_Please confirm availability._'
         );
 
+        const mainPndInquiry = {
+            name: name,
+            phone: phone,
+            pickup: pickup,
+            drop: drop,
+            car: carType,
+            date: date,
+            message: 'Pick Up/Drop'
+        };
         fetch('api/submit_inquiry.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: name,
-                phone: phone,
-                pickup: pickup,
-                drop: drop,
-                car: carType,
-                date: date,
-                message: 'Pick Up/Drop'
-            })
+            body: JSON.stringify(mainPndInquiry)
         }).catch(e => console.error(e));
+        dispatchWeb3FormsBooking(mainPndInquiry);
 
         window.open('https://wa.me/919629245533?text=' + msg, '_blank');
         ['mb-name','mb-phone','mb-pickup','mb-drop'].forEach(id => {
@@ -1421,19 +1451,21 @@ document.addEventListener('DOMContentLoaded', () => {
             );
 
             // Sync with backend
+            const customPackageInquiry = {
+                name: name,
+                phone: phone,
+                pickup: pickup,
+                drop: drop,
+                car: car,
+                date: date,
+                message: 'Local Custom Package | ' + hours + ' Hrs | Rs. ' + total
+            };
             fetch('api/submit_inquiry.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: name,
-                    phone: phone,
-                    pickup: pickup,
-                    drop: drop,
-                    car: car,
-                    date: date,
-                    message: 'Local Custom Package | ' + hours + ' Hrs | Rs. ' + total
-                })
+                body: JSON.stringify(customPackageInquiry)
             }).catch(e => console.error(e));
+            dispatchWeb3FormsBooking(customPackageInquiry);
 
             window.open('https://wa.me/919629245533?text=' + msg, '_blank');
             lpModal.style.display = 'none';

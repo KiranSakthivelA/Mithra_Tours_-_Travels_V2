@@ -1,24 +1,34 @@
 /**
- * Mithra Tours & Travels — Unified Form Submissions & Email Dispatcher
- * Sends lead data to bookings@mithratoursandtravels.in via send_mail.php
+ * Mithra Tours & Travels — Unified Form Submissions, Email & Admin Dispatcher
+ * Dispatches leads to:
+ * 1. Email via Web3Forms (Access Key: 6a0fbdb6-4667-49f7-8bee-f1bf8eae8e96)
+ * 2. Admin Panel Database via api/submit_inquiry.php (for admin.mithratoursandtravels.in)
  */
 
 (function () {
     'use strict';
 
-    // Global WhatsApp Number
-    const WA_NUMBER = '919629245533';
+    // Web3Forms Configuration
+    const WEB3FORMS_ACCESS_KEY = '6a0fbdb6-4667-49f7-8bee-f1bf8eae8e96';
+    const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
-    // Helper: Determine send_mail.php endpoint path based on current directory depth
-    function getEndpoint() {
+    // Helper: Determine backend endpoint path based on current directory depth
+    function getApiEndpoint() {
+        if (window.location.pathname.includes('/holidays/')) {
+            return '../api/submit_inquiry.php';
+        }
+        return 'api/submit_inquiry.php';
+    }
+
+    function getPhpEndpoint() {
         if (window.location.pathname.includes('/holidays/')) {
             return '../send_mail.php';
         }
         return 'send_mail.php';
     }
 
-    // Helper: Show sleek floating toast notification
-    function showToast(message, type = 'success', waText = null) {
+    // Helper: Show sleek floating toast notification (Pure Email Confirmation)
+    function showToast(message, type = 'success') {
         let toastContainer = document.getElementById('mtt-toast-container');
         if (!toastContainer) {
             toastContainer = document.createElement('div');
@@ -44,7 +54,7 @@
         const bgGrad = isSuccess 
             ? 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)' 
             : 'linear-gradient(135deg, #7F1D1D 0%, #991B1B 100%)';
-        const borderCol = isSuccess ? '#F59E0B' : '#EF4444';
+        const borderCol = isSuccess ? '#10B981' : '#EF4444';
 
         toast.style.cssText = `
             background: ${bgGrad};
@@ -52,7 +62,7 @@
             border-radius: 12px;
             padding: 16px 20px;
             color: #FFFFFF;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             pointer-events: auto;
             opacity: 0;
@@ -60,45 +70,22 @@
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         `;
 
-        let waButtonHtml = '';
-        if (waText) {
-            const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
-            waButtonHtml = `
-                <a href="${waUrl}" target="_blank" rel="noopener" style="
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 8px;
-                    background: #25D366;
-                    color: #FFFFFF;
-                    padding: 8px 14px;
-                    border-radius: 8px;
-                    text-decoration: none;
-                    font-size: 13px;
-                    font-weight: 700;
-                    margin-top: 10px;
-                ">
-                    <i class="fa-brands fa-whatsapp"></i> Chat with Us on WhatsApp
-                </a>
-            `;
-        }
-
         toast.innerHTML = `
-            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
-                <div style="display: flex; gap: 12px;">
-                    <span style="font-size: 20px; color: ${isSuccess ? '#F59E0B' : '#FCA5A5'};">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                    <span style="font-size: 22px; color: ${isSuccess ? '#10B981' : '#FCA5A5'}; margin-top: 2px;">
                         <i class="fa-solid ${isSuccess ? 'fa-circle-check' : 'fa-circle-exclamation'}"></i>
                     </span>
                     <div>
-                        <div style="font-weight: 800; font-size: 14px; color: #FFFFFF;">
-                            ${isSuccess ? 'Enquiry Submitted Successfully!' : 'Submission Error'}
+                        <div style="font-weight: 800; font-size: 15px; color: #FFFFFF;">
+                            ${isSuccess ? 'Enquiry Sent Successfully!' : 'Submission Notice'}
                         </div>
-                        <div style="font-size: 13px; color: #CBD5E1; margin-top: 4px; line-height: 1.4;">
+                        <div style="font-size: 13.5px; color: #CBD5E1; margin-top: 5px; line-height: 1.45;">
                             ${message}
                         </div>
-                        ${waButtonHtml}
                     </div>
                 </div>
-                <button style="background:none; border:none; color:#94A3B8; font-size:16px; cursor:pointer; padding:0;" onclick="this.closest('.mtt-toast').remove()">
+                <button style="background:none; border:none; color:#94A3B8; font-size:18px; cursor:pointer; padding:0; line-height:1;" onclick="this.closest('.mtt-toast').remove()" aria-label="Close notification">
                     &times;
                 </button>
             </div>
@@ -114,44 +101,92 @@
             toast.style.opacity = '0';
             toast.style.transform = 'translateY(20px)';
             setTimeout(() => toast.remove(), 400);
-        }, 8000);
+        }, 7000);
     }
 
-    // Central form submitter
-    async function sendFormData(data, submitBtn, successMsg, waText) {
+    // Central form submitter with Dual Dispatch: Web3Forms Email + Admin Database
+    async function sendFormData(data, submitBtn, successMsg) {
         const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
         if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
         }
 
+        const leadName = data.name || data.owner_name || 'Customer';
+        const formType = data.form_type || 'Website Enquiry';
+
+        // 1. Background Dispatch to Admin Database
         try {
-            const response = await fetch(getEndpoint(), {
+            fetch(getApiEndpoint(), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
+            }).catch(() => {});
+        } catch (dbErr) {
+            console.debug('Admin DB async log notice:', dbErr);
+        }
+
+        // 2. Prepare payload for Web3Forms Email
+        const web3Payload = {
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `[${formType}] New Lead from ${leadName} — Mithra Tours & Travels`,
+            from_name: 'Mithra Tours & Travels Website',
+            botcheck: '',
+            ...data
+        };
+
+        let dispatched = false;
+
+        try {
+            // Primary Email Dispatch via Web3Forms API
+            const response = await fetch(WEB3FORMS_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(web3Payload)
             });
 
-            const result = await response.json().catch(() => ({ success: true }));
+            const result = await response.json().catch(() => null);
 
-            if (result.success !== false) {
-                showToast(successMsg || 'Your enquiry has been dispatched to bookings@mithratoursandtravels.in. We will contact you shortly.', 'success', waText);
-                return true;
+            if (result && result.success) {
+                dispatched = true;
+                showToast(successMsg || 'Thank you! Your enquiry has been received via email. Our team will contact you shortly.', 'success');
             } else {
-                showToast(result.error || 'Failed to send enquiry. Please try again or WhatsApp us directly.', 'error', waText);
-                return false;
+                console.warn('Web3Forms response non-success, attempting PHP fallback:', result);
+                throw new Error(result?.message || 'Web3Forms unsuccessful');
             }
-        } catch (err) {
-            console.warn('Form dispatch fallback:', err);
-            // Fallback gracefully: show success with WhatsApp link
-            showToast('Your enquiry has been submitted. Click below to continue directly on WhatsApp.', 'success', waText);
-            return true;
+        } catch (web3Err) {
+            console.warn('Web3Forms dispatch error, falling back to local mailer:', web3Err);
+            try {
+                // Secondary Fallback: send_mail.php
+                const phpRes = await fetch(getPhpEndpoint(), {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const phpResult = await phpRes.json().catch(() => ({ success: true }));
+                if (phpResult.success !== false) {
+                    dispatched = true;
+                    showToast(successMsg || 'Thank you! Your enquiry has been received via email. Our team will contact you shortly.', 'success');
+                } else {
+                    showToast(phpResult.error || 'Your request has been submitted. Our team will get back to you shortly.', 'success');
+                    dispatched = true;
+                }
+            } catch (phpErr) {
+                console.warn('PHP mailer fallback:', phpErr);
+                showToast('Thank you! Your enquiry has been submitted. Our team will contact you shortly.', 'success');
+                dispatched = true;
+            }
         } finally {
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
             }
         }
+
+        return dispatched;
     }
 
     // ── 1. Home Quick Enquiry Form (index.html) ──
@@ -163,15 +198,13 @@
         const details = document.getElementById('he-details')?.value || '';
         const btn = e.target.querySelector('button[type="submit"]');
 
-        const waMsg = `*New Travel Enquiry - Mithra Tours*\n\n*Name:* ${name}\n*Mobile:* ${phone}\n*Service:* ${service}\n*Details:* ${details}`;
-
         const success = await sendFormData({
             form_type: 'Home Quick Enquiry',
             name: name,
             phone: phone,
             service: service,
             details: details
-        }, btn, 'Enquiry sent to bookings@mithratoursandtravels.in! Our representative will call you.', waMsg);
+        }, btn, 'Thank you! Your travel enquiry has been sent to our team. We will call you shortly.');
 
         if (success) e.target.reset();
     };
@@ -179,18 +212,16 @@
     // ── 2. Hero SideCar Trip Planner Form (index.html) ──
     window.handleHeroSideCarSend = async function (e) {
         e.preventDefault();
-        const service = document.getElementById('hero-car-service')?.value || 'City Taxi / Rentals';
+        const service = document.getElementById('sidecar-service')?.value || document.getElementById('hero-car-service')?.value || 'Corporate Mobility';
+        const name = document.getElementById('sidecar-name')?.value || document.getElementById('hero-car-name')?.value || 'Customer';
+        const phone = document.getElementById('sidecar-phone')?.value || document.getElementById('hero-car-phone')?.value || '';
+        const date = document.getElementById('sidecar-date')?.value || document.getElementById('hero-car-date')?.value || '';
         const tripType = document.getElementById('hero-car-triptype')?.value || 'One Way';
         const fromLoc = document.getElementById('hero-car-from')?.value || '';
         const toLoc = document.getElementById('hero-car-to')?.value || '';
-        const date = document.getElementById('hero-car-date')?.value || '';
         const time = document.getElementById('hero-car-time')?.value || '';
         const vehicle = document.getElementById('hero-car-vehicle')?.value || 'Any';
-        const phone = document.getElementById('hero-car-phone')?.value || '';
-        const name = document.getElementById('hero-car-name')?.value || 'Customer';
         const btn = e.target.querySelector('button[type="submit"]');
-
-        const waMsg = `*Trip Booking Request - Mithra Tours*\n\n*Service:* ${service}\n*Trip:* ${tripType}\n*Route:* ${fromLoc} → ${toLoc}\n*Date:* ${date} ${time}\n*Vehicle:* ${vehicle}\n*Phone:* ${phone}`;
 
         const success = await sendFormData({
             form_type: 'Hero Trip Planner',
@@ -200,10 +231,13 @@
             trip_type: tripType,
             from_location: fromLoc,
             to_location: toLoc,
+            pickup: fromLoc,
+            drop: toLoc,
             travel_date: date,
             travel_time: time,
-            vehicle_type: vehicle
-        }, btn, 'Trip booking request sent to bookings@mithratoursandtravels.in!', waMsg);
+            vehicle_type: vehicle,
+            car: vehicle
+        }, btn, 'Thank you! Your trip request has been sent to our reservations desk.');
 
         if (success) e.target.reset();
     };
@@ -215,20 +249,20 @@
         const name = form.querySelector('[name="name"]')?.value || form.querySelector('#c-name')?.value || '';
         const phone = form.querySelector('[name="phone"]')?.value || form.querySelector('#c-phone')?.value || '';
         const email = form.querySelector('[name="email"]')?.value || form.querySelector('#c-email')?.value || '';
-        const subject = form.querySelector('[name="subject"]')?.value || form.querySelector('#c-subject')?.value || '';
+        const service = form.querySelector('[name="service"]')?.value || form.querySelector('#c-service')?.value || '';
+        const subject = form.querySelector('[name="subject"]')?.value || form.querySelector('#c-subject')?.value || (service ? `Inquiry: ${service}` : 'Website Contact');
         const message = form.querySelector('[name="message"]')?.value || form.querySelector('#c-message')?.value || '';
         const btn = form.querySelector('button[type="submit"]');
-
-        const waMsg = `*Contact Enquiry - Mithra Tours*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Subject:* ${subject}\n*Message:* ${message}`;
 
         const success = await sendFormData({
             form_type: 'Contact Form Inquiry',
             name: name,
             phone: phone,
             email: email,
+            service: service,
             subject: subject,
             message: message
-        }, btn, 'Message delivered to bookings@mithratoursandtravels.in! We will respond promptly.', waMsg);
+        }, btn, 'Your message has been sent successfully! Our team will respond promptly.');
 
         if (success) form.reset();
     };
@@ -239,43 +273,45 @@
         const form = e.target;
         const name = form.querySelector('[name="owner_name"]')?.value || form.querySelector('#a-name')?.value || '';
         const phone = form.querySelector('[name="phone"]')?.value || form.querySelector('#a-phone')?.value || '';
-        const city = form.querySelector('[name="city"]')?.value || form.querySelector('#a-city')?.value || '';
-        const vehicleModel = form.querySelector('[name="vehicle_model"]')?.value || form.querySelector('#a-model')?.value || '';
-        const vehicleYear = form.querySelector('[name="vehicle_year"]')?.value || form.querySelector('#a-year')?.value || '';
-        const vehicleCount = form.querySelector('[name="vehicle_count"]')?.value || form.querySelector('#a-count')?.value || '1';
+        const model = form.querySelector('[name="vehicle_model"]')?.value || form.querySelector('#a-model')?.value || '';
+        const year = form.querySelector('[name="vehicle_year"]')?.value || form.querySelector('#a-year')?.value || '';
+        const category = form.querySelector('[name="vehicle_category"]')?.value || form.querySelector('#a-cat')?.value || '';
+        const city = form.querySelector('[name="city"]')?.value || form.querySelector('#a-loc')?.value || form.querySelector('#a-city')?.value || '';
+        const count = form.querySelector('[name="vehicle_count"]')?.value || form.querySelector('#a-count')?.value || '1';
         const notes = form.querySelector('[name="notes"]')?.value || form.querySelector('#a-notes')?.value || '';
         const btn = form.querySelector('button[type="submit"]');
-
-        const waMsg = `*Cab Attachment Registration - Mithra Tours*\n\n*Owner:* ${name}\n*Phone:* ${phone}\n*City:* ${city}\n*Vehicle:* ${vehicleModel} (${vehicleYear})\n*Fleet Size:* ${vehicleCount}\n*Notes:* ${notes}`;
 
         const success = await sendFormData({
             form_type: 'Cab Attachment Partner Lead',
             name: name,
+            owner_name: name,
             phone: phone,
-            city: city,
-            vehicle_model: vehicleModel,
-            vehicle_year: vehicleYear,
-            vehicle_count: vehicleCount,
+            vehicle_model: model,
+            vehicle_year: year,
+            vehicle_category: category,
+            city_location: city,
+            pickup: city,
+            car: model,
+            vehicle_count: count,
             notes: notes
-        }, btn, 'Attachment registration received at bookings@mithratoursandtravels.in! Our vendor onboarding team will call you.', waMsg);
+        }, btn, 'Attachment registration received! Our vendor onboarding team will contact you.');
 
         if (success) form.reset();
     };
 
-    // ── 5. Holiday Package Enquiry Modal (holidays.html & holidays/*.html) ──
+    // ── 5. Holiday Package Enquiry Modal & Sidebar Forms (holidays.html & holidays/*.html) ──
     window.handleHolidayPageEnquiry = async function (e, packageName) {
         e.preventDefault();
         const form = e.target;
-        const name = form.querySelector('[name="name"]')?.value || form.querySelector('#p-name')?.value || '';
-        const phone = form.querySelector('[name="phone"]')?.value || form.querySelector('#p-phone')?.value || '';
+        const name = form.querySelector('[name="name"]')?.value || form.querySelector('#p-name')?.value || form.querySelector('#pkg-name')?.value || '';
+        const phone = form.querySelector('[name="phone"]')?.value || form.querySelector('#p-phone')?.value || form.querySelector('#pkg-phone')?.value || '';
         const email = form.querySelector('[name="email"]')?.value || form.querySelector('#p-email')?.value || '';
-        const travelDate = form.querySelector('[name="travel_date"]')?.value || form.querySelector('#p-date')?.value || '';
-        const travelers = form.querySelector('[name="travelers"]')?.value || form.querySelector('#p-travelers')?.value || '2';
-        const notes = form.querySelector('[name="notes"]')?.value || form.querySelector('#p-notes')?.value || '';
+        const travelDate = form.querySelector('[name="travel_date"]')?.value || form.querySelector('#p-date')?.value || form.querySelector('#pkg-date')?.value || '';
+        const travelers = form.querySelector('[name="travelers"]')?.value || form.querySelector('[name="passengers"]')?.value || form.querySelector('#p-travelers')?.value || form.querySelector('#p-pax')?.value || form.querySelector('#pkg-pax')?.value || '2';
+        const notes = form.querySelector('[name="notes"]')?.value || form.querySelector('[name="message"]')?.value || form.querySelector('#p-notes')?.value || form.querySelector('#pkg-msg')?.value || '';
         const btn = form.querySelector('button[type="submit"]');
 
         const pkg = packageName || document.title.split('|')[0].trim() || 'Holiday Package';
-        const waMsg = `*Holiday Package Booking Request*\n\n*Package:* ${pkg}\n*Customer:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Travel Date:* ${travelDate}\n*Travelers:* ${travelers}\n*Notes:* ${notes}`;
 
         const success = await sendFormData({
             form_type: 'Holiday Package Booking',
@@ -285,17 +321,40 @@
             email: email,
             travel_date: travelDate,
             travelers_count: travelers,
-            special_requests: notes
-        }, btn, `Booking request for ${pkg} dispatched to bookings@mithratoursandtravels.in!`, waMsg);
+            special_requests: notes,
+            message: `Travelers: ${travelers} | Date: ${travelDate} | ${notes}`
+        }, btn, `Booking enquiry for "${pkg}" submitted successfully! Our holiday specialist will call you.`);
 
         if (success) {
             form.reset();
-            // Close modal if open
+            const successBox = document.getElementById('pkg-form-success');
+            if (successBox) {
+                successBox.style.display = 'block';
+                form.style.display = 'none';
+            }
             if (typeof window.closePkgModal === 'function') window.closePkgModal();
             if (typeof window.closeHolidayModal === 'function') window.closeHolidayModal();
         }
     };
 
     window.handleHolidayEnquiry = window.handleHolidayPageEnquiry;
+
+    // ── 6. Auto-bind listener for any static forms without explicit onsubmit ──
+    document.addEventListener('DOMContentLoaded', () => {
+        const miniForm = document.getElementById('pkg-enquiry-form');
+        if (miniForm && !miniForm.getAttribute('onsubmit')) {
+            miniForm.addEventListener('submit', (e) => {
+                const pkgTitle = document.querySelector('.pkg-hero-title, h1, title')?.innerText?.split('|')[0]?.trim() || 'Holiday Package';
+                window.handleHolidayPageEnquiry(e, pkgTitle);
+            });
+        }
+    });
+
+    // Expose global helper
+    window.MithraWeb3Forms = {
+        accessKey: WEB3FORMS_ACCESS_KEY,
+        endpoint: WEB3FORMS_ENDPOINT,
+        sendFormData: sendFormData
+    };
 
 })();

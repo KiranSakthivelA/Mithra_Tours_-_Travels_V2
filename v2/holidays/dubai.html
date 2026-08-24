@@ -412,6 +412,7 @@
         @media (max-width: 960px) {
             .pkg-layout-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             .pkg-inc-exc-grid {
                 grid-template-columns: 1fr;
@@ -420,16 +421,83 @@
                 position: static;
             }
         }
+
+        @media (max-width: 640px) {
+            .pkg-main-section {
+                padding: 2rem 0;
+            }
+            .pkg-content-card {
+                padding: 1.35rem 1.15rem;
+                border-radius: 16px;
+                margin-bottom: 1.75rem;
+            }
+            .pkg-booking-card {
+                padding: 1.35rem 1.15rem;
+                border-radius: 18px;
+            }
+            .pkg-form-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .pkg-price-tag {
+                font-size: 1.6rem;
+            }
+            .pkg-help-card {
+                padding: 1rem 1.15rem;
+                border-radius: 16px;
+            }
+            .pkg-clean-hero {
+                padding-top: 90px;
+                padding-bottom: 2rem;
+            }
+            .pkg-quick-meta-bar {
+                padding: 1rem;
+                border-radius: 16px;
+                margin: 1.25rem auto 0;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+            .meta-box {
+                gap: 0.65rem;
+            }
+            .meta-box-icon {
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                font-size: 1rem;
+            }
+            .meta-box-val {
+                font-size: 0.88rem;
+            }
+            .pkg-nav-pills {
+                margin-bottom: 1.5rem;
+                padding: 0.5rem 0.6rem;
+            }
+            .pkg-pill-link {
+                padding: 0.45rem 0.85rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .pkg-quick-meta-bar {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
 <!-- Unified Top Navigation -->
+<!-- ═══════════════════════════════════════════════
+     NAVBAR (Clean Pure White — Matching Home Page)
+════════════════════════════════════════════════ -->
 <nav class="navbar scrolled" id="navbar">
     <div class="nav-container">
         <a href="../index.html" class="logo">
             <img src="../Assets/Site_Logo.png" alt="Mithra Tours & Travels">
         </a>
+
         <div class="nav-links" id="nav-links">
             <a href="../index.html">Home</a>
             <a href="../corporate.html">Corporate</a>
@@ -437,10 +505,14 @@
             <a href="../holidays.html" class="active">Holidays</a>
             <a href="../about.html">About Us</a>
             <a href="../cab-attachment.html">Cab Attachment</a>
-            <a href="../contact.html">Contact</a>
-            <a href="#enquiry" class="btn-primary nav-btn">Get Quote</a>
         </div>
-        <button class="menu-toggle" id="mobile-menu"  aria-label="Toggle Menu">
+
+        <div class="nav-actions">
+            <a href="../contact.html" class="nav-contact-link">Contact</a>
+            <a href="../contact.html#enquiry" class="btn btn-gold"><i class="fa-solid fa-bolt"></i> Get Quote</a>
+        </div>
+
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
@@ -853,7 +925,7 @@
                             <input type="tel" id="p-phone" class="pkg-form-input" placeholder="e.g. +91 98765 43210" required>
                         </div>
 
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+                        <div class="pkg-form-grid-2">
                             <div class="pkg-form-group">
                                 <label for="p-date">Travel Date</label>
                                 <input type="date" id="p-date" class="pkg-form-input">
@@ -874,13 +946,13 @@
                             <textarea id="p-notes" class="pkg-form-input" rows="2" placeholder="Preferred hotel type, sightseeing requests..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-gold" style="width:100%; padding:0.85rem; font-size:0.95rem; justify-content:center; margin-top:0.5rem;">
+                        <button type="submit" class="btn btn-gold pkg-btn-submit">
                             <i class="fa-solid fa-paper-plane"></i> Request Custom Quote
                         </button>
                     </form>
 
                     <div style="margin-top:1.25rem; text-align:center;">
-                        <a href="https://wa.me/919629245533?text=Hi%20Mithra%20Tours,%20I%20am%20interested%20in%20the%20Dubai%20%26%20Abu%20Dhabi%20Grand%20Tour%20(5N / 6D)%20package.%20Please%20share%20quote." target="_blank" rel="noopener" class="btn btn-wa" style="width:100%; justify-content:center; padding:0.75rem; font-size:0.88rem; text-decoration:none;">
+                        <a href="https://wa.me/919629245533?text=Hi%20Mithra%20Tours,%20I%20am%20interested%20in%20the%20Dubai%20%26%20Abu%20Dhabi%20Grand%20Tour%20(5N / 6D)%20package.%20Please%20share%20quote." target="_blank" rel="noopener" class="btn btn-wa pkg-btn-wa">
                             <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
                         </a>
                     </div>
@@ -1076,6 +1148,10 @@
         <div class="footer-bottom-row">
             <div>
                 © 2026 Mithra Tours & Travels. All rights reserved.
+            </div>
+            
+            <div class="footer-credit">
+                <span>Built by <a href="https://codevibex.in" target="_blank" rel="noopener" class="codevibex-credit-link" style="color: #D97706 !important; font-weight: 800 !important; text-decoration: none !important;">CodeVibeX</a></span>
             </div>
             <div class="footer-bottom-links">
                 <a href="#">Privacy Policy</a>

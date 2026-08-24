@@ -4966,3 +4966,220 @@ textarea.form-control {
     }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   HOLIDAY PACKAGE SUBPAGES - RESPONSIVE & MOBILE STYLING
+   ═══════════════════════════════════════════════════════════ */
+.pkg-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2.5rem;
+    align-items: start;
+    min-width: 0;
+    width: 100%;
+}
+
+.pkg-left-col,
+.pkg-sidebar-sticky {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pkg-booking-card {
+    background: #FFFFFF;
+    border: 1.5px solid rgba(202, 138, 4, 0.2);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+}
+
+.pkg-form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    min-width: 0;
+    width: 100%;
+}
+
+.pkg-form-group {
+    margin-bottom: 1rem;
+    min-width: 0;
+    width: 100%;
+}
+
+.pkg-form-group label {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.35rem;
+}
+
+.pkg-form-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text-heading);
+    outline: none;
+    transition: all 0.2s ease;
+    background: #F8FAFC;
+}
+
+.pkg-form-input:focus {
+    border-color: var(--gold-3);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.12);
+}
+
+.pkg-btn-submit {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    justify-content: center;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pkg-btn-wa {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Mobile Media Queries for Holiday Subpages */
+@media (max-width: 960px) {
+    .pkg-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .pkg-inc-exc-grid {
+        grid-template-columns: 1fr;
+    }
+    .pkg-sidebar-sticky {
+        position: static;
+    }
+}
+
+@media (max-width: 640px) {
+    .pkg-main-section {
+        padding: 2rem 0;
+    }
+    .pkg-content-card {
+        padding: 1.35rem 1.15rem;
+        border-radius: 16px;
+        margin-bottom: 1.75rem;
+    }
+    .pkg-booking-card {
+        padding: 1.35rem 1.15rem;
+        border-radius: 18px;
+    }
+    .pkg-form-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .pkg-price-tag {
+        font-size: 1.6rem;
+    }
+    .pkg-help-card {
+        padding: 1rem 1.15rem;
+        border-radius: 16px;
+    }
+    .pkg-clean-hero {
+        padding-top: 90px;
+        padding-bottom: 2rem;
+    }
+    .pkg-quick-meta-bar {
+        padding: 1rem;
+        border-radius: 16px;
+        margin: 1.25rem auto 0;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+    .meta-box {
+        gap: 0.65rem;
+    }
+    .meta-box-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        font-size: 1rem;
+    }
+    .meta-box-val {
+        font-size: 0.88rem;
+    }
+    .pkg-nav-pills {
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 0.6rem;
+    }
+    .pkg-pill-link {
+        padding: 0.45rem 0.85rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .pkg-quick-meta-bar {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* ── CODEVIBEX FOOTER CREDIT ──────────────────────────────── */
+.footer-credit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.84rem;
+    color: #64748B;
+}
+.footer-credit span {
+    color: #64748B;
+    font-weight: 500;
+}
+.codevibex-credit-link,
+a.codevibex-credit-link,
+.footer-credit a {
+    color: #D97706 !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+    letter-spacing: 0.4px !important;
+    transition: all 0.2s ease !important;
+}
+.codevibex-credit-link:hover,
+a.codevibex-credit-link:hover,
+.footer-credit a:hover {
+    color: #F59E0B !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+}
