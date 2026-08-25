@@ -914,44 +914,390 @@ button, input, select, textarea { font-family:inherit; }
     box-shadow: 0 20px 45px -8px rgba(217, 119, 6, 0.45);
     position: relative;
     overflow: hidden;
-    display: flex; align-items: center; justify-content: space-between; gap: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
 }
 .cta-ribbon-card::before {
-    content: ''; position: absolute; top: -50px; right: -50px; width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
-    border-radius: 50%; pointer-events: none;
+    display: none !important;
 }
 .cta-ribbon-text h2 {
     font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-    font-weight: 900; color: #FFFFFF; line-height: 1.15; margin-bottom: 0.75rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
 }
 .cta-ribbon-text p {
-    font-size: 1rem; color: rgba(255, 255, 255, 0.90); line-height: 1.65; max-width: 540px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.90);
+    line-height: 1.65;
+    max-width: 540px;
 }
 .cta-ribbon-btns {
-    display: flex; align-items: center; gap: 1rem; flex-shrink: 0; flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
 }
 .btn-cta-white {
-    background: #FFFFFF; color: var(--gold-4); font-weight: 800;
-    padding: 0.85rem 2rem; border-radius: var(--r-pill);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #FFFFFF;
+    color: var(--gold-4);
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 0.85rem 2rem;
+    border-radius: var(--r-pill);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
     transition: all 0.25s ease;
 }
 .btn-cta-white:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.20);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.20);
     background: #FFFDF9;
     color: var(--gold-dark);
 }
-.btn-cta-outline {
-    background: rgba(255, 255, 255, 0.15);
-    color: #FFFFFF; font-weight: 700;
-    padding: 0.85rem 1.8rem; border-radius: var(--r-pill);
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    transition: all 0.25s ease;
+.btn-cta-outline,
+.btn-cta-whatsapp {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1.5px solid #FFFFFF !important;
+    color: #FFFFFF !important;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.25px;
+    line-height: 1;
+    padding: 0.85rem 2rem;
+    border-radius: var(--r-pill);
+    box-shadow: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.btn-cta-outline:hover,
+.btn-cta-whatsapp:hover {
+    background: #FFFFFF !important;
+    color: #D97706 !important;
+    border-color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+.btn-cta-outline i,
+.btn-cta-whatsapp i {
+    color: inherit !important;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ── ULTRA-SMOOTH GRADIENT BLENDED TRAVEL OFFER CARD (NO LEFT BAR) ───── */
+.holidays-offer-banner {
+    margin-top: 2rem;
+}
+.bento-offer-card {
+    background: #FFFFFF;
+    border: 1.5px solid #FDE68A;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px -6px rgba(217, 119, 6, 0.14), 0 2px 8px rgba(0, 0, 0, 0.03);
+    display: grid;
+    grid-template-columns: 1.25fr 0.95fr;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bento-offer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 45px -6px rgba(217, 119, 6, 0.22);
+    border-color: #F59E0B;
+}
+.bento-content-side {
+    padding: 1.5rem 1.85rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    background: #FFFFFF;
+}
+.bento-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+}
+.bento-flash-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+}
+.bento-flash-tag i {
+    color: #D97706;
+}
+.bento-save-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #ECFDF5;
+    color: #065F46;
+    border: 1px solid #A7F3D0;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+}
+.bento-save-tag i {
+    color: #10B981;
+}
+.bento-title {
+    font-size: clamp(1.4rem, 2.2vw, 1.95rem);
+    font-weight: 900;
+    color: #0F172A;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.3px;
+}
+.bento-desc {
+    font-size: 0.84rem;
+    color: #475569;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+}
+.bento-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding-top: 0.9rem;
+    border-top: 1px solid #F1F5F9;
+}
+.bento-price-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+.bento-price-lbl {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #B45309;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+.bento-price-figures {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+}
+.bento-orig-price del {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #94A3B8;
+    text-decoration: line-through;
+    text-decoration-color: #EF4444;
+    text-decoration-thickness: 2.5px;
+}
+.bento-deal-price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.8px;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+.bento-price-unit {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #64748B;
+}
+.bento-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+.btn-bento-book {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: #FFFFFF !important;
+    font-weight: 800;
+    font-size: 0.86rem;
+    padding: 0.68rem 1.4rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.btn-bento-book:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.48);
+    background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%);
+    color: #FFFFFF !important;
+}
+.btn-bento-wa {
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    font-size: 0.86rem;
+    padding: 0.68rem 1.3rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s ease;
+}
+.btn-bento-wa:hover {
+    background: #1eb956 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.48);
+}
+
+/* Right Photo with Extended Feathered Gradient Mask & Smooth Gradient Overlay */
+.bento-photo-side {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+.bento-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.45) 32%, rgba(0,0,0,0.85) 58%, #000000 80%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.45) 32%, rgba(0,0,0,0.85) 58%, #000000 80%);
+}
+.bento-offer-card:hover .bento-photo-img {
+    transform: scale(1.06);
+}
+.bento-photo-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 55%;
+    background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0.85) 20%, rgba(255, 255, 255, 0.4) 60%, rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Mobile & Tablet Responsive */
+@media (max-width: 992px) {
+    .bento-offer-card {
+        grid-template-columns: 1fr;
+    }
+    .bento-photo-side {
+        height: 200px;
+        min-height: 200px;
+        order: 1;
+    }
+    .bento-photo-img {
+        -webkit-mask-image: linear-gradient(to bottom, #000000 50%, rgba(0,0,0,0.2) 85%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000000 50%, rgba(0,0,0,0.2) 85%, transparent 100%);
+    }
+    .bento-photo-side::before {
+        width: 100%;
+        height: 45%;
+        top: auto;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.6) 50%, #FFFFFF 100%);
+    }
+    .bento-content-side {
+        order: 2;
+        padding: 1.25rem;
+    }
+}
+@media (max-width: 640px) {
+    .holidays-offer-banner {
+        margin-top: 1.25rem;
+    }
+    .bento-offer-card {
+        border-radius: 16px;
+    }
+    .bento-title {
+        font-size: 1.4rem;
+    }
+    .bento-deal-price {
+        font-size: 2.1rem;
+    }
+    .bento-bottom-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+    }
+    .bento-btn-group {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    .btn-bento-book, .btn-bento-wa {
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.82rem;
+        padding: 0.65rem 0.65rem;
+    }
+}
+@media (max-width: 400px) {
+    .bento-btn-group {
+        flex-direction: column;
+    }
+    .btn-bento-book, .btn-bento-wa {
+        width: 100%;
+    }
+}
+
 /* ── FORM & INPUT COMPONENTS (Travellers / Drivoxe Premium Style) ── */
 .home-contact-card {
     background: #FFFFFF;

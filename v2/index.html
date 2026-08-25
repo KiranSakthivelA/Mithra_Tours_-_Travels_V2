@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..900;1,9..40,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <link rel="stylesheet" href="css/brand.css?v=702">
+    <link rel="stylesheet" href="css/brand.css?v=20260825_final">
     <style>
         .pkg-preview-card {
             background: #FFFFFF; border: 1.5px solid var(--border-card);
@@ -120,7 +120,7 @@
                 </p>
 
                 <!-- Floating Quick Enquiry Bar -->
-                <form class="hero-dock-bar" id="hero-sidecar-form" onsubmit="handleHeroSideCarSend(event)">
+                <form class="hero-dock-bar" id="hero-sidecar-form" onsubmit="handleHeroSideCarSend(event); return false;">
                     <div class="dock-bar-item">
                         <label for="sidecar-name"><i class="fa-solid fa-user"></i> Name</label>
                         <input type="text" id="sidecar-name" placeholder="Your Full Name" required autocomplete="name">
@@ -166,7 +166,7 @@
                     </div>
 
                     <!-- Send Symbol Only Button -->
-                    <button type="submit" class="dock-bar-send-btn" title="Send Instant Quote Request" aria-label="Send Instant Quote Request">
+                    <button type="submit" class="dock-bar-send-btn" aria-label="Send Instant Quote Request">
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
                 </form>
@@ -420,6 +420,70 @@ function handleHeroSideCarSend(e) {
                     <img src="Assets/swiggy_vec_visa.png" alt="Ticketing and Visa Desk" class="img-recolor-white" loading="lazy">
                 </div>
             </a>
+        </div>
+
+        <!-- Offer Banner (Holiday Special Promo) -->
+        <!-- Offer Banner (High-Converting Featured Deal) -->
+        <!-- Offer Banner (Clean White Gradient-Blended Featured Deal) -->
+        <!-- Offer Banner (Clean White Luxury Travel Deal Card) -->
+        <!-- Offer Banner (Clean Punchy Deal Ribbon) -->
+        <!-- Offer Banner (Rich Gradient Travel Deal Ribbon) -->
+        <!-- Offer Banner (Clean White / Clear Travel Deal Ribbon) -->
+        <!-- Offer Banner (Attractive Champagne Gold Luxury Travel Showcase) -->
+        <!-- Offer Banner (Cinematic Panoramic Glassmorphic Showcase) -->
+        <!-- Offer Banner (Luminous Glassmorphic Panoramic Showcase) -->
+        <!-- Offer Banner (True Frosted Glassmorphism Panoramic Showcase) -->
+        <!-- Offer Banner (Clean High-Converting Travel Deal Ribbon) -->
+        <!-- Offer Banner (Full Image Background Travel Deal Ribbon) -->
+        <!-- Offer Banner (Clean Full-Bleed Bento Travel Deal Card) -->
+        <!-- Offer Banner (Seamless Gradient Blended Bento Deal Card) -->
+        <div class="holidays-offer-banner" id="holidays-offer-banner">
+            <div class="bento-offer-card">
+                <!-- Left Side: Clean Content & Strikethrough Pricing -->
+                <div class="bento-content-side">
+                    <div class="bento-badge-row">
+                        <span class="bento-flash-tag" id="offer-tag-badge">
+                            <i class="fa-solid fa-fire"></i> SPECIAL OFFER &bull; 20% OFF
+                        </span>
+                        <span class="bento-save-tag" id="offer-save-badge">
+                            <i class="fa-solid fa-tag"></i> SAVE ₹3,000
+                        </span>
+                    </div>
+
+                    <h3 class="bento-title" id="offer-main-title">
+                        Kodaikanal • Poombarai • Mannavanur
+                    </h3>
+
+                    <p class="bento-desc" id="offer-main-desc">
+                        <span id="offer-chip-duration">3 Nights / 4 Days</span> &bull; <span id="offer-chip-cab">Dedicated Private Cab</span> &bull; <span id="offer-chip-stay">Luxury Resort Stay</span> &bull; Breakfast Included
+                    </p>
+
+                    <div class="bento-bottom-row">
+                        <div class="bento-price-box">
+                            <span class="bento-price-lbl">SPECIAL OFFER FARE</span>
+                            <div class="bento-price-figures">
+                                <span class="bento-orig-price"><del id="offer-price-orig">₹15,999</del></span>
+                                <span class="bento-deal-price" id="offer-price-deal">₹12,999</span>
+                                <span class="bento-price-unit" id="offer-price-unit">/ person</span>
+                            </div>
+                        </div>
+
+                        <div class="bento-btn-group">
+                            <a href="holidays/kodaikanal.html" class="btn-bento-book holidays-offer-btn-primary" id="offer-btn-primary">
+                                <i class="fa-solid fa-calendar-check"></i> <span>Book Now</span>
+                            </a>
+                            <a href="https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Kodaikanal%20Special%20Offer%20Package" class="btn-bento-wa holidays-offer-btn-secondary" id="offer-btn-secondary" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Full-Height Photo with Seamless Gradient Blend -->
+                <div class="bento-photo-side">
+                    <img src="Assets/holiday_kodaikanal.jpg" alt="Kodaikanal Special Offer" class="bento-photo-img" id="offer-visual-img">
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -785,9 +849,9 @@ window.addEventListener('load', updateAllFlowRoads);
 </script>
 
 <script src="js/custom-dropdown.js"></script>
-<script src="js/form-handler.js"></script>
-<script src="js/cms-loader.js"></script>
-<script src="js/main.js"></script>
+<script src="js/form-handler.js?v=20260825_final"></script>
+<script src="js/cms-loader.js?v=20260825_final"></script>
+<script src="js/main.js?v=20260825_final"></script>
 <script src="js/scroll-animations.js"></script>
 </body>
 </html>

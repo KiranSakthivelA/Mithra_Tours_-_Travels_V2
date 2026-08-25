@@ -69,12 +69,14 @@
         "title": "Kodaikanal, Rajasthan, Tawang & More",
         "desc": "Curated holiday experiences for families, couples, and groups with flexible itineraries and verified transfers.",
         "btnText": "View Domestic Holidays",
+        "image": "Assets/holiday_rajasthan.jpg",
         "linkUrl": "holidays.html#domestic-packages"
       },
       "intlCard": {
         "title": "Singapore, Vietnam, Dubai & Beyond",
         "desc": "Well-planned international holidays with customised itineraries, flights, visa assistance, and luxury stays.",
         "btnText": "View International Holidays",
+        "image": "Assets/holiday_singapore.jpg",
         "linkUrl": "holidays.html#international-packages"
       },
       "visaCard": {
@@ -82,6 +84,23 @@
         "desc": "One-stop booking for Domestic & International Flights, IRCTC Train Tickets, Cruise Holidays, and end-to-end Visa Assistance.",
         "btnText": "Explore Travel Desk",
         "linkUrl": "holidays.html"
+      },
+      "offerBanner": {
+        "enabled": true,
+        "tag": "Special Holiday Offer",
+        "saveTag": "SAVE ₹3,000",
+        "title": "Kodaikanal • Poombarai • Mannavanur (3N / 4D) — from ₹12,999",
+        "duration": "3 Nights / 4 Days",
+        "desc": "Curated misty hill escape with private sanitized cab transfers, scenic viewpoints, luxury resort stay & 24/7 on-trip support.",
+        "originalPrice": "₹15,999",
+        "offerPrice": "₹12,666",
+        "pricePer": "per person",
+        "image": "Assets/holiday_kodaikanal.jpg",
+        "locationTag": "Kodaikanal, Tamil Nadu",
+        "btn1Text": "Book Now",
+        "btn1Link": "holidays/kodaikanal.html",
+        "btn2Text": "WhatsApp Us",
+        "btn2Link": "https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Kodaikanal%20Holiday%20Package"
       }
     },
     "whyMithraSection": {
@@ -153,10 +172,10 @@
       "subtitle": "Beyond the Usual Kodaikanal",
       "duration": "3 Nights / 4 Days",
       "durationBadge": "3N / 4D",
-      "price": "₹12,999",
+      "price": "₹9,999",
       "pricePer": "per person",
-      "region": "Tamil Nadu",
-      "image": "Assets/holiday_kodaikanal.jpg",
+      "region": "Northern India",
+      "image": "Assets/holiday_rajasthan.jpg",
       "bestFor": "Families • Couples • Groups • Nature Lovers",
       "overview": "Experience the beauty of Kodaikanal through its iconic attractions, scenic viewpoints and peaceful mountain landscapes, along with the charming villages of Poombarai and Mannavanur.",
       "highlights": [
@@ -244,7 +263,8 @@
         "Booking confirmed upon receipt of the agreed advance deposit.",
         "Final hotel, vehicle, and package quotation confirmed based on real-time availability.",
         "Applicable GST and invoice details communicated clearly in the final quotation."
-      ]
+      ],
+      "tagBadge": "Beyond the Usual"
     },
     "domestic_package_2": {
       "id": "rajasthan",
@@ -365,7 +385,8 @@
         "Booking confirmed with 40% advance deposit and government ID proof.",
         "Instant confirmation voucher and chauffeur contact shared 24 hours prior to departure.",
         "GST invoicing provided for corporate and individual leisure travelers."
-      ]
+      ],
+      "tagBadge": "Royal Heritage"
     },
     "domestic_package_3": {
       "id": "tawang",
@@ -472,7 +493,8 @@
       "booking_policy": [
         "Confirmed with advance deposit and passport/voter ID scan for ILP processing.",
         "Detailed trip briefing and 24/7 dedicated travel manager support throughout the tour."
-      ]
+      ],
+      "tagBadge": "Himalayan Frontier"
     }
   },
   "international_packages": {
@@ -575,7 +597,8 @@
         "Confirmed with advance deposit and passport copy submission.",
         "Flights and hotels confirmed with instant PNR vouchers upon booking.",
         "Travel insurance coverage strongly recommended and available on request."
-      ]
+      ],
+      "tagBadge": "Beyond the Skyline"
     },
     "international_package_2": {
       "id": "vietnam",
@@ -699,7 +722,8 @@
       "booking_policy": [
         "Confirmed with advance deposit and passport scan copies.",
         "All flights, luxury hotels and cruise cabin confirmed with instant vouchers upon booking."
-      ]
+      ],
+      "tagBadge": "Grand Experience"
     },
     "international_package_3": {
       "id": "dubai",
@@ -813,7 +837,27 @@
       "booking_policy": [
         "Confirmed with advance deposit and passport bio-page scan.",
         "Complete travel package voucher with 24/7 local Dubai ground assistance team."
-      ]
+      ],
+      "tagBadge": "Luxury & Desert"
+    }
+  },
+  "holidays_page": {
+    "heroTitle": "Travel & Holidays",
+    "heroSubtitle": "Domestic & International Holiday Packages, Flight Ticket Booking, Train Ticket Booking, Cruise Booking, and Visa Assistance.",
+    "servicesSection": {
+      "sectionLabel": "All Travel Solutions",
+      "sectionTitle": "Travel & Holidays Cards",
+      "sectionDesc": "Curated holiday experiences, personalized itineraries, and end-to-end travel ticketing services."
+    },
+    "domesticSection": {
+      "sectionLabel": "Domestic Holidays",
+      "sectionTitle": "Explore India, Your Way",
+      "sectionDesc": "Curated holiday experiences for families, couples, groups and leisure travellers, with flexible itineraries designed around your preferences."
+    },
+    "internationalSection": {
+      "sectionLabel": "International Holidays",
+      "sectionTitle": "Go Beyond Borders",
+      "sectionDesc": "Well-planned international holidays with customized itineraries, accommodation and travel arrangements tailored to your journey."
     }
   }
 }

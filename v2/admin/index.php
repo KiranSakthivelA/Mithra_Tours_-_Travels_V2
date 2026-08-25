@@ -78,7 +78,7 @@ $user_picture = $_SESSION['mtt_admin_picture'] ?? '';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/admin.css?v=26">
+    <link rel="stylesheet" href="css/admin.css?v=20260825_final">
     <link rel="icon" type="image/png" href="Assets/Fav_Icon.png">
     
     <!-- Google Identity Services for OAuth -->
@@ -104,9 +104,9 @@ $user_picture = $_SESSION['mtt_admin_picture'] ?? '';
             <?php endif; ?>
 
             <!-- Google OAuth Sign-In Button -->
-            <div class="google-signin-wrapper" style="margin:1.5rem 0 1rem;">
+            <div class="google-signin-wrapper" style="margin:1.5rem 0 1rem; display:flex; justify-content:center;">
                 <div id="g_id_onload"
-                     data-client_id="<?= OAUTH_CLIENT_ID ?>"
+                     data-client_id="633532151851-nkuc7ts3uj2th23ftjnfvmhptmoatsi2.apps.googleusercontent.com"
                      data-context="signin"
                      data-ux_mode="popup"
                      data-callback="handleGoogleLoginCallback"
@@ -122,7 +122,6 @@ $user_picture = $_SESSION['mtt_admin_picture'] ?? '';
                      data-width="320">
                 </div>
             </div>
-
             <div style="font-size:0.75rem; color:#94A3B8; margin-top:1.5rem; line-height:1.4;">
                 <i class="fa-solid fa-shield-halved" style="color:#10B981; margin-right:4px;"></i> Protected by Mithra Tours OAuth Security &middot; Super Admin Only
                 <div style="margin-top:0.6rem; font-size:0.72rem;">Built by <a href="https://codevibex.in" target="_blank" rel="noopener" style="color:#D97706; font-weight:700; text-decoration:none;">CodeVibeX</a></div>
@@ -160,13 +159,13 @@ $user_picture = $_SESSION['mtt_admin_picture'] ?? '';
                 </div>
                 <div class="user-chip">
                     <?php if ($user_picture): ?>
-                        <img src="<?= htmlspecialchars($user_picture) ?>" alt="Avatar" style="width:32px; height:32px; border-radius:50%; object-fit:cover; border:1.5px solid #F59E0B;">
+                        <img src="<?= htmlspecialchars($user_picture) ?>" alt="Avatar" style="width:32px; height:32px; border-radius:50%; object-fit:cover; border:1.5px solid #F59E0B; flex-shrink:0;">
                     <?php else: ?>
-                        <div class="user-avatar"><i class="fa-solid fa-user-shield"></i></div>
+                        <div class="user-avatar" style="flex-shrink:0;"><i class="fa-solid fa-user-shield"></i></div>
                     <?php endif; ?>
-                    <div>
-                        <div class="user-name"><?= htmlspecialchars($user_display_name) ?></div>
-                        <div class="user-role"><?= htmlspecialchars($user_email) ?></div>
+                    <div class="user-info" style="min-width:0; flex:1; overflow:hidden;">
+                        <div class="user-name" title="<?= htmlspecialchars($user_display_name) ?>"><?= htmlspecialchars($user_display_name) ?></div>
+                        <div class="user-role" title="<?= htmlspecialchars($user_email) ?>"><?= htmlspecialchars($user_email) ?></div>
                     </div>
                 </div>
             </div>
@@ -196,6 +195,11 @@ $user_picture = $_SESSION['mtt_admin_picture'] ?? '';
                 <a href="#cms-home" class="nav-item" id="nav-cms-home" onclick="switchNav('cms-home')">
                     <i class="fa-solid fa-house-chimney"></i>
                     <span>Home Page CMS</span>
+                </a>
+
+                <a href="#cms-holidays" class="nav-item" id="nav-cms-holidays" onclick="switchNav('cms-holidays')">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                    <span>Holiday Page CMS</span>
                 </a>
 
                 <a href="#cms-domestic" class="nav-item" id="nav-cms-domestic" onclick="switchNav('cms-domestic')">
@@ -505,6 +509,43 @@ $user_picture = $_SESSION['mtt_admin_picture'] ?? '';
                             </div>
                         </div>
                     </div>
+
+                    <!-- Live Offer Banner Mockup Preview (Clean Bento Style with Gradient Blend) -->
+                    <div id="mock-offer-banner-wrap" class="mock-offer-banner-preview-bento">
+                        <div style="flex:1.2; min-width:0; padding:0.2rem 0.5rem; position:relative; z-index:2; background:#FFFFFF;">
+                            <div style="display:flex; align-items:center; gap:0.4rem; margin-bottom:0.25rem;">
+                                <span style="background:#FEF3C7; color:#92400E; border:1px solid #FDE68A; font-size:0.65rem; font-weight:800; padding:2px 8px; border-radius:12px; text-transform:uppercase;" id="mock-banner-tag">
+                                    <i class="fa-solid fa-fire" style="color:#D97706;"></i> SPECIAL OFFER &bull; 20% OFF
+                                </span>
+                                <span style="background:#ECFDF5; color:#065F46; border:1px solid #A7F3D0; font-size:0.65rem; font-weight:800; padding:2px 8px; border-radius:12px; text-transform:uppercase;" id="mock-banner-save">
+                                    <i class="fa-solid fa-tag" style="color:#10B981;"></i> SAVE ₹3,000
+                                </span>
+                            </div>
+                            <h4 id="mock-banner-title" style="font-size:1.15rem; font-weight:900; color:#0F172A; margin:0 0 0.15rem 0; line-height:1.2;">
+                                Kodaikanal • Poombarai • Mannavanur
+                            </h4>
+                            <p id="mock-banner-desc" style="font-size:0.75rem; color:#475569; font-weight:600; margin:0 0 0.5rem 0; line-height:1.35;">
+                                <span id="mock-banner-chip-dur">3N / 4D</span> &bull; Private Cab &bull; Resort Stay Included
+                            </p>
+                            <div style="display:flex; align-items:center; justify-content:space-between; gap:0.8rem; border-top:1px solid #F1F5F9; padding-top:0.4rem;">
+                                <div style="display:flex; align-items:baseline; gap:0.35rem;">
+                                    <span style="font-size:0.9rem; color:#94A3B8; text-decoration:line-through; text-decoration-color:#EF4444;" id="mock-banner-orig-price"><del>₹15,999</del></span>
+                                    <span id="mock-banner-deal-price" style="font-size:1.45rem; font-weight:900; background:linear-gradient(135deg, #F59E0B 0%, #D97706 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; display:inline-block;">₹12,999</span>
+                                </div>
+                                <div style="display:flex; gap:0.35rem;">
+                                    <span id="mock-banner-btn1" style="background:linear-gradient(135deg, #F59E0B, #D97706); color:#FFF; font-weight:800; font-size:0.68rem; padding:0.3rem 0.65rem; border-radius:20px; text-align:center;">
+                                        Book Now
+                                    </span>
+                                    <span id="mock-banner-btn2" style="background:#25D366; color:#FFF; font-weight:700; font-size:0.68rem; padding:0.3rem 0.65rem; border-radius:20px; text-align:center;">
+                                        WhatsApp
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width:160px; height:100%; min-height:120px; position:relative; overflow:hidden; flex-shrink:0; border-radius:0 14px 14px 0;">
+                            <img id="mock-banner-img" src="Assets/holiday_kodaikanal.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_kodaikanal.jpg'" alt="Destination Preview" style="width:100%; height:100%; object-fit:cover; display:block; -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 45%); mask-image:linear-gradient(to right, transparent 0%, #000 45%);">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cms-card">
@@ -630,6 +671,299 @@ $user_picture = $_SESSION['mtt_admin_picture'] ?? '';
                     </div>
                 </div>
 
+                <!-- Offer Banner (Holiday Promo Ribbon) CMS Card -->
+                <div class="cms-card" style="background:#FFFFFF; border:1px solid #E2E8F0; margin-top:1.5rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.75rem;">
+                        <div>
+                            <h3 style="margin-bottom:0.2rem;"><i class="fa-solid fa-bolt" style="color:#D97706;"></i> Holiday Offer Banner (Featured Deal Ribbon)</h3>
+                            <p style="font-size:0.84rem; color:#64748B; margin:0;">Configure destination image, strikethrough original price, discounted deal price, and highlight badges.</p>
+                        </div>
+                        <label style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.85rem; font-weight:700; color:#334155; cursor:pointer; background:#F8FAFC; padding:0.4rem 0.8rem; border-radius:8px; border:1px solid #E2E8F0;">
+                            <input type="checkbox" id="cms-hols-banner-enabled" checked onchange="updateHolidaysPreview()">
+                            <span>Show Offer Banner</span>
+                        </label>
+                    </div>
+
+                    <!-- Quick Presets -->
+                    <div class="preset-picker-row" style="margin-top:0; padding-top:0.6rem; margin-bottom:1.2rem;">
+                        <span style="font-size:0.76rem; font-weight:800; color:#64748B; text-transform:uppercase;">Quick Presets:</span>
+                        <button type="button" class="preset-thumb-btn" onclick="selectOfferBannerPreset('kodaikanal')">
+                            <img src="Assets/holiday_kodaikanal.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_kodaikanal.jpg'" alt="Kodai"> <span>Kodaikanal Deal (₹12,999)</span>
+                        </button>
+                        <button type="button" class="preset-thumb-btn" onclick="selectOfferBannerPreset('rajasthan')">
+                            <img src="Assets/holiday_rajasthan.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_rajasthan.jpg'" alt="Rajasthan"> <span>Rajasthan Royal (₹19,999)</span>
+                        </button>
+                        <button type="button" class="preset-thumb-btn" onclick="selectOfferBannerPreset('dubai')">
+                            <img src="Assets/holiday_dubai.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_dubai.jpg'" alt="Dubai"> <span>Dubai Mega Escape (₹38,999)</span>
+                        </button>
+                    </div>
+
+                    <div class="cms-form-row">
+                        <div class="cms-form-group">
+                            <label>Flash Tag Badge</label>
+                            <input type="text" id="cms-hols-banner-tag" class="cms-input" oninput="updateHolidaysPreview()" placeholder="LIMITED TIME OFFER">
+                        </div>
+                        <div class="cms-form-group">
+                            <label>Savings Pill Badge</label>
+                            <input type="text" id="cms-hols-banner-save" class="cms-input" oninput="updateHolidaysPreview()" placeholder="SAVE ₹3,000">
+                        </div>
+                        <div class="cms-form-group">
+                            <label>Discount Badge (Float)</label>
+                            <input type="text" id="cms-hols-banner-discount" class="cms-input" oninput="updateHolidaysPreview()" placeholder="20% OFF">
+                        </div>
+                    </div>
+
+                    <div class="cms-form-row">
+                        <div class="cms-form-group" style="flex:2;">
+                            <label>Tour Package Title</label>
+                            <input type="text" id="cms-hols-banner-title" class="cms-input" oninput="updateHolidaysPreview()" placeholder="Kodaikanal • Poombarai • Mannavanur">
+                        </div>
+                        <div class="cms-form-group" style="flex:1;">
+                            <label>Duration</label>
+                            <input type="text" id="cms-hols-banner-duration" class="cms-input" oninput="updateHolidaysPreview()" placeholder="3 Nights / 4 Days">
+                        </div>
+                        <div class="cms-form-group" style="flex:1;">
+                            <label>Location Tag</label>
+                            <input type="text" id="cms-hols-banner-location" class="cms-input" oninput="updateHolidaysPreview()" placeholder="Kodaikanal, Tamil Nadu">
+                        </div>
+                    </div>
+
+                    <div class="cms-form-group">
+                        <label>Description Subtitle</label>
+                        <textarea id="cms-hols-banner-desc" class="cms-textarea" rows="2" oninput="updateHolidaysPreview()" placeholder="Curated misty hill escape featuring Kodaikanal Lake, Pine Forest, Poombarai Village & serene Mannavanur Lake with verified private chauffeur & 24/7 concierge."></textarea>
+                    </div>
+
+                    <!-- PRICING STRIKETHROUGH SECTION -->
+                    <div style="background:#FFFBEB; border:1.5px solid #FDE68A; border-radius:12px; padding:1rem 1.25rem; margin-bottom:1.2rem;">
+                        <h4 style="margin:0 0 0.65rem 0; color:#B45309; font-size:0.88rem; display:flex; align-items:center; gap:0.4rem;">
+                            <i class="fa-solid fa-tags"></i> Price Strike-Through Configuration
+                        </h4>
+                        <div class="cms-form-row" style="margin-bottom:0;">
+                            <div class="cms-form-group" style="margin-bottom:0;">
+                                <label>Original Price (Strike-Through)</label>
+                                <input type="text" id="cms-hols-banner-orig-price" class="cms-input" oninput="updateHolidaysPreview()" placeholder="₹15,999" style="font-weight:700;">
+                            </div>
+                            <div class="cms-form-group" style="margin-bottom:0;">
+                                <label>Special Offer Price (Highlighted)</label>
+                                <input type="text" id="cms-hols-banner-deal-price" class="cms-input" oninput="updateHolidaysPreview()" placeholder="₹12,999" style="font-weight:800; color:#B45309;">
+                            </div>
+                            <div class="cms-form-group" style="margin-bottom:0;">
+                                <label>Price Unit</label>
+                                <input type="text" id="cms-hols-banner-unit" class="cms-input" oninput="updateHolidaysPreview()" placeholder="/ person">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IMAGE CONFIGURATION -->
+                    <div class="cms-form-row" style="align-items:center; margin-bottom:1.2rem;">
+                        <div style="width:90px; height:60px; border-radius:8px; overflow:hidden; border:1px solid #E2E8F0; flex-shrink:0;">
+                            <img id="cms-hols-banner-thumb" src="Assets/holiday_kodaikanal.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_kodaikanal.jpg'" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="cms-form-group" style="flex:1; margin-bottom:0;">
+                            <label>Destination Photo Path</label>
+                            <input type="text" id="cms-hols-banner-image" class="cms-input" oninput="updateHolidaysPreview()" placeholder="Assets/holiday_kodaikanal.jpg">
+                        </div>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="cms-form-row">
+                        <div class="cms-form-group">
+                            <label>Primary Button Text</label>
+                            <input type="text" id="cms-hols-banner-btn1-text" class="cms-input" oninput="updateHolidaysPreview()" placeholder="Book Now">
+                        </div>
+                        <div class="cms-form-group">
+                            <label>Primary Button Link URL</label>
+                            <input type="text" id="cms-hols-banner-btn1-link" class="cms-input" oninput="updateHolidaysPreview()" placeholder="holidays/kodaikanal.html">
+                        </div>
+                    </div>
+
+                    <div class="cms-form-row">
+                        <div class="cms-form-group">
+                            <label>Secondary Button Text</label>
+                            <input type="text" id="cms-hols-banner-btn2-text" class="cms-input" oninput="updateHolidaysPreview()" placeholder="WhatsApp Us">
+                        </div>
+                        <div class="cms-form-group">
+                            <label>Secondary Button Link / WhatsApp URL</label>
+                            <input type="text" id="cms-hols-banner-btn2-link" class="cms-input" oninput="updateHolidaysPreview()" placeholder="https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Kodaikanal%20Special%20Offer%20Package">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════ TAB: HOLIDAY PAGE CMS (6 CARDS EDITOR) ══════════════ -->
+            <section id="panel-cms-holidays" class="tab-panel">
+                
+                <div class="panel-header-row">
+                    <div>
+                        <h2>Holiday Page CMS &mdash; 6 Holiday Cards</h2>
+                        <p>Customize card photos, pricing, tags, highlights, and descriptions for all 6 domestic &amp; international cards on <code style="background:#FEF3C7; color:#92400E; padding:2px 6px; border-radius:4px;">holidays.html</code></p>
+                    </div>
+                    <div class="cms-actions-group">
+                        <button class="btn-draft-cms" onclick="saveDraftCMS('holidays')">
+                            <i class="fa-solid fa-floppy-disk"></i> Save Draft
+                        </button>
+                        <button class="btn-publish-cms" onclick="publishLiveCMS('holidays')">
+                            <i class="fa-solid fa-paper-plane"></i> Publish Live
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 6 Card Selector Tabs -->
+                <div class="home-cms-nav" id="hols-6cards-nav" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.25rem;">
+                    <button type="button" class="home-subtab-btn active" id="btn-card-dom-1" onclick="selectHolidayCard('dom-1')"><i class="fa-solid fa-mountain-sun"></i> 1. Kodaikanal</button>
+                    <button type="button" class="home-subtab-btn" id="btn-card-dom-2" onclick="selectHolidayCard('dom-2')"><i class="fa-solid fa-crown"></i> 2. Rajasthan</button>
+                    <button type="button" class="home-subtab-btn" id="btn-card-dom-3" onclick="selectHolidayCard('dom-3')"><i class="fa-solid fa-mountain"></i> 3. Tawang</button>
+                    <button type="button" class="home-subtab-btn" id="btn-card-intl-1" onclick="selectHolidayCard('intl-1')"><i class="fa-solid fa-city"></i> 4. Singapore</button>
+                    <button type="button" class="home-subtab-btn" id="btn-card-intl-2" onclick="selectHolidayCard('intl-2')"><i class="fa-solid fa-water"></i> 5. Vietnam</button>
+                    <button type="button" class="home-subtab-btn" id="btn-card-intl-3" onclick="selectHolidayCard('intl-3')"><i class="fa-solid fa-sun"></i> 6. Dubai</button>
+                </div>
+
+                <div class="section-indicator-banner" id="hols-card-indicator" style="margin-bottom:1.5rem;">
+                    <i class="fa-solid fa-location-crosshairs"></i> <strong>Editing Card:</strong> 1. Kodaikanal • Poombarai • Mannavanur (Domestic)
+                </div>
+
+                <!-- Live Visual Preview of the Exact Card on holidays.html -->
+                <div class="cms-card" style="background:rgba(255,255,255,0.92); border:1.5px solid rgba(226,232,240,0.95); padding:1.4rem; margin-bottom:1.5rem;">
+                    <div style="font-size:0.82rem; font-weight:800; color:#B45309; text-transform:uppercase; margin-bottom:1rem; display:flex; align-items:center; gap:0.45rem;">
+                        <i class="fa-solid fa-eye"></i> Live Card Visual Mockup Preview (Exact Replica of holidays.html)
+                    </div>
+
+                    <div style="display:flex; justify-content:center;">
+                        <!-- The Exact Holiday Card Container -->
+                        <div style="width:100%; max-width:380px; background:#FFFFFF; border-radius:18px; overflow:hidden; border:1px solid #E2E8F0; box-shadow:0 10px 30px rgba(0,0,0,0.06); transition:transform 0.25s ease;">
+                            <!-- Card Image Wrap -->
+                            <div style="position:relative; width:100%; height:200px; overflow:hidden; background:#1E293B;">
+                                <img id="mock-hc-img" src="Assets/holiday_kodaikanal.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_kodaikanal.jpg'" alt="Preview" style="width:100%; height:100%; object-fit:cover; display:block;">
+                                <span id="mock-hc-tag" style="position:absolute; top:12px; left:12px; background:rgba(15,23,42,0.75); backdrop-filter:blur(6px); color:#FFFFFF; font-size:0.72rem; font-weight:700; padding:4px 10px; border-radius:20px;">Beyond the Usual</span>
+                                <span id="mock-hc-dur" style="position:absolute; bottom:12px; right:12px; background:#F59E0B; color:#0F172A; font-size:0.75rem; font-weight:800; padding:4px 10px; border-radius:8px;">3N / 4D</span>
+                            </div>
+                            
+                            <!-- Card Body -->
+                            <div style="padding:1.25rem;">
+                                <div id="mock-hc-region" style="font-size:0.75rem; font-weight:800; color:#D97706; text-transform:uppercase; letter-spacing:0.04em;">TAMIL NADU</div>
+                                <h3 id="mock-hc-title" style="font-size:1.18rem; font-weight:800; color:#0F172A; margin:0.3rem 0 0.2rem 0; line-height:1.3;">Kodaikanal • Poombarai • Mannavanur</h3>
+                                <div id="mock-hc-sub" style="font-size:0.85rem; color:#64748B; font-weight:600; margin-bottom:0.75rem;">Beyond the Usual Kodaikanal</div>
+                                
+                                <div id="mock-hc-bestfor" style="background:#F8FAFC; border:1px solid #E2E8F0; padding:6px 10px; border-radius:8px; font-size:0.75rem; color:#475569; font-weight:600; margin-bottom:0.75rem;">
+                                    <i class="fa-solid fa-users" style="color:#D97706;"></i> Best For: Families • Couples • Groups • Nature Lovers
+                                </div>
+
+                                <div id="mock-hc-highlights" style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:0.85rem;">
+                                    <span style="background:#F1F5F9; color:#334155; font-size:0.72rem; font-weight:600; padding:3px 8px; border-radius:6px;">Kodaikanal Lake</span>
+                                    <span style="background:#F1F5F9; color:#334155; font-size:0.72rem; font-weight:600; padding:3px 8px; border-radius:6px;">Poombarai Village</span>
+                                    <span style="background:#F1F5F9; color:#334155; font-size:0.72rem; font-weight:600; padding:3px 8px; border-radius:6px;">Mannavanur Lake</span>
+                                    <span style="background:#F1F5F9; color:#334155; font-size:0.72rem; font-weight:600; padding:3px 8px; border-radius:6px;">Pine Forest</span>
+                                </div>
+
+                                <p id="mock-hc-desc" style="font-size:0.82rem; color:#64748B; line-height:1.45; margin:0 0 1rem 0;">Experience the beauty of Kodaikanal through its iconic attractions, scenic viewpoints and peaceful mountain landscapes...</p>
+                                
+                                <!-- Card Footer -->
+                                <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #F1F5F9; padding-top:0.85rem;">
+                                    <div>
+                                        <span id="mock-hc-price" style="font-size:1.25rem; font-weight:900; color:#0F172A;">₹12,999</span>
+                                        <span id="mock-hc-unit" style="font-size:0.75rem; color:#64748B; font-weight:600;">/ person</span>
+                                    </div>
+                                    <span style="color:#D97706; font-size:0.84rem; font-weight:700; display:flex; align-items:center; gap:4px;">
+                                        Explore <i class="fa-solid fa-arrow-right"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1. Hero Image & Media Box -->
+                <div class="cms-card">
+                    <h3><i class="fa-solid fa-camera"></i> 1. Card Photo &amp; Media Asset</h3>
+                    <div class="upload-dropzone" 
+                         ondragover="event.preventDefault(); this.classList.add('dragover');" 
+                         ondragleave="this.classList.remove('dragover');" 
+                         ondrop="handleHolidayCardDrop(event)" 
+                         onclick="triggerHolidayCardFileInput()">
+                        <input type="file" id="hc-file-upload" style="display:none;" accept="image/*" onchange="handleHolidayCardDrop(event)">
+                        <div class="dropzone-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                        <div class="dropzone-title">Drag &amp; drop card photo or <span style="color:#B45309; text-decoration:underline; font-weight:700;">browse files</span></div>
+                        <div class="dropzone-dimensions-badge">
+                            <i class="fa-solid fa-ruler-combined"></i> Recommended: <strong>800 x 500 px</strong> (16:10 Ratio) &middot; WEBP / JPG
+                        </div>
+                    </div>
+
+                    <div class="preset-picker-row">
+                        <span style="font-size:0.76rem; font-weight:800; color:#64748B; text-transform:uppercase;">Quick Presets:</span>
+                        <button type="button" class="preset-thumb-btn" onclick="selectHolidayCardPreset('Assets/holiday_kodaikanal.jpg')"><img src="Assets/holiday_kodaikanal.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_kodaikanal.jpg'" alt="Kodai"> <span>Kodaikanal</span></button>
+                        <button type="button" class="preset-thumb-btn" onclick="selectHolidayCardPreset('Assets/holiday_rajasthan.jpg')"><img src="Assets/holiday_rajasthan.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_rajasthan.jpg'" alt="Rajasthan"> <span>Rajasthan</span></button>
+                        <button type="button" class="preset-thumb-btn" onclick="selectHolidayCardPreset('Assets/holiday_tawang.jpg')"><img src="Assets/holiday_tawang.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_tawang.jpg'" alt="Tawang"> <span>Tawang</span></button>
+                        <button type="button" class="preset-thumb-btn" onclick="selectHolidayCardPreset('Assets/holiday_singapore.jpg')"><img src="Assets/holiday_singapore.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_singapore.jpg'" alt="Singapore"> <span>Singapore</span></button>
+                        <button type="button" class="preset-thumb-btn" onclick="selectHolidayCardPreset('Assets/holiday_vietnam.jpg')"><img src="Assets/holiday_vietnam.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_vietnam.jpg'" alt="Vietnam"> <span>Vietnam</span></button>
+                        <button type="button" class="preset-thumb-btn" onclick="selectHolidayCardPreset('Assets/holiday_dubai.jpg')"><img src="Assets/holiday_dubai.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_dubai.jpg'" alt="Dubai"> <span>Dubai</span></button>
+                    </div>
+
+                    <div class="cms-form-row" style="align-items:center; margin-top:1rem;">
+                        <div style="width:85px; height:56px; border-radius:8px; overflow:hidden; border:1px solid #E2E8F0; flex-shrink:0;">
+                            <img id="hc-thumb" src="Assets/holiday_kodaikanal.jpg" onerror="this.src='https://mithratoursandtravels.in/Assets/holiday_kodaikanal.jpg'" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="cms-form-group" style="flex:1; margin-bottom:0;">
+                            <label>Active Image File Path</label>
+                            <input type="text" id="hc-image" class="cms-input" placeholder="Assets/holiday_kodaikanal.jpg" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Titles, Badges & Pricing -->
+                <div class="cms-card">
+                    <h3><i class="fa-solid fa-tags"></i> 2. Card Details &amp; Pricing</h3>
+                    
+                    <div class="cms-form-row">
+                        <div class="cms-form-group" style="flex:1;">
+                            <label>Destination / Region Name</label>
+                            <input type="text" id="hc-region" class="cms-input" placeholder="Tamil Nadu" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                        <div class="cms-form-group" style="flex:2;">
+                            <label>Card Title</label>
+                            <input type="text" id="hc-title" class="cms-input" placeholder="Kodaikanal • Poombarai • Mannavanur" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                    </div>
+
+                    <div class="cms-form-row">
+                        <div class="cms-form-group" style="flex:1;">
+                            <label>Subtitle</label>
+                            <input type="text" id="hc-subtitle" class="cms-input" placeholder="Beyond the Usual Kodaikanal" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                        <div class="cms-form-group" style="flex:1;">
+                            <label>Top Tag Badge (Overlay)</label>
+                            <input type="text" id="hc-tag-badge" class="cms-input" placeholder="Beyond the Usual" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                        <div class="cms-form-group" style="flex:1;">
+                            <label>Duration Badge (Overlay)</label>
+                            <input type="text" id="hc-duration-badge" class="cms-input" placeholder="3N / 4D" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                    </div>
+
+                    <div class="cms-form-row">
+                        <div class="cms-form-group" style="flex:1;">
+                            <label>Starting Price (₹)</label>
+                            <input type="text" id="hc-price" class="cms-input" placeholder="₹12,999" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                        <div class="cms-form-group" style="flex:1;">
+                            <label>Price Unit</label>
+                            <input type="text" id="hc-price-unit" class="cms-input" placeholder="per person" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                        <div class="cms-form-group" style="flex:2;">
+                            <label>Best For Tag</label>
+                            <input type="text" id="hc-bestfor" class="cms-input" placeholder="Families • Couples • Groups • Nature Lovers" oninput="updateHolidayCardLivePreview()">
+                        </div>
+                    </div>
+
+                    <div class="cms-form-group">
+                        <label>Key Tour Highlights (Comma separated)</label>
+                        <input type="text" id="hc-highlights" class="cms-input" placeholder="Kodaikanal Lake, Poombarai Village, Mannavanur Lake, Pine Forest" oninput="updateHolidayCardLivePreview()">
+                    </div>
+
+                    <div class="cms-form-group">
+                        <label>Card Overview Description</label>
+                        <textarea id="hc-desc" class="cms-textarea" rows="3" placeholder="Experience the beauty of Kodaikanal through its iconic attractions..." oninput="updateHolidayCardLivePreview()"></textarea>
+                    </div>
+                </div>
             </section>
 
             <!-- ══════════════ TAB 5: DOMESTIC PACKAGES CMS ══════════════ -->
@@ -819,6 +1153,6 @@ $user_picture = $_SESSION['mtt_admin_picture'] ?? '';
 </div>
 
 <!-- Admin Dashboard Controller -->
-<script src="js/admin.js?v=25"></script>
+<script src="js/admin.js?v=20260825_final"></script>
 </body>
 </html>

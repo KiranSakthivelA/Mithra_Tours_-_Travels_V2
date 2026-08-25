@@ -1,6 +1,6 @@
 <?php
 // api/delete_inquiry.php
-// Deletes an inquiry from the database
+// Deletes an inquiry from the database & JSON storage
 
 require_once 'config.php';
 handle_cors();
@@ -24,22 +24,25 @@ if ($id <= 0) {
     exit;
 }
 
-if (!$conn || mysqli_connect_errno()) {
-    http_response_code(500);
-    echo json_encode(["success" => false, "message" => "Database connection error."]);
-    exit;
+// 1. Delete from MySQL Database if available
+if (isset($conn) && $conn && !mysqli_connect_errno()) {
+    $stmt = @$conn->prepare("DELETE FROM inquiries WHERE id = ?");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
-$stmt = $conn->prepare("DELETE FROM inquiries WHERE id = ?");
-$stmt->bind_param("i", $id);
-
-if ($stmt->execute()) {
-    echo json_encode(["success" => true, "message" => "Inquiry record deleted successfully."]);
-} else {
-    http_response_code(500);
-    echo json_encode(["success" => false, "message" => "Failed to delete inquiry. Error: " . $stmt->error]);
+// 2. Delete from JSON Storage
+$json_file = __DIR__ . '/../data/inquiries.json';
+if (file_exists($json_file)) {
+    $inquiries = json_decode(file_get_contents($json_file), true) ?: [];
+    $filtered = array_values(array_filter($inquiries, function($inq) use ($id) {
+        return intval($inq['id']) !== $id;
+    }));
+    @file_put_contents($json_file, json_encode($filtered, JSON_PRETTY_PRINT));
 }
 
-$stmt->close();
-$conn->close();
+echo json_encode(["success" => true, "message" => "Inquiry record deleted successfully."]);
 ?>

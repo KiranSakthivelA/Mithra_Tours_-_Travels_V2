@@ -1,6 +1,7 @@
 <?php
 // api/submit_inquiry.php
 // Records all incoming leads from Contact, Holidays, Trip Planner, Attachment, and Cab Booking forms
+// Guaranteed Dual Storage: MySQL Database + data/inquiries.json + Google Sheets
 
 require_once 'config.php';
 handle_cors();
@@ -25,12 +26,12 @@ $phone = isset($data['phone']) ? trim(strip_tags($data['phone'])) : '';
 $email = isset($data['email']) ? trim(filter_var($data['email'], FILTER_SANITIZE_EMAIL)) : '';
 $service = isset($data['service']) ? trim(strip_tags($data['service'])) : (isset($data['vehicle_category']) ? trim(strip_tags($data['vehicle_category'])) : '');
 $package_name = isset($data['package_name']) ? trim(strip_tags($data['package_name'])) : (isset($data['package']) ? trim(strip_tags($data['package'])) : '');
-$pickup = isset($data['pickup']) ? trim(strip_tags($data['pickup'])) : (isset($data['from_location']) ? trim(strip_tags($data['from_location'])) : (isset($data['city']) ? trim(strip_tags($data['city'])) : ''));
+$pickup = isset($data['pickup']) ? trim(strip_tags($data['pickup'])) : (isset($data['from_location']) ? trim(strip_tags($data['from_location'])) : (isset($data['city']) ? trim(strip_tags($data['city'])) : (isset($data['city_location']) ? trim(strip_tags($data['city_location'])) : '')));
 $drop_city = isset($data['drop']) ? trim(strip_tags($data['drop'])) : (isset($data['drop_city']) ? trim(strip_tags($data['drop_city'])) : (isset($data['to_location']) ? trim(strip_tags($data['to_location'])) : ''));
 $car_type = isset($data['car']) ? trim(strip_tags($data['car'])) : (isset($data['car_type']) ? trim(strip_tags($data['car_type'])) : (isset($data['vehicle_type']) ? trim(strip_tags($data['vehicle_type'])) : (isset($data['vehicle_model']) ? trim(strip_tags($data['vehicle_model'])) : '')));
 $travel_date = isset($data['date']) ? trim(strip_tags($data['date'])) : (isset($data['travel_date']) ? trim(strip_tags($data['travel_date'])) : '');
 $travel_time = isset($data['time']) ? trim(strip_tags($data['time'])) : (isset($data['travel_time']) ? trim(strip_tags($data['travel_time'])) : '');
-$travelers_count = isset($data['travelers']) ? trim(strip_tags($data['travelers'])) : (isset($data['travelers_count']) ? trim(strip_tags($data['travelers_count'])) : (isset($data['passengers']) ? trim(strip_tags($data['passengers'])) : ''));
+$travelers_count = isset($data['travelers']) ? trim(strip_tags($data['travelers'])) : (isset($data['travelers_count']) ? trim(strip_tags($data['travelers_count'])) : (isset($data['passengers']) ? trim(strip_tags($data['passengers'])) : (isset($data['vehicle_count']) ? trim(strip_tags($data['vehicle_count'])) : '')));
 $message = isset($data['message']) ? trim(strip_tags($data['message'])) : (isset($data['details']) ? trim(strip_tags($data['details'])) : (isset($data['notes']) ? trim(strip_tags($data['notes'])) : (isset($data['special_requests']) ? trim(strip_tags($data['special_requests'])) : '')));
 
 // Validation: Require at least name or phone
@@ -40,10 +41,11 @@ if (empty($name) && empty($phone)) {
     exit;
 }
 
-$inquiry_id = time(); // Fallback ID if DB is not active
+$inquiry_id = time();
 
-if ($conn && !mysqli_connect_errno()) {
-    $stmt = $conn->prepare("INSERT INTO inquiries 
+// 1. Save to MySQL Database
+if (isset($conn) && $conn && !mysqli_connect_errno()) {
+    $stmt = @$conn->prepare("INSERT INTO inquiries 
         (form_type, name, phone, email, service, package_name, pickup, drop_city, car_type, travel_date, travel_time, travelers_count, message, status) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'New')");
     
@@ -59,7 +61,45 @@ if ($conn && !mysqli_connect_errno()) {
     }
 }
 
-// Optional Google Sheet sync
+// 2. Guaranteed JSON Storage Backup (always accessible in Admin Panel)
+$data_dir = __DIR__ . '/../data';
+if (!is_dir($data_dir)) {
+    @mkdir($data_dir, 0755, true);
+}
+$json_file = $data_dir . '/inquiries.json';
+
+$inquiries_list = [];
+if (file_exists($json_file)) {
+    $inquiries_list = json_decode(file_get_contents($json_file), true) ?: [];
+}
+
+$new_record = [
+    "id" => intval($inquiry_id),
+    "form_type" => $form_type,
+    "name" => $name,
+    "phone" => $phone,
+    "email" => $email,
+    "service" => $service,
+    "package_name" => $package_name,
+    "pickup" => $pickup,
+    "drop_city" => $drop_city,
+    "car_type" => $car_type,
+    "travel_date" => $travel_date,
+    "travel_time" => $travel_time,
+    "travelers_count" => $travelers_count,
+    "message" => $message,
+    "admin_notes" => "",
+    "status" => "New",
+    "created_at" => date('Y-m-d H:i:s'),
+    "customer_inquiry_count" => 1
+];
+
+// Prepend new lead so latest is on top
+array_unshift($inquiries_list, $new_record);
+$inquiries_list = array_slice($inquiries_list, 0, 500);
+@file_put_contents($json_file, json_encode($inquiries_list, JSON_PRETTY_PRINT));
+
+// 3. Optional Google Sheet sync
 if (defined('GOOGLE_SHEET_WEBHOOK') && GOOGLE_SHEET_WEBHOOK !== "") {
     $sheet_payload = json_encode([
         "secret_token" => "MITHRA_SECURE_AUTH_8842",

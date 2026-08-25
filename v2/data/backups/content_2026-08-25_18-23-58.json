@@ -1,0 +1,839 @@
+{
+  "home": {
+    "heroBadge": "👑 Chennai's Most Trusted Travel Partner",
+    "heroTitleLine1": "Journeys That Connect,",
+    "heroTitleHighlight": "Safe & Comfortable.",
+    "heroSubtitle": "Corporate Cabs · Airport Transfers · Outstation & Business Tours · Holiday Packages · Flight / Train / Cruise Booking · Visa Assistance",
+    "heroBtn1Text": "Book Now",
+    "heroBtn1Link": "contact.html",
+    "heroBtn2Text": "Corporate Mobility",
+    "heroBtn2Link": "corporate.html",
+    "heroBtn3Text": "WhatsApp Quote",
+    "heroBtn3Link": "https://wa.me/919629245533?text=Hello%20Mithra%20Tours%2C%20I%20need%20a%20travel%20quote",
+    "trustTicker": [
+      {
+        "icon": "fa-box",
+        "text": "Sealed Hygienic Welcome Kit"
+      },
+      {
+        "icon": "fa-file-invoice-dollar",
+        "text": "Consolidated Digital Invoicing"
+      },
+      {
+        "icon": "fa-clock",
+        "text": "On-Time Guaranteed"
+      },
+      {
+        "icon": "fa-headset",
+        "text": "24/7 Round-the-Clock Support"
+      },
+      {
+        "icon": "fa-shield-halved",
+        "text": "Background-Verified Chauffeurs"
+      },
+      {
+        "icon": "fa-route",
+        "text": "Pan-India Coverage"
+      }
+    ],
+    "corporateSection": {
+      "sectionLabel": "Corporate Transport",
+      "sectionTitle": "Corporate Mobility & Services",
+      "sectionDesc": "Corporate Cab Services, Airport Pickups & Drops, Outstation Trips, Business Tours.",
+      "cards": [
+        {
+          "title": "Corporate Cab Services",
+          "desc": "Daily & monthly employee pickup, drop, and shift duties with consolidated monthly invoicing.",
+          "linkText": "Corporate Services",
+          "linkUrl": "corporate.html"
+        },
+        {
+          "title": "Airport Pickups & Drops",
+          "desc": "Guaranteed on-time 24/7 Chennai (MAA) airport transfers with live flight tracking.",
+          "linkText": "Airport Transfers",
+          "linkUrl": "corporate.html"
+        },
+        {
+          "title": "Outstation & Business Tours",
+          "desc": "Comfortable multi-city road trips across Tamil Nadu & South India for corporate & family.",
+          "linkText": "Outstation Routes",
+          "linkUrl": "corporate.html"
+        }
+      ]
+    },
+    "holidaysSection": {
+      "sectionLabel": "Travel & Holidays",
+      "sectionTitle": "Domestic & International Holiday Packages",
+      "sectionDesc": "Domestic & International Holiday Packages, Flight / Train / Cruise Booking, Visa Assistance.",
+      "domesticCard": {
+        "title": "Kodaikanal, Rajasthan, Tawang & More",
+        "desc": "Curated holiday experiences for families, couples, and groups with flexible itineraries and verified transfers.",
+        "btnText": "View Domestic Holidays",
+        "linkUrl": "holidays.html#domestic-packages"
+      },
+      "intlCard": {
+        "title": "Singapore, Vietnam, Dubai & Beyond",
+        "desc": "Well-planned international holidays with customised itineraries, flights, visa assistance, and luxury stays.",
+        "btnText": "View International Holidays",
+        "linkUrl": "holidays.html#international-packages"
+      },
+      "visaCard": {
+        "title": "Ticketing & Visa Desk",
+        "desc": "One-stop booking for Domestic & International Flights, IRCTC Train Tickets, Cruise Holidays, and end-to-end Visa Assistance.",
+        "btnText": "Explore Travel Desk",
+        "linkUrl": "holidays.html"
+      },
+      "offerBanner": {
+        "enabled": true,
+        "tag": "LIMITED TIME OFFER",
+        "saveTag": "SAVE ₹3,000",
+        "title": "Kodaikanal • Poombarai • Mannavanur",
+        "duration": "3 Nights / 4 Days",
+        "chip1": "Private Cab Included",
+        "chip2": "Resort Stay Included",
+        "desc": "Curated misty hill escape featuring Kodaikanal Lake, Pine Forest, Poombarai Village & serene Mannavanur Lake with verified private chauffeur & 24/7 concierge.",
+        "originalPrice": "₹15,999",
+        "offerPrice": "₹12,999",
+        "pricePer": "per person",
+        "discountBadge": "20% OFF",
+        "image": "Assets/holiday_kodaikanal.jpg",
+        "locationTag": "Kodaikanal, Tamil Nadu",
+        "btn1Text": "Book Now",
+        "btn1Link": "holidays/kodaikanal.html",
+        "btn2Text": "WhatsApp Us",
+        "btn2Link": "https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Kodaikanal%20Special%20Offer%20Package"
+      }
+    },
+    "whyMithraSection": {
+      "sectionLabel": "Why Choose Us",
+      "sectionTitle": "Why Mithra Tours & Travels",
+      "sectionDesc": "One Vendor, Every Need · Consistency You Can Verify · Safety First · On-Time, Every Time.",
+      "roadMapSteps": [
+        {
+          "title": "One Vendor, Every Need",
+          "desc": "From daily cabs to flights, hotels, and visas — complete travel coverage without managing multiple vendors."
+        },
+        {
+          "title": "Consistency You Can Verify",
+          "desc": "Verified drivers, vehicle hygiene, and the same high standard guest experience across all trips."
+        },
+        {
+          "title": "Safety First",
+          "desc": "Documented vehicle health checks and verified chauffeurs enforcing strict safety standards."
+        },
+        {
+          "title": "On-Time, Every Time",
+          "desc": "Punctual dispatches scheduled without exception, ensuring hassle-free travel."
+        }
+      ]
+    },
+    "bottomEnquirySection": {
+      "title": "Direct Travel Enquiry",
+      "subtitle": "Get a custom quotation within 15 minutes from our travel concierge team.",
+      "phone": "+91 96292 45533",
+      "email": "bookings@mithratoursandtravels.in"
+    }
+  },
+  "holidays_main": {
+    "pageTitle": "Curated Holiday Experiences",
+    "pageSubtitle": "Handpicked domestic getaways & international luxury escapes with private sanitized vehicles and dedicated 24/7 concierge assistance.",
+    "featuredBannerTitle": "Special Holiday Season: Rajasthan, Dubai & Kerala Tours",
+    "featuredBannerSubtitle": "Customized family & group packages with transparent pricing and zero hidden charges."
+  },
+  "whyChooseUs": [
+    {
+      "title": "",
+      "desc": ""
+    },
+    {
+      "title": "",
+      "desc": ""
+    },
+    {
+      "title": "",
+      "desc": ""
+    },
+    {
+      "title": "",
+      "desc": ""
+    },
+    {
+      "title": "",
+      "desc": ""
+    },
+    {
+      "title": "",
+      "desc": ""
+    }
+  ],
+  "domestic_packages": {
+    "domestic_package_1": {
+      "id": "kodaikanal",
+      "title": "Kodaikanal • Poombarai • Mannavanur",
+      "subtitle": "Beyond the Usual Kodaikanal",
+      "duration": "3 Nights / 4 Days",
+      "durationBadge": "3N / 4D",
+      "price": "₹12,999",
+      "pricePer": "per person",
+      "region": "Tamil Nadu",
+      "image": "Assets/holiday_kodaikanal.jpg",
+      "bestFor": "Families • Couples • Groups • Nature Lovers",
+      "overview": "Experience the beauty of Kodaikanal through its iconic attractions, scenic viewpoints and peaceful mountain landscapes, along with the charming villages of Poombarai and Mannavanur.",
+      "highlights": [
+        "Kodaikanal Lake",
+        "Poombarai Village",
+        "Mannavanur Lake",
+        "Pine Forest",
+        "Coaker's Walk"
+      ],
+      "inclusions": [
+        "3 Nights accommodation as per selected category",
+        "Daily delicious breakfast at hotel",
+        "Dedicated private vehicle for the entire itinerary",
+        "Driver charges, night allowances & fuel costs",
+        "Toll gates, parking & inter-state permits",
+        "Complete sightseeing as mentioned in the itinerary",
+        "Mithra Welcome Kit & 24/7 on-trip concierge assistance"
+      ],
+      "exclusions": [
+        "Lunch, dinner & personal beverages",
+        "Entry tickets / camera fees at monuments & parks",
+        "Boating, horse riding & optional adventure activities",
+        "Personal expenses & souvenir shopping",
+        "Anything not specifically mentioned under inclusions"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Chennai to Kodaikanal",
+          "desc": "Journey from Chennai to the scenic hills of Kodaikanal.",
+          "points": [
+            "Pickup from Chennai and proceed towards Kodaikanal",
+            "En-route meal / rest stop amidst scenic routes",
+            "Hotel check-in and refresh",
+            "Evening at leisure / local market exploration",
+            "Overnight stay in Kodaikanal"
+          ]
+        },
+        {
+          "day": "Day 2",
+          "title": "Kodaikanal Local Sightseeing",
+          "desc": "Explore the iconic sights and natural beauty of the princess of hill stations.",
+          "points": [
+            "Visit serene Kodaikanal Lake for boating & cycling",
+            "Stroll along Coaker’s Walk with panoramic valley views",
+            "Bryant Park flower gardens & horticultural exhibits",
+            "Explore famous Pillar Rocks & Guna Caves",
+            "Walk through Pine Forest & scenic Moir Point",
+            "Overnight stay in Kodaikanal"
+          ]
+        },
+        {
+          "day": "Day 3",
+          "title": "Poombarai & Mannavanur Excursion",
+          "desc": "Discover the quieter, terraced valleys and countryside side of the hills.",
+          "points": [
+            "Breakfast & proceed towards picturesque Poombarai",
+            "Explore Poombarai stepped farming village & viewpoints",
+            "Continue to Mannavanur sheep farm & tranquil lake",
+            "Explore the countryside, rolling grasslands, and nature trails",
+            "Return to Kodaikanal for an evening at leisure",
+            "Overnight stay in Kodaikanal"
+          ]
+        },
+        {
+          "day": "Day 4",
+          "title": "Kodaikanal to Chennai Departure",
+          "desc": "Conclude your memorable hill getaway with a comfortable return transfer.",
+          "points": [
+            "Breakfast & hotel check-out",
+            "Leisure time / short local shopping, subject to departure timing",
+            "Depart towards Chennai with en-route meal / rest stops",
+            "Drop at Chennai (Home / Airport / Railway Station)"
+          ]
+        }
+      ],
+      "travel_notes": [
+        "Hotel and room categories are subject to availability at confirmation.",
+        "Equivalent premium accommodation may be offered where required.",
+        "Sightseeing is subject to weather, road conditions, and local operating guidelines.",
+        "Travel times may vary based on traffic and mountain road conditions.",
+        "The itinerary is 100% customizable based on your travel dates and group preferences."
+      ],
+      "booking_policy": [
+        "Booking confirmed upon receipt of the agreed advance deposit.",
+        "Final hotel, vehicle, and package quotation confirmed based on real-time availability.",
+        "Applicable GST and invoice details communicated clearly in the final quotation."
+      ]
+    },
+    "domestic_package_2": {
+      "id": "rajasthan",
+      "title": "Jaipur • Udaipur • Jaisalmer",
+      "subtitle": "The Royal Rajasthan Experience",
+      "duration": "5 Nights / 6 Days",
+      "durationBadge": "5N / 6D",
+      "price": "₹24,999",
+      "pricePer": "per person",
+      "region": "North India",
+      "image": "Assets/holiday_rajasthan.jpg",
+      "bestFor": "Families • Couples • Groups • Heritage Lovers",
+      "overview": "Explore Rajasthan's royal heritage, magnificent palaces, colourful cities and golden desert landscapes across Jaipur, Udaipur and Jaisalmer.",
+      "highlights": [
+        "Amber Fort Jaipur",
+        "Udaipur Lakes",
+        "Jaisalmer Desert Safari",
+        "City Palace",
+        "Hawa Mahal"
+      ],
+      "inclusions": [
+        "5 Nights accommodation as per selected category",
+        "Daily buffet breakfast at hotels & desert camp",
+        "Dedicated private chauffeur-driven AC vehicle for entire tour",
+        "All driver allowances, fuel, tolls, and inter-city permits",
+        "Thar desert sunset experience with traditional welcome",
+        "Sightseeing as detailed in the proposed itinerary",
+        "Mithra Welcome Kit & 24/7 dedicated travel support"
+      ],
+      "exclusions": [
+        "Lunch, dinner & personal beverages (unless specified at desert camp)",
+        "Entry tickets / camera fees at forts & museums",
+        "Boat rides, camel rides, jeep safaris & optional activities",
+        "Personal expenses, shopping & tips",
+        "Flight / train fares to Jaipur / from Jaisalmer",
+        "Anything not specifically mentioned under inclusions"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Arrival in Jaipur (Pink City)",
+          "desc": "Arrival in the royal capital of Rajasthan and transfer to hotel.",
+          "points": [
+            "Airport / Railway Station pickup by private chauffeur",
+            "Hotel check-in & leisure refresh",
+            "Evening at leisure / explore colorful Johari Bazaar",
+            "Overnight stay in Jaipur"
+          ]
+        },
+        {
+          "day": "Day 2",
+          "title": "Jaipur Heritage Sightseeing",
+          "desc": "Explore the iconic royal forts and palaces of the Pink City.",
+          "points": [
+            "Visit majestic hilltop Amber Fort with photo stops",
+            "Photo stop at picturesque Jal Mahal water palace",
+            "Explore Jaipur City Palace royal courtyards and museum",
+            "Visit UNESCO World Heritage Jantar Mantar observatory",
+            "Admire iconic Hawa Mahal & shop local handicraft markets",
+            "Overnight stay in Jaipur"
+          ]
+        },
+        {
+          "day": "Day 3",
+          "title": "Jaipur to Udaipur (City of Lakes)",
+          "desc": "Scenic journey from the Pink City to the romantic lakes of Udaipur.",
+          "points": [
+            "Breakfast & hotel check-out",
+            "Proceed to Udaipur with en-route meal / rest stops",
+            "Arrive in Udaipur and check in to hotel",
+            "Optional sunset boat ride on Lake Pichola (subject to availability)",
+            "Overnight stay in Udaipur"
+          ]
+        },
+        {
+          "day": "Day 4",
+          "title": "Udaipur Sightseeing Tour",
+          "desc": "Discover Udaipur's breathtaking palaces, gardens, and lakes.",
+          "points": [
+            "Explore grand Udaipur City Palace overlooking Lake Pichola",
+            "Visit historic Jagdish Temple & Saheliyon-ki-Bari gardens",
+            "Scenic drive along Fateh Sagar Lake",
+            "Evening leisure around Old City ghats & art bazaars",
+            "Overnight stay in Udaipur"
+          ]
+        },
+        {
+          "day": "Day 5",
+          "title": "Udaipur to Jaisalmer (Thar Desert)",
+          "desc": "Journey towards the Golden City and the Thar Desert.",
+          "points": [
+            "Breakfast & hotel check-out",
+            "Proceed towards Jaisalmer across scenic desert highways",
+            "Check-in at desert camp / hotel in Jaisalmer",
+            "Evening desert experience, sunset over sand dunes & folk music",
+            "Overnight stay in Jaisalmer"
+          ]
+        },
+        {
+          "day": "Day 6",
+          "title": "Jaisalmer Sightseeing & Departure",
+          "desc": "Experience the highlights of the Golden City before departure.",
+          "points": [
+            "Explore living Jaisalmer Fort (Sonar Qila)",
+            "Admire intricate stone carvings at Patwon Ki Haveli",
+            "Visit peaceful Gadisar Lake & local handicraft markets",
+            "Transfer to Jaisalmer Airport / Railway Station for onward journey"
+          ]
+        }
+      ],
+      "travel_notes": [
+        "Desert safari and camel ride timings in Jaisalmer are subject to weather conditions.",
+        "Monument entrance timings and sound & light shows are regulated by state tourism authorities.",
+        "Vehicles provided for point-to-point sightseeing with verified local chauffeurs.",
+        "Customizable options for heritage palace stays and desert luxury swiss tents."
+      ],
+      "booking_policy": [
+        "Booking confirmed with 40% advance deposit and government ID proof.",
+        "Instant confirmation voucher and chauffeur contact shared 24 hours prior to departure.",
+        "GST invoicing provided for corporate and individual leisure travelers."
+      ]
+    },
+    "domestic_package_3": {
+      "id": "tawang",
+      "title": "Tawang • Dirang • Bomdila",
+      "subtitle": "Into the Himalayan Frontier",
+      "duration": "5 Nights / 6 Days",
+      "durationBadge": "5N / 6D",
+      "price": "₹24,999",
+      "pricePer": "per person",
+      "region": "Arunachal Pradesh",
+      "image": "Assets/holiday_tawang.jpg",
+      "bestFor": "Families • Couples • Groups • Adventure Seekers",
+      "overview": "Experience the dramatic landscapes of Arunachal Pradesh — from the mountain valleys of Dirang and Bomdila to the high-altitude beauty and Buddhist heritage of Tawang.",
+      "highlights": [
+        "Sela Pass & Lake",
+        "Tawang Monastery",
+        "Bum La Pass",
+        "Dirang Valley",
+        "Madhuri Lake"
+      ],
+      "inclusions": [
+        "5 Nights accommodation in scenic mountain hotels",
+        "Daily breakfast & dinner",
+        "Dedicated private SUV / Traveller for Himalayan terrain",
+        "Inner Line Permits (ILP) assistance for Arunachal Pradesh",
+        "Sightseeing as per itinerary with experienced hill chauffeur"
+      ],
+      "exclusions": [
+        "Lunch and personal beverages",
+        "Bum La Pass special army permit & local vehicle hire",
+        "Personal expenses and porter charges"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Guwahati to Bomdila",
+          "desc": "Begin your journey into the misty mountains of Arunachal.",
+          "points": [
+            "Pickup from Guwahati",
+            "Drive through tea estates to Bomdila",
+            "Overnight in Bomdila"
+          ]
+        },
+        {
+          "day": "Day 2",
+          "title": "Bomdila to Dirang Valley",
+          "desc": "Apple orchards, hot springs, and Kiwi gardens.",
+          "points": [
+            "Visit Bomdila Monastery",
+            "Drive to Dirang Valley",
+            "Visit Dirang Dzong & hot water spring",
+            "Overnight in Dirang"
+          ]
+        },
+        {
+          "day": "Day 3",
+          "title": "Dirang to Tawang via Sela Pass",
+          "desc": "Cross the majestic 13,700 ft snow-capped Sela Pass.",
+          "points": [
+            "Cross Sela Pass and Sela Lake",
+            "Visit Jaswant Garh War Memorial",
+            "Arrive in Tawang and check in",
+            "Overnight in Tawang"
+          ]
+        },
+        {
+          "day": "Day 4",
+          "title": "Tawang Monastery & Local Sightseeing",
+          "desc": "Asia's second-largest Buddhist monastery.",
+          "points": [
+            "Explore grand 400-year-old Tawang Monastery",
+            "Visit Urgelling Monastery & Tawang War Memorial",
+            "Evening light show",
+            "Overnight in Tawang"
+          ]
+        },
+        {
+          "day": "Day 5",
+          "title": "Tawang to Bomdila Return",
+          "desc": "Scenic drive descending the Himalayan valleys.",
+          "points": [
+            "Breakfast & check-out",
+            "Visit Nuranang Waterfalls (Jung Falls)",
+            "Scenic return drive to Bomdila",
+            "Overnight in Bomdila"
+          ]
+        },
+        {
+          "day": "Day 6",
+          "title": "Bomdila to Guwahati Departure",
+          "desc": "Return transfer to Guwahati for onward journey.",
+          "points": [
+            "Breakfast & check-out",
+            "Drive to Guwahati Airport / Railway Station"
+          ]
+        }
+      ],
+      "travel_notes": [
+        "Inner Line Permit (ILP) is required for Arunachal Pradesh (arranged seamlessly by Mithra).",
+        "Bum La Pass visit is subject to Indian Army clearance and weather conditions.",
+        "High-altitude warm clothing and thermal layers recommended.",
+        "Dedicated 4x4 / high-clearance private vehicle for smooth mountain transitions."
+      ],
+      "booking_policy": [
+        "Confirmed with advance deposit and passport/voter ID scan for ILP processing.",
+        "Detailed trip briefing and 24/7 dedicated travel manager support throughout the tour."
+      ]
+    }
+  },
+  "international_packages": {
+    "international_package_1": {
+      "id": "singapore",
+      "title": "Singapore City & Sentosa Island",
+      "subtitle": "The Lion City Adventure",
+      "duration": "4 Nights / 5 Days",
+      "durationBadge": "4N / 5D",
+      "price": "₹64,999",
+      "pricePer": "per person",
+      "region": "Singapore",
+      "image": "Assets/holiday_singapore.jpg",
+      "bestFor": "Families • Kids • Couples • Urban Explorers",
+      "overview": "Discover the Garden City — Gardens by the Bay, Universal Studios theme park, Marina Bay Sands, Night Safari, and cable cars of Sentosa.",
+      "highlights": [
+        "Gardens by the Bay (Flower Dome & Cloud Forest)",
+        "Universal Studios Singapore",
+        "Sentosa Cable Car & Wings of Time",
+        "Marina Bay Sands SkyPark",
+        "Singapore Night Safari"
+      ],
+      "inclusions": [
+        "4 Nights in centrally located 4-Star hotel",
+        "Daily breakfast at hotel",
+        "All entry tickets: Universal Studios, Gardens by the Bay, Sentosa Cable Car",
+        "Private airport transfers and guided city tours",
+        "Singapore tourist visa assistance"
+      ],
+      "exclusions": [
+        "International flight tickets",
+        "Lunch, dinner and personal shopping",
+        "Optional: Night Safari or Singapore Flyer tickets"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Arrival in Singapore & Night Safari",
+          "desc": "Welcome to Jewel Changi and the world's first nocturnal zoo.",
+          "points": [
+            "Arrive at Changi Airport & explore Jewel waterfall",
+            "Hotel check-in & leisure refresh",
+            "Evening tram ride at Singapore Night Safari",
+            "Overnight in Singapore"
+          ]
+        },
+        {
+          "day": "Day 2",
+          "title": "Singapore City Tour & Gardens by the Bay",
+          "desc": "Merlion Park and avatar-like futuristic glass domes.",
+          "points": [
+            "City tour: Merlion Park, Padang, Chinatown, Little India",
+            "Visit Gardens by the Bay (Flower Dome & Cloud Forest)",
+            "Witness Supertree Grove light & sound show",
+            "Marina Bay Sands Skypark observation deck",
+            "Overnight in Singapore"
+          ]
+        },
+        {
+          "day": "Day 3",
+          "title": "Universal Studios Singapore",
+          "desc": "A full day of thrilling rides and movie magic.",
+          "points": [
+            "Full-day pass to Universal Studios at Resorts World Sentosa",
+            "Experience Transformers The Ride, Battlestar Galactica & Jurassic Park",
+            "Meet movie characters & enjoy evening shows",
+            "Overnight in Singapore"
+          ]
+        },
+        {
+          "day": "Day 4",
+          "title": "Sentosa Island Cable Car & Wings of Time",
+          "desc": "Beach adventures and spectacular fireworks water show.",
+          "points": [
+            "Scenic Cable Car ride to Sentosa Island",
+            "Visit Madame Tussauds & S.E.A. Aquarium",
+            "Relax at Siloso Beach",
+            "Wings of Time multi-sensory laser & fire show",
+            "Overnight in Singapore"
+          ]
+        },
+        {
+          "day": "Day 5",
+          "title": "Orchard Road Shopping & Departure",
+          "desc": "Last minute shopping and return flight.",
+          "points": [
+            "Breakfast & check-out",
+            "Shopping at Orchard Road malls / Mustafa Centre",
+            "Private transfer to Changi Airport for departure"
+          ]
+        }
+      ],
+      "travel_notes": [
+        "Indian passport holders require a valid Singapore visa (processed within 3-5 working days).",
+        "Passport must be valid for at least 6 months from the date of travel.",
+        "Universal Studios and attraction tickets are provided with instant barcode e-passes.",
+        "Itinerary is flexible and can be customized with optional night safaris or cruise extensions."
+      ],
+      "booking_policy": [
+        "Confirmed with advance deposit and passport copy submission.",
+        "Flights and hotels confirmed with instant PNR vouchers upon booking.",
+        "Travel insurance coverage strongly recommended and available on request."
+      ]
+    },
+    "international_package_2": {
+      "id": "vietnam",
+      "title": "Vietnam Grand Explorer",
+      "subtitle": "Hanoi • Halong Bay • Da Nang • Hoi An • Saigon",
+      "duration": "6 Nights / 7 Days",
+      "durationBadge": "6N / 7D",
+      "price": "₹69,999",
+      "pricePer": "per person",
+      "region": "Vietnam",
+      "image": "Assets/holiday_vietnam.jpg",
+      "bestFor": "Couples • Culture Lovers • Nature Photographers • Foodies",
+      "overview": "From emerald limestone karsts of UNESCO World Heritage Halong Bay and lantern-lit streets of ancient Hoi An to the Golden Bridge in the clouds at Ba Na Hills.",
+      "highlights": [
+        "Halong Bay Overnight Luxury Cruise",
+        "Golden Hand Bridge at Ba Na Hills",
+        "Hoi An Ancient Lantern Town",
+        "Hanoi Old Quarter & French Quarter",
+        "Cu Chi Tunnels & Mekong Delta"
+      ],
+      "inclusions": [
+        "6 Nights accommodation (including 1 Night luxury Halong Bay Cruise)",
+        "Daily breakfast + All meals on Halong Cruise",
+        "Cable car tickets to Ba Na Hills Golden Hand Bridge",
+        "Domestic internal flights (Hanoi -> Da Nang -> Saigon)",
+        "Private AC transport and English-speaking local guides",
+        "Vietnam e-visa approval letter"
+      ],
+      "exclusions": [
+        "International roundtrip flight tickets",
+        "Lunches and dinners not mentioned in cruise inclusions",
+        "Personal expenses and drinks"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Arrival in Hanoi",
+          "desc": "Welcome to Vietnam's charming colonial capital.",
+          "points": [
+            "Pickup from Noi Bai Airport & hotel check-in",
+            "Explore Hanoi Old Quarter on traditional cyclo",
+            "Visit Hoan Kiem Lake & Ngoc Son Temple",
+            "Overnight in Hanoi"
+          ]
+        },
+        {
+          "day": "Day 2",
+          "title": "Hanoi to Halong Bay Cruise",
+          "desc": "Sail amidst thousands of limestone islands.",
+          "points": [
+            "Scenic drive to Halong Bay port",
+            "Board luxury cruise with welcome drink & lunch",
+            "Kayaking through Sung Sot (Surprise) Cave",
+            "Sunset party & squid fishing on cruise",
+            "Overnight on Halong Cruise"
+          ]
+        },
+        {
+          "day": "Day 3",
+          "title": "Halong Bay to Da Nang",
+          "desc": "Morning Tai Chi on sundeck and flight to central Vietnam.",
+          "points": [
+            "Morning Tai Chi and visit Ti Top Island viewpoint",
+            "Brunch on cruise and disembark",
+            "Transfer to Hanoi airport for flight to Da Nang",
+            "Check in at Da Nang beachfront hotel",
+            "Overnight in Da Nang"
+          ]
+        },
+        {
+          "day": "Day 4",
+          "title": "Ba Na Hills & Golden Hand Bridge",
+          "desc": "Walking in the clouds on the giant hand bridge.",
+          "points": [
+            "World-record cable car ride to Ba Na Hills",
+            "Walk on iconic Golden Bridge held by giant hands",
+            "Explore French Village & Fantasy Park",
+            "Evening visit to Hoi An ancient lantern town",
+            "Overnight in Da Nang"
+          ]
+        },
+        {
+          "day": "Day 5",
+          "title": "Da Nang to Ho Chi Minh City (Saigon)",
+          "desc": "Fly to the vibrant southern metropolis.",
+          "points": [
+            "Flight to Ho Chi Minh City (Saigon)",
+            "Visit War Remnants Museum & Notre Dame Cathedral",
+            "Explore Ben Thanh market for local coffee & silk",
+            "Overnight in Saigon"
+          ]
+        },
+        {
+          "day": "Day 6",
+          "title": "Mekong Delta River Tour",
+          "desc": "Explore floating markets, orchards, and coconut candy workshops.",
+          "points": [
+            "Drive to My Tho in the Mekong Delta",
+            "Boat cruise along Mekong River & horse carriage ride",
+            "Sampan rowing boat through narrow palm canals",
+            "Traditional Vietnamese folk music performance",
+            "Return to Saigon for overnight stay"
+          ]
+        },
+        {
+          "day": "Day 7",
+          "title": "Saigon Departure",
+          "desc": "Farewell Vietnam and airport transfer.",
+          "points": [
+            "Breakfast & check-out",
+            "Transfer to Tan Son Nhat Airport for onward flight"
+          ]
+        }
+      ],
+      "travel_notes": [
+        "Indian passport holders require a Vietnam E-Visa (processed within 3-4 working days).",
+        "Domestic flight luggage allowance includes 20kg check-in + 7kg cabin.",
+        "Halong Bay cruise activities are subject to maritime weather permissions.",
+        "Customizable for couples, families, and private corporate incentive groups."
+      ],
+      "booking_policy": [
+        "Confirmed with advance deposit and passport scan copies.",
+        "All flights, luxury hotels and cruise cabin confirmed with instant vouchers upon booking."
+      ]
+    },
+    "international_package_3": {
+      "id": "dubai",
+      "title": "Dubai & Abu Dhabi Grand Tour",
+      "subtitle": "Futuristic Luxury & Arabian Desert",
+      "duration": "5 Nights / 6 Days",
+      "durationBadge": "5N / 6D",
+      "price": "₹74,999",
+      "pricePer": "per person",
+      "region": "UAE",
+      "image": "Assets/holiday_dubai.jpg",
+      "bestFor": "Families • Couples • Luxury Seekers • Shoppers",
+      "overview": "Experience the glamour of Dubai — from the heights of Burj Khalifa and luxury Marina yacht cruises to exhilarating desert safaris and Abu Dhabi's Sheikh Zayed Grand Mosque.",
+      "highlights": [
+        "Burj Khalifa 124th Floor View",
+        "Red Dunes Desert Safari & BBQ",
+        "Abu Dhabi Sheikh Zayed Mosque",
+        "Dubai Marina Dhow Cruise Dinner",
+        "Dubai Miracle Garden / Frame"
+      ],
+      "inclusions": [
+        "5 Nights in 4-Star / 5-Star City Hotel",
+        "Daily international buffet breakfast",
+        "Desert Safari with 4x4 Dune Bashing, Camel Ride, Tanoura & BBQ Dinner",
+        "Marina Dhow Cruise with 5-Star buffet dinner & live entertainment",
+        "Burj Khalifa 124th Floor observation deck tickets with Dubai Mall fountain show",
+        "Full-day Abu Dhabi city tour with Grand Mosque",
+        "UAE Tourist Visa and travel insurance assistance"
+      ],
+      "exclusions": [
+        "International airfare and Tourism Dirham Fee",
+        "Lunches and personal shopping expenses",
+        "Optional tickets: Museum of the Future, Ferrari World, Aquaventure"
+      ],
+      "itinerary": [
+        {
+          "day": "Day 1",
+          "title": "Arrival in Dubai & Marina Dhow Cruise",
+          "desc": "Welcome to the City of Gold.",
+          "points": [
+            "Airport pickup in private vehicle",
+            "Hotel check-in & relax",
+            "Evening luxury Dubai Marina Dhow Cruise with dinner",
+            "Overnight in Dubai"
+          ]
+        },
+        {
+          "day": "Day 2",
+          "title": "Dubai City Tour & Burj Khalifa",
+          "desc": "Contrast of historic heritage and futuristic wonders.",
+          "points": [
+            "Visit Dubai Frame, Palm Jumeirah & Atlantis photo stop",
+            "Explore Dubai Mall & Dubai Aquarium (exterior)",
+            "Ascend Burj Khalifa 124th Floor for skyline views",
+            "Watch Dubai Fountain Show",
+            "Overnight in Dubai"
+          ]
+        },
+        {
+          "day": "Day 3",
+          "title": "Dubai Miracle Garden & Red Dunes Desert Safari",
+          "desc": "World's largest flower garden followed by thrilling desert dunes.",
+          "points": [
+            "Morning visit to Dubai Miracle Garden (seasonal)",
+            "Afternoon 4x4 desert safari pickup",
+            "Dune bashing, sandboarding, and camel rides",
+            "Bedouin camp BBQ dinner with belly dance & fire show",
+            "Overnight in Dubai"
+          ]
+        },
+        {
+          "day": "Day 4",
+          "title": "Abu Dhabi Grand Mosque & City Tour",
+          "desc": "The majestic capital of the Emirates.",
+          "points": [
+            "Drive to Abu Dhabi via Sheikh Zayed Road",
+            "Tour magnificent Sheikh Zayed Grand Mosque",
+            "Drive along Abu Dhabi Corniche & Emirates Palace photo stop",
+            "Photo stop at Ferrari World Yas Island",
+            "Return to Dubai for overnight stay"
+          ]
+        },
+        {
+          "day": "Day 5",
+          "title": "Gold Souk, Museum of Future & Shopping",
+          "desc": "Bustling traditional bazaars and architectural marvels.",
+          "points": [
+            "Explore historic Deira Gold & Spice Souks",
+            "Abra water taxi ride across Dubai Creek",
+            "Photo stop at Museum of the Future",
+            "Shopping at Mall of the Emirates",
+            "Overnight in Dubai"
+          ]
+        },
+        {
+          "day": "Day 6",
+          "title": "Dubai Departure",
+          "desc": "Final souvenir collection and airport transfer.",
+          "points": [
+            "Breakfast & check-out",
+            "Transfer to Dubai International Airport for departure"
+          ]
+        }
+      ],
+      "travel_notes": [
+        "Indian passport holders require a Dubai Tourism Visa (processed within 2-3 working days).",
+        "Desert safari includes 4x4 dune bashing, BBQ dinner and live cultural shows.",
+        "Burj Khalifa observation deck tickets booked with non-prime/prime slot preference.",
+        "Customizable with Abu Dhabi Ferrari World or yacht rental upgrades."
+      ],
+      "booking_policy": [
+        "Confirmed with advance deposit and passport bio-page scan.",
+        "Complete travel package voucher with 24/7 local Dubai ground assistance team."
+      ]
+    }
+  }
+}

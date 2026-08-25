@@ -279,11 +279,20 @@ a {
 .user-chip {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.65rem;
     background: rgba(248, 250, 252, 0.85);
     border: 1px solid var(--border-subtle);
     padding: 0.55rem 0.75rem;
     border-radius: var(--radius-md);
+    min-width: 0;
+    overflow: hidden;
+}
+
+.user-chip > div,
+.user-info {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
 }
 
 .user-avatar {
@@ -297,17 +306,28 @@ a {
     align-items: center;
     justify-content: center;
     font-size: 0.82rem;
+    flex-shrink: 0;
 }
 
 .user-name {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.25;
 }
 
 .user-role {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    line-height: 1.3;
+    margin-top: 1px;
 }
 
 /* Sidebar Nav */
@@ -1272,4 +1292,94 @@ a {
     .sidebar { width: 100%; height: auto; position: relative; }
     .main-content { padding: 1.2rem 1rem; }
     .package-cms-wrapper { grid-template-columns: 1fr; }
+}
+
+
+/* Mockup Offer Banner Preview */
+.mock-offer-banner-preview {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+    border-radius: 16px;
+    padding: 1.4rem 1.75rem;
+    box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.35);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.25s ease;
+}
+.mock-offer-banner-preview::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+@media (max-width: 768px) {
+    .mock-offer-banner-preview {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+
+/* Mockup Offer Banner Preview (Clean White) */
+/* Mockup Offer Banner Preview (Swiggy Style) */
+/* Mockup Offer Banner Preview (Rich Gradient) */
+/* Mockup Offer Banner Preview (Clean White) */
+/* Mockup Offer Banner Preview (Attractive Gold) */
+/* Mockup Offer Banner Preview (Cinematic Glassmorphic) */
+/* Mockup Offer Banner Preview (Clean Deal Ribbon) */
+/* Mockup Offer Banner Preview (Full Image BG Ribbon) */
+/* Mockup Offer Banner Preview (Clean Bento Style) */
+/* Mockup Offer Banner Preview (Clean Bento Style - No Left Bar) */
+.mock-offer-banner-preview-bento {
+    background: #FFFFFF;
+    border: 1.5px solid #FDE68A;
+    border-radius: 14px;
+    padding: 0.85rem 0.85rem 0.85rem 1.15rem;
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    overflow: hidden;
+    transition: opacity 0.25s ease;
+}
+.mock-offer-left-white {
+    flex: 1;
+    z-index: 1;
+}
+@media (max-width: 768px) {
+    .mock-offer-banner-preview-white {
+        flex-direction: column;
+        text-align: left;
+    }
+    .mock-offer-right-white {
+        width: 100% !important;
+        height: 120px !important;
+    }
+}
+.mock-offer-left {
+    flex: 1;
+    z-index: 1;
+}
+@media (max-width: 768px) {
+    .mock-offer-banner-preview-v2 {
+        flex-direction: column;
+        text-align: left;
+    }
+    .mock-offer-right {
+        width: 100% !important;
+        height: 120px !important;
+    }
 }

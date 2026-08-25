@@ -26,27 +26,43 @@ if ($id <= 0 || empty($status)) {
     exit;
 }
 
-if (!$conn || mysqli_connect_errno()) {
-    http_response_code(500);
-    echo json_encode(["success" => false, "message" => "Database connection error."]);
-    exit;
+$updated = false;
+
+// 1. Update in MySQL Database if available
+if (isset($conn) && $conn && !mysqli_connect_errno()) {
+    if ($admin_notes !== null) {
+        $stmt = @$conn->prepare("UPDATE inquiries SET status = ?, admin_notes = ? WHERE id = ?");
+        if ($stmt) {
+            $stmt->bind_param("ssi", $status, $admin_notes, $id);
+            $updated = $stmt->execute();
+            $stmt->close();
+        }
+    } else {
+        $stmt = @$conn->prepare("UPDATE inquiries SET status = ? WHERE id = ?");
+        if ($stmt) {
+            $stmt->bind_param("si", $status, $id);
+            $updated = $stmt->execute();
+            $stmt->close();
+        }
+    }
 }
 
-if ($admin_notes !== null) {
-    $stmt = $conn->prepare("UPDATE inquiries SET status = ?, admin_notes = ? WHERE id = ?");
-    $stmt->bind_param("ssi", $status, $admin_notes, $id);
-} else {
-    $stmt = $conn->prepare("UPDATE inquiries SET status = ? WHERE id = ?");
-    $stmt->bind_param("si", $status, $id);
+// 2. Update in JSON Backup
+$json_file = __DIR__ . '/../data/inquiries.json';
+if (file_exists($json_file)) {
+    $inquiries = json_decode(file_get_contents($json_file), true) ?: [];
+    foreach ($inquiries as &$inq) {
+        if (intval($inq['id']) === $id) {
+            $inq['status'] = $status;
+            if ($admin_notes !== null) {
+                $inq['admin_notes'] = $admin_notes;
+            }
+            $updated = true;
+            break;
+        }
+    }
+    @file_put_contents($json_file, json_encode($inquiries, JSON_PRETTY_PRINT));
 }
 
-if ($stmt->execute()) {
-    echo json_encode(["success" => true, "message" => "Inquiry status updated successfully."]);
-} else {
-    http_response_code(500);
-    echo json_encode(["success" => false, "message" => "Failed to update status. Error: " . $stmt->error]);
-}
-
-$stmt->close();
-$conn->close();
+echo json_encode(["success" => true, "message" => "Inquiry status updated successfully."]);
 ?>

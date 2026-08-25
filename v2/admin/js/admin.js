@@ -91,6 +91,16 @@
         "desc": "One-stop booking for Domestic & International Flights, IRCTC Train Tickets, Cruise Holidays, and end-to-end Visa Assistance.",
         "btnText": "Explore Travel Desk",
         "linkUrl": "holidays.html"
+      },
+      "offerBanner": {
+        "enabled": true,
+        "tag": "Special Holiday Offer",
+        "title": "Kodaikanal • Poombarai • Mannavanur (3N / 4D) — from ₹12,999",
+        "desc": "Curated misty hill escape with private sanitized cab transfers, scenic viewpoints, luxury resort stay & 24/7 on-trip support.",
+        "btn1Text": "Book Now",
+        "btn1Link": "holidays/kodaikanal.html",
+        "btn2Text": "WhatsApp Us",
+        "btn2Link": "https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Kodaikanal%20Holiday%20Package"
       }
     },
     "whyMithraSection": {
@@ -915,6 +925,11 @@
                 titleEl.innerText = 'Booking History';
                 subEl.innerText = 'Completed customer journey logs and confirmed archives';
                 break;
+            case 'cms-holidays':
+                titleEl.innerText = 'Holiday Page CMS';
+                subEl.innerText = 'Edit main holidays page banner, section titles, and explore packages on holidays.html';
+                populateHolidaysCMS();
+                break;
             case 'cms-home':
                 titleEl.innerText = 'Home Page CMS';
                 subEl.innerText = 'Customize holiday showcase cards with drag & drop photo uploads';
@@ -1462,16 +1477,199 @@
     // ── 3. Content Management System (CMS) Logic ──
     async function loadCMSContent() {
         try {
-            const res = await fetch('../api/get_cms_content.php?v=' + Date.now());
+            const res = await fetch(`${API_BASE}get_cms_content.php?v=` + Date.now());
             if (res.ok) {
                 const data = await res.json();
-                if (data.success && data.content) {
-                    currentCMSData = data.content;
+                if (data.success && (data.content || data.data)) {
+                    currentCMSData = data.content || data.data;
                 }
             }
         } catch(e) {
             console.warn('CMS API offline, using local data store');
         }
+    }
+
+    
+    
+    // ══════════════════════════════════════════════════════════════════════
+    // ── 3.1 Holiday Page CMS — 6 Cards Visual Editor Controller ──
+    // ══════════════════════════════════════════════════════════════════════
+    let activeHolsCardKey = 'dom-1';
+
+    const cardKeyMap = {
+        'dom-1': { type: 'domestic', key: 'domestic_package_1', label: '1. Kodaikanal • Poombarai • Mannavanur (Domestic)', defaultImg: 'Assets/holiday_kodaikanal.jpg', defaultTag: 'Beyond the Usual' },
+        'dom-2': { type: 'domestic', key: 'domestic_package_2', label: '2. Jaipur • Udaipur • Jaisalmer (Domestic)', defaultImg: 'Assets/holiday_rajasthan.jpg', defaultTag: 'Royal Heritage' },
+        'dom-3': { type: 'domestic', key: 'domestic_package_3', label: '3. Tawang • Dirang • Bomdila (Domestic)', defaultImg: 'Assets/holiday_tawang.jpg', defaultTag: 'Himalayan Frontier' },
+        'intl-1': { type: 'international', key: 'international_package_1', label: '4. Singapore City & Sentosa (International)', defaultImg: 'Assets/holiday_singapore.jpg', defaultTag: 'Beyond the Skyline' },
+        'intl-2': { type: 'international', key: 'international_package_2', label: '5. Vietnam Grand Explorer (International)', defaultImg: 'Assets/holiday_vietnam.jpg', defaultTag: 'Grand Experience' },
+        'intl-3': { type: 'international', key: 'international_package_3', label: '6. Dubai & Abu Dhabi Tour (International)', defaultImg: 'Assets/holiday_dubai.jpg', defaultTag: 'Luxury & Desert' }
+    };
+
+    function getActiveCardData() {
+        const meta = cardKeyMap[activeHolsCardKey] || cardKeyMap['dom-1'];
+        const store = (meta.type === 'domestic') ? currentCMSData.domestic_packages : currentCMSData.international_packages;
+        if (!store || !store[meta.key]) return {};
+        return store[meta.key];
+    }
+
+    window.selectHolidayCard = function (cardKey) {
+        // Save current card before switching
+        collectHolidayCardDataFromInputs();
+
+        activeHolsCardKey = cardKey;
+        const meta = cardKeyMap[cardKey];
+        if (!meta) return;
+
+        // Update active tab buttons
+        document.querySelectorAll('#hols-6cards-nav .home-subtab-btn').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById('btn-card-' + cardKey);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        // Update indicator banner
+        const indicator = document.getElementById('hols-card-indicator');
+        if (indicator) indicator.innerHTML = '<i class="fa-solid fa-location-crosshairs"></i> <strong>Editing Card:</strong> ' + meta.label;
+
+        populateHolidaysCMS();
+    };
+
+    function populateHolidaysCMS() {
+        const meta = cardKeyMap[activeHolsCardKey] || cardKeyMap['dom-1'];
+        const pkg = getActiveCardData();
+
+        const setVal = (id, v) => { const el = document.getElementById(id); if (el && v !== undefined) el.value = v; };
+
+        setVal('hc-image', pkg.image || meta.defaultImg);
+        setVal('hc-region', pkg.region || '');
+        setVal('hc-title', pkg.title || '');
+        setVal('hc-subtitle', pkg.subtitle || '');
+        setVal('hc-tag-badge', pkg.tagBadge || (meta.defaultTag || 'Curated Tour'));
+        setVal('hc-duration-badge', pkg.duration || '3N / 4D');
+        setVal('hc-price', pkg.price || '₹12,999');
+        setVal('hc-price-unit', (pkg.pricePer || 'per person').replace(/^\/\s*/, ''));
+        setVal('hc-bestfor', pkg.bestFor || 'Families • Couples • Groups');
+        setVal('hc-highlights', Array.isArray(pkg.highlights) ? pkg.highlights.join(', ') : (pkg.highlights || ''));
+        setVal('hc-desc', pkg.overview || '');
+
+        updateHolidayCardLivePreview();
+    }
+
+    window.updateHolidayCardLivePreview = function () {
+        const imgVal = document.getElementById('hc-image')?.value || 'Assets/holiday_kodaikanal.jpg';
+        const regionVal = document.getElementById('hc-region')?.value || 'Destination';
+        const titleVal = document.getElementById('hc-title')?.value || 'Package Title';
+        const subVal = document.getElementById('hc-subtitle')?.value || 'Package Subtitle';
+        const tagVal = document.getElementById('hc-tag-badge')?.value || 'Curated Tour';
+        const durVal = document.getElementById('hc-duration-badge')?.value || '3N / 4D';
+        const priceVal = document.getElementById('hc-price')?.value || '₹12,999';
+        const unitVal = document.getElementById('hc-price-unit')?.value || 'per person';
+        const bestforVal = document.getElementById('hc-bestfor')?.value || 'Families • Couples';
+        const hlVal = document.getElementById('hc-highlights')?.value || '';
+        const descVal = document.getElementById('hc-desc')?.value || '';
+
+        // Live Mockup Elements
+        const mockImg = document.getElementById('mock-hc-img');
+        if (mockImg) {
+            mockImg.src = resolveAssetUrl(imgVal);
+            mockImg.onerror = function() { this.src = 'https://mithratoursandtravels.in/' + resolveAssetUrl(imgVal); };
+        }
+        const thumb = document.getElementById('hc-thumb');
+        if (thumb) {
+            thumb.src = resolveAssetUrl(imgVal);
+            thumb.onerror = function() { this.src = 'https://mithratoursandtravels.in/' + resolveAssetUrl(imgVal); };
+        }
+
+        const mockTag = document.getElementById('mock-hc-tag');
+        if (mockTag) mockTag.innerText = tagVal;
+
+        const mockDur = document.getElementById('mock-hc-dur');
+        if (mockDur) mockDur.innerText = durVal;
+
+        const mockRegion = document.getElementById('mock-hc-region');
+        if (mockRegion) mockRegion.innerText = regionVal.toUpperCase();
+
+        const mockTitle = document.getElementById('mock-hc-title');
+        if (mockTitle) mockTitle.innerText = titleVal;
+
+        const mockSub = document.getElementById('mock-hc-sub');
+        if (mockSub) mockSub.innerText = subVal;
+
+        const mockBestFor = document.getElementById('mock-hc-bestfor');
+        if (mockBestFor) mockBestFor.innerHTML = '<i class="fa-solid fa-users" style="color:#D97706;"></i> Best For: ' + bestforVal.replace(/^Best For:\s*/i, '');
+
+        const mockHl = document.getElementById('mock-hc-highlights');
+        if (mockHl) {
+            const pills = hlVal.split(',').map(s => s.trim()).filter(Boolean);
+            if (pills.length > 0) {
+                mockHl.innerHTML = pills.map(p => '<span style="background:#F1F5F9; color:#334155; font-size:0.72rem; font-weight:600; padding:3px 8px; border-radius:6px;">' + p + '</span>').join(' ');
+            } else {
+                mockHl.innerHTML = '';
+            }
+        }
+
+        const mockDesc = document.getElementById('mock-hc-desc');
+        if (mockDesc) mockDesc.innerText = descVal;
+
+        const mockPrice = document.getElementById('mock-hc-price');
+        if (mockPrice) mockPrice.innerText = priceVal;
+
+        const mockUnit = document.getElementById('mock-hc-unit');
+        if (mockUnit) mockUnit.innerText = '/ ' + unitVal.replace(/^\/\s*/, '');
+    };
+
+    window.selectHolidayCardPreset = function (imagePath) {
+        const input = document.getElementById('hc-image');
+        if (input) {
+            input.value = imagePath;
+            updateHolidayCardLivePreview();
+            showAdminToast('Applied preset photo "' + imagePath + '"');
+        }
+    };
+
+    window.handleHolidayCardDrop = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+        if (files && files[0]) {
+            const file = files[0];
+            const reader = new FileReader();
+            reader.onload = function (evt) {
+                const b64 = evt.target.result;
+                const input = document.getElementById('hc-image');
+                if (input) {
+                    input.value = b64;
+                    updateHolidayCardLivePreview();
+                    showAdminToast('Loaded photo for holiday card');
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    window.triggerHolidayCardFileInput = function () {
+        document.getElementById('hc-file-upload')?.click();
+    };
+
+    function collectHolidayCardDataFromInputs() {
+        const meta = cardKeyMap[activeHolsCardKey] || cardKeyMap['dom-1'];
+        const store = (meta.type === 'domestic') ? currentCMSData.domestic_packages : currentCMSData.international_packages;
+        if (!store || !store[meta.key]) return;
+
+        const pkg = store[meta.key];
+        pkg.image = document.getElementById('hc-image')?.value || pkg.image;
+        pkg.region = document.getElementById('hc-region')?.value || pkg.region;
+        pkg.title = document.getElementById('hc-title')?.value || pkg.title;
+        pkg.subtitle = document.getElementById('hc-subtitle')?.value || pkg.subtitle;
+        pkg.tagBadge = document.getElementById('hc-tag-badge')?.value || pkg.tagBadge || meta.defaultTag;
+        pkg.durationBadge = document.getElementById('hc-duration-badge')?.value || pkg.durationBadge || '3N / 4D';
+        pkg.duration = document.getElementById('hc-duration-badge')?.value || pkg.duration;
+        pkg.price = document.getElementById('hc-price')?.value || pkg.price;
+        pkg.pricePer = document.getElementById('hc-price-unit')?.value || pkg.pricePer;
+        pkg.bestFor = document.getElementById('hc-bestfor')?.value || pkg.bestFor;
+        
+        const hlStr = document.getElementById('hc-highlights')?.value || '';
+        pkg.highlights = hlStr.split(',').map(s => s.trim()).filter(Boolean);
+
+        pkg.overview = document.getElementById('hc-desc')?.value || pkg.overview;
     }
 
     function populateHomeCMS() {
@@ -1492,6 +1690,25 @@
         setVal('cms-hols-intl-title', intl.title || 'Singapore, Vietnam, Dubai & Beyond');
         setVal('cms-hols-intl-desc', intl.desc || 'Well-planned international holidays with customised itineraries, flights, visa assistance, and luxury stays.');
         setVal('cms-hols-intl-image', intl.image || 'Assets/holiday_singapore.jpg');
+
+        const banner = hols.offerBanner || {};
+        const enabledEl = document.getElementById('cms-hols-banner-enabled');
+        if (enabledEl) enabledEl.checked = banner.enabled !== false;
+        setVal('cms-hols-banner-tag', banner.tag || 'LIMITED TIME OFFER');
+        setVal('cms-hols-banner-save', banner.saveTag || 'SAVE ₹3,000');
+        setVal('cms-hols-banner-discount', banner.discountBadge || '20% OFF');
+        setVal('cms-hols-banner-title', banner.title || 'Kodaikanal • Poombarai • Mannavanur');
+        setVal('cms-hols-banner-duration', banner.duration || '3 Nights / 4 Days');
+        setVal('cms-hols-banner-location', banner.locationTag || 'Kodaikanal, Tamil Nadu');
+        setVal('cms-hols-banner-desc', banner.desc || 'Curated misty hill escape featuring Kodaikanal Lake, Pine Forest, Poombarai Village & serene Mannavanur Lake with verified private chauffeur & 24/7 concierge.');
+        setVal('cms-hols-banner-orig-price', banner.originalPrice || '₹15,999');
+        setVal('cms-hols-banner-deal-price', banner.offerPrice || '₹12,999');
+        setVal('cms-hols-banner-unit', banner.pricePer || 'per person');
+        setVal('cms-hols-banner-image', banner.image || 'Assets/holiday_kodaikanal.jpg');
+        setVal('cms-hols-banner-btn1-text', banner.btn1Text || 'Book Now');
+        setVal('cms-hols-banner-btn1-link', banner.btn1Link || 'holidays/kodaikanal.html');
+        setVal('cms-hols-banner-btn2-text', banner.btn2Text || 'WhatsApp Us');
+        setVal('cms-hols-banner-btn2-link', banner.btn2Link || 'https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Kodaikanal%20Special%20Offer%20Package');
 
         updateHolidaysPreview();
     }
@@ -1535,6 +1752,58 @@
             thumbIntl.src = resolveAssetUrl(intlImg);
             thumbIntl.onerror = function() { this.src = 'https://mithratoursandtravels.in/' + resolveAssetUrl(intlImg); };
         }
+
+        // Live Offer Banner Preview V2
+        const bannerEnabled = document.getElementById('cms-hols-banner-enabled')?.checked !== false;
+        const bannerTag = document.getElementById('cms-hols-banner-tag')?.value || 'LIMITED TIME OFFER';
+        const bannerSave = document.getElementById('cms-hols-banner-save')?.value || 'SAVE ₹3,000';
+        const bannerDiscount = document.getElementById('cms-hols-banner-discount')?.value || '20% OFF';
+        const bannerTitle = document.getElementById('cms-hols-banner-title')?.value || 'Kodaikanal • Poombarai • Mannavanur';
+        const bannerDuration = document.getElementById('cms-hols-banner-duration')?.value || '3 Nights / 4 Days';
+        const bannerLocation = document.getElementById('cms-hols-banner-location')?.value || 'Kodaikanal, Tamil Nadu';
+        const bannerDesc = document.getElementById('cms-hols-banner-desc')?.value || 'Curated misty hill escape...';
+        const bannerOrigPrice = document.getElementById('cms-hols-banner-orig-price')?.value || '₹15,999';
+        const bannerDealPrice = document.getElementById('cms-hols-banner-deal-price')?.value || '₹12,999';
+        const bannerImg = document.getElementById('cms-hols-banner-image')?.value || 'Assets/holiday_kodaikanal.jpg';
+        const bannerBtn1 = document.getElementById('cms-hols-banner-btn1-text')?.value || 'Book Now';
+        const bannerBtn2 = document.getElementById('cms-hols-banner-btn2-text')?.value || 'WhatsApp Us';
+
+        const mockBannerWrap = document.getElementById('mock-offer-banner-wrap');
+        if (mockBannerWrap) {
+            mockBannerWrap.style.opacity = bannerEnabled ? '1' : '0.35';
+            mockBannerWrap.style.filter = bannerEnabled ? 'none' : 'grayscale(80%)';
+        }
+        const mockTag = document.getElementById('mock-banner-tag');
+        if (mockTag) mockTag.innerHTML = `<i class="fa-solid fa-bolt"></i> ${bannerTag}`;
+        const mockSave = document.getElementById('mock-banner-save');
+        if (mockSave) mockSave.innerHTML = `<i class="fa-solid fa-tag"></i> ${bannerSave}`;
+        const mockTitle = document.getElementById('mock-banner-title');
+        if (mockTitle) mockTitle.innerText = bannerTitle;
+        const mockDur = document.getElementById('mock-banner-chip-dur');
+        if (mockDur) mockDur.innerHTML = `<i class="fa-solid fa-calendar-days" style="color:#FBBF24;"></i> ${bannerDuration}`;
+        const mockDesc = document.getElementById('mock-banner-desc');
+        if (mockDesc) mockDesc.innerText = bannerDesc;
+        const mockOrig = document.getElementById('mock-banner-orig-price');
+        if (mockOrig) mockOrig.innerHTML = `<del>${bannerOrigPrice}</del>`;
+        const mockDeal = document.getElementById('mock-banner-deal-price');
+        if (mockDeal) mockDeal.innerText = bannerDealPrice;
+        
+        const mockLoc = document.getElementById('mock-banner-loc');
+        if (mockLoc) mockLoc.innerText = bannerLocation.split(',')[0].trim();
+        const mockImg = document.getElementById('mock-banner-img');
+        if (mockImg) {
+            mockImg.src = resolveAssetUrl(bannerImg);
+            mockImg.onerror = function() { this.src = 'https://mithratoursandtravels.in/' + resolveAssetUrl(bannerImg); };
+        }
+        const thumbBanner = document.getElementById('cms-hols-banner-thumb');
+        if (thumbBanner) {
+            thumbBanner.src = resolveAssetUrl(bannerImg);
+            thumbBanner.onerror = function() { this.src = 'https://mithratoursandtravels.in/' + resolveAssetUrl(bannerImg); };
+        }
+        const mockBtn1 = document.getElementById('mock-banner-btn1');
+        if (mockBtn1) mockBtn1.innerHTML = `<i class="fa-solid fa-calendar-check"></i> ${bannerBtn1}`;
+        const mockBtn2 = document.getElementById('mock-banner-btn2');
+        if (mockBtn2) mockBtn2.innerHTML = `<i class="fa-brands fa-whatsapp"></i> ${bannerBtn2}`;
     };
 
     window.selectHomeCardPreset = function (cardType, imgPath) {
@@ -2055,6 +2324,25 @@
             image: document.getElementById('cms-hols-intl-image')?.value || 'Assets/holiday_singapore.jpg',
             linkUrl: 'holidays.html#international-packages'
         };
+
+                currentCMSData.home.holidaysSection.offerBanner = {
+            enabled: document.getElementById('cms-hols-banner-enabled')?.checked !== false,
+            tag: document.getElementById('cms-hols-banner-tag')?.value || 'Special Holiday Offer',
+            saveTag: document.getElementById('cms-hols-banner-save')?.value || 'SAVE ₹3,000',
+            discountBadge: document.getElementById('cms-hols-banner-discount')?.value || '20% OFF',
+            title: document.getElementById('cms-hols-banner-title')?.value || 'Kodaikanal • Poombarai • Mannavanur',
+            duration: document.getElementById('cms-hols-banner-duration')?.value || '3 Nights / 4 Days',
+            locationTag: document.getElementById('cms-hols-banner-location')?.value || 'Kodaikanal, Tamil Nadu',
+            desc: document.getElementById('cms-hols-banner-desc')?.value || 'Curated misty hill escape with private sanitized cab transfers, scenic viewpoints, luxury resort stay & 24/7 on-trip support.',
+            originalPrice: document.getElementById('cms-hols-banner-orig-price')?.value || '₹15,999',
+            offerPrice: document.getElementById('cms-hols-banner-deal-price')?.value || '₹12,999',
+            pricePer: document.getElementById('cms-hols-banner-unit')?.value || 'per person',
+            image: document.getElementById('cms-hols-banner-image')?.value || 'Assets/holiday_kodaikanal.jpg',
+            btn1Text: document.getElementById('cms-hols-banner-btn1-text')?.value || 'Book Now',
+            btn1Link: document.getElementById('cms-hols-banner-btn1-link')?.value || 'holidays/kodaikanal.html',
+            btn2Text: document.getElementById('cms-hols-banner-btn2-text')?.value || 'WhatsApp Us',
+            btn2Link: document.getElementById('cms-hols-banner-btn2-link')?.value || 'https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Kodaikanal%20Holiday%20Package'
+        };
     }
 
     function collectPackageFromInputs(type) {
@@ -2102,6 +2390,8 @@
 
     window.saveDraftCMS = function (panel) {
         if (panel === 'home') collectHomeDataFromInputs();
+        if (panel === 'holidays') collectHolidayCardDataFromInputs();
+        if (panel === 'holidays') collectHolidayCardDataFromInputs();
         if (panel === 'domestic') collectPackageFromInputs('domestic');
         if (panel === 'international') collectPackageFromInputs('international');
 
@@ -2110,11 +2400,13 @@
 
     window.publishLiveCMS = function (panel) {
         if (panel === 'home') collectHomeDataFromInputs();
+        if (panel === 'holidays') collectHolidayCardDataFromInputs();
         if (panel === 'domestic') collectPackageFromInputs('domestic');
         if (panel === 'international') collectPackageFromInputs('international');
 
         persistCMSData(`Published ${panel.toUpperCase()} changes live to website!`);
         if (panel === 'domestic' || panel === 'international') renderPackageCMS();
+        if (panel === 'holidays') populateHolidaysCMS();
     };
 
     async function persistCMSData(successMessage) {
@@ -2240,3 +2532,52 @@
     });
 
 })();
+
+    window.selectOfferBannerPreset = function (presetKey) {
+        const presets = {
+            kodaikanal: {
+                tag: 'Special Holiday Offer',
+                title: 'Kodaikanal • Poombarai • Mannavanur (3N / 4D) — from ₹12,999',
+                desc: 'Curated misty hill escape with private sanitized cab transfers, scenic viewpoints, luxury resort stay & 24/7 on-trip support.',
+                btn1Text: 'Book Now',
+                btn1Link: 'holidays/kodaikanal.html',
+                btn2Text: 'WhatsApp Us',
+                btn2Link: 'https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Kodaikanal%20Holiday%20Package'
+            },
+            rajasthan: {
+                tag: 'Featured Royal Experience',
+                title: 'Jaipur • Jodhpur • Jaisalmer Royal Tour (4N / 5D)',
+                desc: 'Explore the majestic forts, palaces, and desert camps of Rajasthan with dedicated private chauffeur.',
+                btn1Text: 'Book Now',
+                btn1Link: 'holidays/rajasthan.html',
+                btn2Text: 'WhatsApp Us',
+                btn2Link: 'https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Rajasthan%20Holiday%20Package'
+            },
+            dubai: {
+                tag: 'International Highlight',
+                title: 'Dubai Mega City & Desert Safari (4N / 5D)',
+                desc: 'Experience Burj Khalifa, luxury desert safari, marina yacht cruise, and full visa clearance.',
+                btn1Text: 'Book Now',
+                btn1Link: 'holidays/dubai.html',
+                btn2Text: 'WhatsApp Us',
+                btn2Link: 'https://wa.me/919629245533?text=Hi%20Mithra%20Tours%2C%20I%20am%20interested%20in%20the%20Dubai%20Holiday%20Package'
+            }
+        };
+
+        const p = presets[presetKey];
+        if (!p) return;
+
+        const setVal = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
+        const enabledEl = document.getElementById('cms-hols-banner-enabled');
+        if (enabledEl) enabledEl.checked = true;
+        setVal('cms-hols-banner-tag', p.tag);
+        setVal('cms-hols-banner-title', p.title);
+        setVal('cms-hols-banner-desc', p.desc);
+        setVal('cms-hols-banner-btn1-text', p.btn1Text);
+        setVal('cms-hols-banner-btn1-link', p.btn1Link);
+        setVal('cms-hols-banner-btn2-text', p.btn2Text);
+        setVal('cms-hols-banner-btn2-link', p.btn2Link);
+
+        updateHolidaysPreview();
+        showAdminToast('Applied Offer Banner preset: ' + p.title.split('—')[0].trim());
+    };
